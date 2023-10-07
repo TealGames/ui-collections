@@ -277,6 +277,7 @@ GameObject:
   - component: {fileID: 3818542423668533028}
   - component: {fileID: 1729644401994760883}
   - component: {fileID: 9188877524719926177}
+  - component: {fileID: 7801116573507923370}
   m_Layer: 5
   m_Name: Option Selector
   m_TagString: Untagged
@@ -305,8 +306,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -165}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 357.61963, y: -142.41351}
+  m_SizeDelta: {x: 815.2393, y: 54.827}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1729644401994760883
 MonoBehaviour:
@@ -349,7 +350,7 @@ MonoBehaviour:
   currentOptionText: {fileID: 4810524600626620300}
   nextOption: {fileID: 489848167306420267}
   previousOption: {fileID: 927617833830372036}
-  AllOptions: []
+  <AllOptions>k__BackingField: []
   OnSetup:
     m_PersistentCalls:
       m_Calls: []
@@ -362,6 +363,20 @@ MonoBehaviour:
   OnAnyOptionSet:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7801116573507923370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7115816727030216588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf525a525b174084995417f4b44ddf16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: 
+  tooltipSettings: {fileID: 11400000, guid: fb9931357ad9e9345b4be22603dff6bf, type: 2}
 --- !u!1 &7812627778439520335
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +413,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 339.2879, y: 65.6392}
+  m_SizeDelta: {x: 521.6067, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4661079355344847992
 CanvasRenderer:
@@ -463,7 +478,7 @@ MonoBehaviour:
   m_fontSizeMax: 50
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -491,7 +506,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -10, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -590,12 +605,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
+  m_fontSize: 48.05
   m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 20
-  m_fontSizeMax: 40
+  m_fontSizeMax: 50
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512

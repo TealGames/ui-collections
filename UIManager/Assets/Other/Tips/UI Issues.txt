@@ -1,0 +1,2 @@
+Issue: Adding items to layout groups causes spacing to decrease every time one is added
+Solution: disable "Width" and "Height" of "Child Force Expand" property

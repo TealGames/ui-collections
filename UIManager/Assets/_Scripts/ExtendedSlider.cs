@@ -5,39 +5,43 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ExtendedSlider : MonoBehaviour
+namespace Game.UI
 {
-    [SerializeField] private Slider slider;
-    [SerializeField] private TextMeshProUGUI valueText;
-    [Tooltip("If true, on Start() will set the slider's default value for OnValueChanged() UnityEvent")][SerializeField] private bool callValueChangedOnDefaultValue;
-    //public MethodInfo minMaxMethodInfo { get; set; } = null;
-
-    // Start is called before the first frame update
-    void Start()
+    public class ExtendedSlider : MonoBehaviour
     {
-        SetCurrentSliderValueText();
-        slider.onValueChanged.AddListener((float newValue)=> SetCurrentSliderValueText());
+        [SerializeField] private Slider slider;
+        [SerializeField] private TextMeshProUGUI valueText;
+        [Tooltip("If true, on Start() will set the slider's default value for OnValueChanged() UnityEvent")][SerializeField] private bool callValueChangedOnDefaultValue;
+        //public MethodInfo minMaxMethodInfo { get; set; } = null;
 
-        if (callValueChangedOnDefaultValue) slider.onValueChanged.Invoke(slider.value);
-    }
+        // Start is called before the first frame update
+        void Start()
+        {
+            SetCurrentSliderValueText();
+            slider.onValueChanged.AddListener((float newValue) => SetCurrentSliderValueText());
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+            if (callValueChangedOnDefaultValue) slider.onValueChanged.Invoke(slider.value);
+        }
 
-    private void SetCurrentSliderValueText() => valueText.text = slider.value.ToString();
+        // Update is called once per frame
+        void Update()
+        {
 
-    public void SetSliderMinAndMax(Vector2 minMax)
-    {
-        slider.minValue = minMax.x;
-        slider.maxValue = minMax.y;
-    }
+        }
 
-    public void SetSliderValue(float value)
-    {
-        if (slider.wholeNumbers) slider.value = (int)value;
-        else slider.value = value;
+        private void SetCurrentSliderValueText() => valueText.text = slider.value.ToString();
+
+        public void SetSliderMinAndMax(Vector2 minMax)
+        {
+            slider.minValue = minMax.x;
+            slider.maxValue = minMax.y;
+        }
+
+        public void SetSliderValue(float value)
+        {
+            if (slider.wholeNumbers) slider.value = (int)value;
+            else slider.value = value;
+        }
     }
 }
+

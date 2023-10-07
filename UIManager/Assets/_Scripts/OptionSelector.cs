@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -16,7 +17,19 @@ namespace Game.UI
         [SerializeField] private Selectable previousOption;
 
 
-        public List<string> AllOptions;
+        [field: SerializeField] public List<string> AllOptions { get; private set; }
+
+#if UNITY_EDITOR
+        public List<string> AllOptionsProperty
+        {
+            get => AllOptions;
+            set
+            {
+                AllOptions = value;
+            }
+        }
+#endif
+
         private List<string> options = new List<string>();
         private int currentOptionIndex = -1;
 
@@ -34,20 +47,24 @@ namespace Game.UI
         
 
         // Start is called before the first frame update
-        void Start()
+        void OnEnable()
         {
-            if (options.Count == 0) SetAllOptions(AllOptions);
+            if (this.options.Count == 0 && AllOptions.Count>0) SetAllOptions(AllOptions);
             OnSetup?.Invoke();
         }
 
         // Update is called once per frame
         void Update()
         {
-
+            UnityEngine.Debug.Log($"There are {options.Count} options internally");
         }
 
         public void SetAllOptions(List<string> options)
         {
+            UnityEngine.Debug.Log($"Set all options called on {gameObject.name} with {options.Count} options");
+            //foreach (var option in options) UnityEngine.Debug.Log($"Setting option on {gameObject.name} to {option}");
+
+            this.options.Clear();
             foreach (var option in options)
             {
                 string optionFormatted = "";
@@ -57,13 +74,23 @@ namespace Game.UI
                     if (char.IsUpper(option[i]) && i != 0 && char.IsLower(option[i - 1])) optionFormatted += " ";
                     optionFormatted+= option[i];    
                 }
-                optionFormatted = option.Replace("_", " ");
+                optionFormatted = optionFormatted.Replace("_", " ");
 
                 this.options.Add(optionFormatted);
+                UnityEngine.Debug.Log($"Setting option on {gameObject.name} to {optionFormatted}");
+            }
+
+            //We also update all the inspector visible options so we can see the ones that are actually used during runtime in the inspector
+            AllOptions.Clear();
+            //AllOptions = this.options;
+            foreach (var option in this.options)
+            {
+                UnityEngine.Debug.Log($"Added {option} to AllOptions");
+                AllOptions.Add(option);
             }
 
             //If we have more than 1 choice, it means we can rotate through options
-            if (options.Count > 1)
+            if (this.options.Count > 1)
             {
                 nextOption.gameObject.SetActive(true);
                 previousOption.gameObject.SetActive(true);
@@ -73,6 +100,8 @@ namespace Game.UI
                 nextOption.gameObject.SetActive(false);
                 previousOption.gameObject.SetActive(false);
             }
+
+            UnityEngine.Debug.Log($"After all options set, total options: {this.options.Count}");
         }
 
         public void SetCurrentOption(string newCurrentOption)

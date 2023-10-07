@@ -22,8 +22,19 @@ namespace Game.UI
                     UnityEngine.Debug.LogError("Tried to replace All Scene TMPro Text, but override font is NULL!");
                     return;
                 }
-                TextMeshProUGUI[] text = GameObject.FindObjectsOfType<TextMeshProUGUI>();
+                TextMeshProUGUI[] text = GameObject.FindObjectsOfType<TextMeshProUGUI>(true);
                 foreach (var textObj in text) textObj.font = uiManager.OverrideFontAsset;
+            }
+
+            if (GUILayout.Button("Override Scene Tooltip Settings"))
+            {
+                if (uiManager.OverrideTooltipSettings==null)
+                {
+                    UnityEngine.Debug.LogError("Tried to override all scene tooltip component tooltip settings, but the TooltipSetting is NULL!");
+                    return;
+                }
+                Tooltip[] tooltips= GameObject.FindObjectsOfType<Tooltip>(true);
+                foreach (var tooltipObj in tooltips) tooltipObj.TooltipSettings = uiManager.OverrideTooltipSettings;
             }
         }
 

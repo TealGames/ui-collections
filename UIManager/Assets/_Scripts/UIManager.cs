@@ -3,18 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 namespace Game.UI
 {
     public class UIManager: MonoBehaviour
     {
+        [Header("Tooltips")]
+        [SerializeField] private GameObject tooltipContainer;
+        [SerializeField] private TextMeshProUGUI tooltipText;
+        [SerializeField] private GameObject tooltipBackground;
+
         public static UIManager Instance { get; private set; }
 
         [Header("Editor")]
         [Tooltip("When \"Replace Scene TMPro Text With Override\" button clicked below, ALL TMPro Text GameObjects will have their font replaced with this one")] 
         [SerializeField] private TMP_FontAsset overrideFontAsset = null;
-
         public TMP_FontAsset OverrideFontAsset { get => overrideFontAsset; }
+
+        [Tooltip("When ")]
+        [SerializeField] private TooltipSettingsSO overrideTooltipSettings = null;
+        public TooltipSettingsSO OverrideTooltipSettings { get => overrideTooltipSettings; }
+        
 
 
         private void Awake()
@@ -31,7 +41,7 @@ namespace Game.UI
         // Start is called before the first frame update
         private void Start()
         {
-
+            DisableTooltip();
         }
 
         // Update is called once per frame
@@ -39,6 +49,59 @@ namespace Game.UI
         {
 
         }
+
+        public void EnableTooltip(TooltipInfo tooltipInfo,PointerEventData eventData)
+        {
+            Vector3 newPosition;
+
+            //if we don't change the position, make it the mouse position
+            if (tooltipInfo.NewTooltipPosition == null)
+            {
+                //Vector2 screenPosition = Mouse.current.position.ReadValue();
+                //newPosition = Camera.main.ScreenToWorldPoint(screenPosition);
+                newPosition = eventData.position;
+            }
+            else newPosition = (Vector3)tooltipInfo.NewTooltipPosition;
+
+            if (tooltipInfo.ExtraBuffer != null) newPosition.x += (float)tooltipInfo.ExtraBuffer;
+
+            tooltipText.enableWordWrapping = false;
+            tooltipText.text = tooltipInfo.Text;
+
+            float tooltipTextWidth = -1;
+            RectTransform transform = tooltipBackground.GetComponent<RectTransform>();
+            //If we can, we change the size of the panel to match the text size
+            if (tooltipBackground != null && tooltipText != null)
+            {
+                tooltipTextWidth = tooltipText.preferredWidth;
+                transform.sizeDelta = new Vector2(tooltipText.preferredWidth, tooltipText.preferredHeight);
+            }
+
+            //If we have a bigger width, we want to reset the text settings when wrapping is enabled
+            if (tooltipTextWidth>= tooltipInfo.NextLineThreshold)
+            {
+                tooltipText.enableWordWrapping = true;
+                transform.sizeDelta = new Vector2(tooltipInfo.NextLineThreshold, tooltipText.preferredHeight);
+            }
+
+            //If the new position's textbox is past the screen space on the right side
+            if (newPosition.x + tooltipText.preferredWidth / 2f > Screen.width)
+                newPosition.x = Screen.width - tooltipText.preferredWidth / 2f;
+
+            //If the new position's textbox is past the screen space on the left side
+            else if (newPosition.x - tooltipText.preferredWidth / 2f < 0f)
+                newPosition.x = 0f - tooltipText.preferredWidth / 2f;
+
+            tooltipContainer.GetComponent<RectTransform>().position = newPosition;
+            if (!tooltipContainer.activeSelf) tooltipContainer.SetActive(true);
+        }
+
+        public void DisableTooltip()
+        {
+            tooltipContainer.SetActive(false);
+            tooltipText.text = "";
+        }
+
 
         /// <summary>
         /// Gradually increases or decreases an image component's color alpha. Note: targetAlpha must be between 0-1. 

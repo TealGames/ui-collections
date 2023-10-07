@@ -10,6 +10,8 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using Game.UI;
 using PlasticGui;
+using System.IO;
+using Codice.Client.Commands;
 
 namespace Game.Utilities
 {
@@ -32,6 +34,8 @@ namespace Game.Utilities
         public static void SetObjectPos(this GameObject gameObject, Vector2 position) => gameObject.transform.position = position;
 
         //public static void InstantiateGameObject(this GameObject prefab, Vector2 position) => Instantiate(prefab, position, Quaternion.identity);
+
+        public static string GenerateRandomID() => System.Guid.NewGuid().ToString();
 
         public static int GenerateRandomPrecentage() => UnityEngine.Random.Range(0, 100);
 
@@ -75,6 +79,79 @@ namespace Game.Utilities
         {
             RectTransformUtility.ScreenPointToWorldPointInRectangle(element, element.position, MainCamera, out var result);
             return result;
+        }
+
+        public static void SetAnchorPreset(this RectTransform transform, AnchorPresets preset)
+        {
+            switch(preset)
+            {
+                case AnchorPresets.TopLeft:
+                    SetAnchors(transform, new Vector2(0, 1), new Vector2(0, 1));
+                    return;
+                case AnchorPresets.TopCenter:
+                    SetAnchors(transform, new Vector2(0.5f, 1), new Vector2(0.5f, 1));
+                    return;
+                case AnchorPresets.TopRight:
+                    SetAnchors(transform, new Vector2(1, 1), new Vector2(1, 1));
+                    return;
+                case AnchorPresets.TopStretch:
+                    SetAnchors(transform, new Vector2(0, 1), new Vector2(1, 1));
+                    return;
+
+                case AnchorPresets.MiddleLeft:
+                    SetAnchors(transform, new Vector2(0, 0.5f), new Vector2(0, 0.5f));
+                    return;
+                case AnchorPresets.MiddleCenter:
+                    SetAnchors(transform, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f));
+                    return;
+                case AnchorPresets.MiddleRight:
+                    SetAnchors(transform, new Vector2(1, 0.5f), new Vector2(1, 0.5f));
+                    return;
+                case AnchorPresets.MiddleStretch:
+                    SetAnchors(transform, new Vector2(0, 0.5f), new Vector2(1, 0.5f));
+                    return;
+
+                case AnchorPresets.BottomLeft:
+                    SetAnchors(transform, new Vector2(0, 0), new Vector2(0, 0));
+                    return;
+                case AnchorPresets.BottomCenter:
+                    SetAnchors(transform, new Vector2(0.5f, 0), new Vector2(0.5f, 0));
+                    return;
+                case AnchorPresets.BottomRight:
+                    SetAnchors(transform, new Vector2(1, 0), new Vector2(1, 0));
+                    return;
+                case AnchorPresets.BottomStretch:
+                    SetAnchors(transform, new Vector2(0, 0), new Vector2(1, 0));
+                    return;
+
+                case AnchorPresets.StretchLeft:
+                    SetAnchors(transform, new Vector2(0, 0), new Vector2(0, 1));
+                    return;
+                case AnchorPresets.StretchCenter:
+                    SetAnchors(transform, new Vector2(0.5f, 0), new Vector2(0.5f, 1));
+                    return;
+                case AnchorPresets.StretchRight:
+                    SetAnchors(transform, new Vector2(1, 0), new Vector2(1, 1));
+                    return;
+                case AnchorPresets.StretchStretch:
+                    SetAnchors(transform, new Vector2(0, 0), new Vector2(1, 1));
+                    return;
+
+                default:
+                    UnityEngine.Debug.LogWarning($"Tried to update {transform}'s anchor preset, but preset {preset} does not have a corresponding anchor setting!");
+                    return;
+            }
+        }
+
+        public static void SetAnchors(this RectTransform transform, Vector2 min, Vector2 max)
+        {
+            Vector3 position= transform.localPosition;
+
+            transform.anchorMin = min;
+            transform.anchorMax = max;
+
+            //We make sure that we do not change the position of the rect transform when we set the anchors
+            transform.localPosition = position;
         }
 
 
@@ -361,10 +438,153 @@ namespace Game.Utilities
         public static List<RaycastResult> GetEventSystemRaycastResults()
         {
             PointerEventData eventData = new PointerEventData(EventSystem.current);
-            eventData.position = Input.mousePosition;
+            eventData.position = UnityEngine.Input.mousePosition;
             List<RaycastResult> raysastResults = new List<RaycastResult>();
             EventSystem.current.RaycastAll(eventData, raysastResults);
             return raysastResults;
+        }
+
+        public static void SaveDataInFile(string fileName, System.Object data)
+        {
+            string path = Application.persistentDataPath + "/" + fileName;
+            string dataAsText = JsonUtility.ToJson(data);
+
+            //If it exists, we delete it first so we can create a new one
+            if (File.Exists(path)) File.Delete(path);
+
+            FileStream fileStream = new FileStream(path, FileMode.Create);
+            using (StreamWriter writer = new StreamWriter(fileStream))
+                writer.Write(dataAsText);
+        }
+
+        /// <summary>
+        /// Gets the data from the fileName. Returns ALL the data listed, with no parsing
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public static string LoadDataFromFile(string fileName)
+        {
+            FileStream fileStream = new FileStream(Application.persistentDataPath + "/" + fileName, FileMode.Open);
+
+            string data = "";
+            using (StreamReader reader = new StreamReader(fileStream))
+            {
+                data = reader.ReadToEnd();
+            }
+            return data;
+        }
+
+        /// <summary>
+        /// Gets the data from the fileName, returns the data as the type specified
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public static T LoadDataFromFile<T>(string fileName)
+        {
+            string path = Application.persistentDataPath + "/" + fileName;
+            if (!File.Exists(path))
+            {
+                UnityEngine.Debug.LogWarning($"Tried to load data of type: {typeof(T)} from file: {fileName} but it does not exist!");
+                return default;
+            }
+            string data= LoadDataFromFile(fileName);
+            T convertedData= JsonUtility.FromJson<T>(data);
+            return convertedData;
+        }
+
+        /// <summary>
+        /// Tries to get the data from the fileName. This is more safe than getting the data because it returns true if the file is found, and false if not found.
+        /// If is is found, it returns the parsed data, otherwise it returns it as the defalt for that type
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="fileName"></param>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static bool TryGetDataFromFile<T>(string fileName, out T data)
+        {
+            string path = Application.persistentDataPath + "/" + fileName;
+            if (!File.Exists(path))
+            {
+                data = default;
+                return false;
+            }
+            else
+            {
+                data = LoadDataFromFile<T>(fileName);
+                return true;
+            }
+        }
+
+        public static void DeleteFile(string fileName)
+        {
+            string path = Application.persistentDataPath + "/" + fileName;
+            if (!File.Exists(path))
+            {
+                UnityEngine.Debug.LogWarning($"Tried to delete file: {fileName} but it does not exist!");
+                return;
+            }
+            File.Delete(path);
+        }
+
+        /// <summary>
+        /// Appends the KeyValuePair to the END of the dictionary
+        /// </summary>
+        /// <typeparam name="K"></typeparam>
+        /// <typeparam name="V"></typeparam>
+        /// <param name="fileName"></param>
+        /// <param name="pair"></param>
+        /// <param name="createFileIfDoesNotExist"></param>
+        public static void AddPairToDictionaryFile<K, V>(string fileName, K key, V value, bool createFileIfDoesNotExist= true)
+        {
+            string path = Application.persistentDataPath + "/" + fileName;
+            if (!File.Exists(path))
+            {
+                if (createFileIfDoesNotExist) 
+                    SaveDataInFile(fileName, new Dictionary<K, V>() { { key, value } });
+                else
+                {
+                    UnityEngine.Debug.LogWarning($"Tried to add dictionary key/value pair of type: {typeof(K)}, {typeof(V)} to file: {fileName} but it does not exist!");
+                    return;
+                }
+            }
+
+            Dictionary<K,V> dictionary= LoadDataFromFile<Dictionary<K, V>>(fileName);
+            dictionary.Add(key, value);
+            SaveDataInFile(fileName, dictionary);
+        }
+
+        /// <summary>
+        /// Updates the value of the key for the dictionary
+        /// </summary>
+        /// <typeparam name="K"></typeparam>
+        /// <typeparam name="V"></typeparam>
+        /// <param name="fileName"></param>
+        /// <param name=""></param>
+        public static void UpdateValueInDictionaryFile<K, V>(string fileName, K key, V newValue)
+        {
+            string path = Application.persistentDataPath + "/" + fileName;
+            if (!File.Exists(path))
+            {
+                UnityEngine.Debug.LogWarning($"Tried to udpate pair of type {typeof(K)} from file: {fileName} but it does not exist!");
+                return;
+            }
+            Dictionary<K, V> dictionary = LoadDataFromFile<Dictionary<K, V>>(fileName);
+            dictionary[key] = newValue;
+            SaveDataInFile(fileName, dictionary);
+        }
+
+        public static void RemovePairFromDictionaryFile<K,V>(string fileName, K key)
+        {
+            string path = Application.persistentDataPath + "/" + fileName;
+            if (!File.Exists(path))
+            {
+                UnityEngine.Debug.LogWarning($"Tried to remove pair of type {typeof(K)} from file: {fileName} but it does not exist!");
+                return;
+            }
+            Dictionary<K, V> dictionary = LoadDataFromFile<Dictionary<K, V>>(fileName);
+            dictionary.Remove(key);
+            SaveDataInFile(fileName, dictionary);
         }
     }
 }

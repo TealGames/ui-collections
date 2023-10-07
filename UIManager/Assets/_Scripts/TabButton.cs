@@ -28,6 +28,7 @@ namespace Game.UI
         }
 
         public void SetTitle(string title) => this.title.text = title;
+        public string GetTitle() => this.title.text;
         public void AddClickAction(UnityAction action) => button.onClick.AddListener(action);
     }
 

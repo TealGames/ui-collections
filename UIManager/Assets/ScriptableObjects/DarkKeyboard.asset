@@ -1,0 +1,1143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98b4217bba294243b57a1ad88a78a32, type: 3}
+  m_Name: DarkKeyboard
+  m_EditorClassIdentifier: 
+  <DeviceType>k__BackingField: 2
+  <IconColor>k__BackingField: 2
+  spritePairSections:
+  - <SectionName>k__BackingField: Numbers
+    <SpritePairsSections>k__BackingField:
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 581d150b-37c1-40cd-a30d-a52da42fddf2
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 10d1ff74-e2d9-4c71-a026-fd0b5ff8b909
+          m_Path: <Keyboard>/1
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 8aa3841b3e5f2da4799a5cb5f698fefd, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 581d150b-37c1-40cd-a30d-a52da42fddf2
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 10d1ff74-e2d9-4c71-a026-fd0b5ff8b909
+          m_Path: <Keyboard>/2
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 503995fc90d1f7f4e802021eea6356a6, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 581d150b-37c1-40cd-a30d-a52da42fddf2
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 10d1ff74-e2d9-4c71-a026-fd0b5ff8b909
+          m_Path: <Keyboard>/3
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: a8c198d4ada9cf34292497b9a968e11e, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 581d150b-37c1-40cd-a30d-a52da42fddf2
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 10d1ff74-e2d9-4c71-a026-fd0b5ff8b909
+          m_Path: <Keyboard>/4
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: b74b2f5a36846cc46b74a9173dd8874d, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 581d150b-37c1-40cd-a30d-a52da42fddf2
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 10d1ff74-e2d9-4c71-a026-fd0b5ff8b909
+          m_Path: <Keyboard>/5
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: ff1e3a1b0ae0b754c83c469b6bd93094, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 581d150b-37c1-40cd-a30d-a52da42fddf2
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 10d1ff74-e2d9-4c71-a026-fd0b5ff8b909
+          m_Path: <Keyboard>/6
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 5d69245500b0ada4db3168221070a439, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 581d150b-37c1-40cd-a30d-a52da42fddf2
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 10d1ff74-e2d9-4c71-a026-fd0b5ff8b909
+          m_Path: <Keyboard>/7
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 572cb00054b28ab45a04c257a8b2857b, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 581d150b-37c1-40cd-a30d-a52da42fddf2
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 10d1ff74-e2d9-4c71-a026-fd0b5ff8b909
+          m_Path: <Keyboard>/8
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: e74a4b8e37e27c04fa2304fc9da32eee, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 581d150b-37c1-40cd-a30d-a52da42fddf2
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 10d1ff74-e2d9-4c71-a026-fd0b5ff8b909
+          m_Path: <Keyboard>/9
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: afa98e59118cae340ae93fc2c6956ad4, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 581d150b-37c1-40cd-a30d-a52da42fddf2
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 10d1ff74-e2d9-4c71-a026-fd0b5ff8b909
+          m_Path: <Keyboard>/0
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: a3304ffd5b653084f9c7a97f911db84c, type: 3}
+  - <SectionName>k__BackingField: A-M
+    <SpritePairsSections>k__BackingField:
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/a
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: ab1b0fd87e39fe2459e7faa64589d6e0, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/b
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: d0b6cdb8e46f31e439e8f5a62d9e1aac, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/c
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 04ccf87a7a01a704d8c5213a6816318e, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/d
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 6edfed1213c2aa94f8bbea90a34a7ee2, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/e
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: e82366431b37aa24c8c65f0614f3b75c, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/f
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: d271c6457fc091e4bb058ad89e278ed5, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/g
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: f483a865870c9e643bc7758b28135db5, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/h
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 7cbfb71d93a11964a96a91e9e68aea37, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/i
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 5f786859b39510149960baa356f3cee5, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/j
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 8b9ea652b73031f48b8f5fb8fa9857ba, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/k
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: b63e704cae424ec428760858bef387fa, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/l
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: c4f55331198d3e6448e510521d93a520, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/m
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 0b6406f93f59b114fb0b80381d335c90, type: 3}
+  - <SectionName>k__BackingField: N-Z
+    <SpritePairsSections>k__BackingField:
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/n
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 984f0e750ebf91b44a02437680d22157, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/o
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: e7c259cbd49d18a4d85460d27919e944, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/p
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 3d7c788cd7d8d7f4681a36e8c9d38f8e, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/q
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 2fe89d225f4229a4b8189c42fb10812c, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/r
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 4b0df462808350d498878481d641fb92, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/s
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 66f85d77b0b2d4446bf9414c6372a59d, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/t
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: cba12c893847ce94799b9c4930d93f13, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/u
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: de4bed0c33796b54bb25fc434d7e7d08, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/v
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: e8828fc8d6e7bbe4ea9647172e575fb0, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/w
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: b459aec635818e747abc25f3b4f969f5, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/x
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 019251ddff6728141906cf46bce78721, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/y
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 64abf152e6dc65a4c8ea30c664ea46a8, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/z
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: ac270101add0c9f4d8befbf2a86d48f0, type: 3}
+  - <SectionName>k__BackingField: Modifiers
+    <SpritePairsSections>k__BackingField:
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/tab
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: bb61450ba9013ac45a3a8d050a965145, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/capsLock
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: c5048e94e3bf6aa469b68669566ef22c, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/shift
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 628ccabdbb3b879409e518c021a7bdbe, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/leftShift
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 628ccabdbb3b879409e518c021a7bdbe, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/ctrl
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: b279184a97683434eae16a32c6162ed9, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/leftCtrl
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: b279184a97683434eae16a32c6162ed9, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/alt
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 5e5c6c12d214b2542b58f087e0000f6a, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/leftAlt
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 5e5c6c12d214b2542b58f087e0000f6a, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/enter
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 2eb2362f21c65294187c216b3f819743, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/backspace
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 8c3338c818d36ab4e81484c20ab5bcc4, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/space
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: b01917364fb2bfc4e97bf696389a4ade, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/escape
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: b3c937296d0b8154091c821694403475, type: 3}
+  - <SectionName>k__BackingField: Other
+    <SpritePairsSections>k__BackingField:
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/insert
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: d3e33b860789b1746aaea3db92a129f7, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/home
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 60de1e3a49dfebc4fbdcd98a0f78abb7, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/pageUp
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: ec94f800311d7df449b1eb76c2d236f6, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/pageDown
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: aeed1f862885e9b4bbb734350ec00f31, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/delete
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 3e5fe89eb3a01b843b9ca4bcecd51113, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/end
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 6af7446e200abc443bebe5fd4049ead1, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/upArrow
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 2f2177fc460b003418a2cff4064e9c41, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/downArrow
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 08d2321d0817b4d41a59a9777897692f, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/leftArrow
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 4c21b5df0a1bc6c4b987bd21bfad8b8c, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/rightArrow
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: f74ebae9a8d4a644bb8d9c76beb995d5, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/backslash
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: b7fd12b84f6faae43802d19158ee3062, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/semicolon
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: e86661b2156390a48a6b6f38e56776e9, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/rightBracket
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: fa7b167f7ebd9e14bb746c0dd3e07139, type: 3}
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: da7e05b8-fe93-4fad-8037-65f3938a2af6
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 9239d5b8-67b6-4f56-bf88-cbc08ba929a2
+          m_Path: <Keyboard>/leftBracket
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 50800867a437e934b84892d5bf33d75d, type: 3}

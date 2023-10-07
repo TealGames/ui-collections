@@ -50,7 +50,7 @@ namespace Game.UI
                         foreach (var enumValue in Enum.GetValues(enums.GetDictionaryValueAtIndex<string, Type>(currentIndex))) 
                             selectedEnumValues.Add(enumValue.ToString());
 
-                        optionSelector.AllOptions = selectedEnumValues;
+                        optionSelector.AllOptionsProperty = selectedEnumValues;
 
                         GUIStyle style = new GUIStyle();
                         style.normal.textColor = Color.yellow;
