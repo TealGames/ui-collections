@@ -14,6 +14,9 @@ namespace Game.UI
         [SerializeField] private TextMeshProUGUI tooltipText;
         [SerializeField] private GameObject tooltipBackground;
 
+        [Header("Global Text")]
+        [SerializeField] private GlobalTextManager textManager;
+
         public static UIManager Instance { get; private set; }
 
         [Header("Editor")]
@@ -21,7 +24,7 @@ namespace Game.UI
         [SerializeField] private TMP_FontAsset overrideFontAsset = null;
         public TMP_FontAsset OverrideFontAsset { get => overrideFontAsset; }
 
-        [Tooltip("When ")]
+        [Tooltip("When \"Override Scene Tooltip Settings\" button clicked below, ALL Tooltip component GameObjects will have their settings replaced with tis one")]
         [SerializeField] private TooltipSettingsSO overrideTooltipSettings = null;
         public TooltipSettingsSO OverrideTooltipSettings { get => overrideTooltipSettings; }
         
@@ -102,6 +105,9 @@ namespace Game.UI
             tooltipText.text = "";
         }
 
+        public void EnableGlobalText(string text, TextPresetSO preset) => textManager.EnableText(text, preset);
+        public void DisableGlobalText(TextPresetSO preset) => textManager.DisableText(preset);
+
 
         /// <summary>
         /// Gradually increases or decreases an image component's color alpha. Note: targetAlpha must be between 0-1. 
@@ -158,6 +164,18 @@ namespace Game.UI
 
             if (disableOnEnd) text.gameObject.SetActive(false);
             else if (enableOnEnd) text.gameObject.SetActive(true);
+        }
+
+        public IEnumerator LerpRectSize(RectTransform rect, Vector2 startSize, Vector2 endSize, float time)
+        {
+            float elapsedTime = 0;
+
+            while (elapsedTime < time)
+            {
+                elapsedTime += Time.unscaledDeltaTime;
+                rect.sizeDelta= Vector2.Lerp(startSize, endSize, elapsedTime/time);
+                yield return new WaitForEndOfFrame();
+            }
         }
 
     }

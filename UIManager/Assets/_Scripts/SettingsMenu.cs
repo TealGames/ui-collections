@@ -41,12 +41,14 @@ namespace Game.UI
             [Header("Input")]
             [SerializeField] public InputSection[] inputSections;
             [SerializeField] public GameObject rebindOverlay;
-            [SerializeField] public ExtendedRebindActionUI.RebindDisplay displayType;
+            
         }
 
         [Header("Settings Menu")]
         [SerializeField] private References references;
         private bool doRenderParticles;
+
+        [SerializeField] public ExtendedRebindActionUI.RebindDisplay displayType;
 
         [field: SerializeField] public SettingsSO DefaultSettings { get; private set; }
         //[SerializeField] private List<TabContainer> tabContainers = new List<TabContainer>();
@@ -84,6 +86,8 @@ namespace Game.UI
             if (references.anisotropicFilteringSelector != null) references.anisotropicFilteringSelector.SetAllOptions(HelperFunctions.GetListFromEnum(typeof(AnisotropicFiltering)));
 
             SetSettingsOptions(DefaultSettings);
+
+            DisableUI();
         }
 
         // Start is called before the first frame update
@@ -101,7 +105,7 @@ namespace Game.UI
 
         private void OnValidate()
         {
-            if (references.inputSections.Length > 0) foreach (var section in references.inputSections) section.SetBindingDisplayType(references.displayType);
+            if (references.inputSections.Length > 0) foreach (var section in references.inputSections) section.SetBindingDisplayType(displayType);
 
             //Validate Custom Settings Options
             foreach (var option in settingsOptions)

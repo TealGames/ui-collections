@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 995974605756bda418ce5f6435a32111, type: 3}
-  m_Name: MemberSelectionSO
+  m_Script: {fileID: 11500000, guid: 4f08ef7b4efaaf140a8c1a6491d7f2d3, type: 3}
+  m_Name: Subtitle Text
   m_EditorClassIdentifier: 
-  <AllowFields>k__BackingField: 1
-  <AllowProperties>k__BackingField: 1
-  allowMethods: 1
-  memberType: 2
+  <TextTypeName>k__BackingField: Dialogue Subtitle
+  <EnableTime>k__BackingField: 1
+  <DisableTime>k__BackingField: 0.5

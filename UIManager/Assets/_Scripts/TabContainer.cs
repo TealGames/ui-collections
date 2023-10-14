@@ -32,7 +32,7 @@ namespace Game.UI
         /// </summary>
         /// <returns></returns>
         public bool HasContents() => transform.childCount > 2;
-        public void SetResetDefaultAction(UnityAction action) => resetDefaultsButton.SetOnClickAction(action);
+        public void SetResetDefaultAction(UnityAction action) => resetDefaultsButton.AddOnClickAction(action);
     }
 }
 

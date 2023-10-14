@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Game.UI
+namespace Game
 {
     [System.Serializable]
     public enum UserSelectedType
     {
-        None,
-        Void,
-        Float,
         Int,
+        Float,
         Boolean,
         String,
         Vector2,
         Vector3,
+        Void,
         Other,
     }
 }

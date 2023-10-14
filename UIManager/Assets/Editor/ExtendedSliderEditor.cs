@@ -9,7 +9,7 @@ using UnityEditor;
 using UnityEngine;
 using Object = System.Object;
 
-namespace Game.UI
+namespace Game.UI.EditorExtension
 {
     [CustomEditor(typeof(ExtendedSlider))]
     public class ExtendedSliderEditor : ExtendedEditor
@@ -25,7 +25,7 @@ namespace Game.UI
             DrawDefaultInspector();
             ExtendedSlider extendedSlider = (ExtendedSlider)target;
 
-            DrawHeader("Values From Methods");
+            DrawHeader("Values From Methods", true);
             setMinAndMaxFromMember = EditorGUILayout.Toggle("Set Min/Max From Member", setMinAndMaxFromMember);
             if (setMinAndMaxFromMember)
             {

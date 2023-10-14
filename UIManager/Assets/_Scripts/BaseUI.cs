@@ -18,11 +18,14 @@ namespace Game.UI
 
 
         [Header("Activation")]
-        [SerializeField] private float firstSelectedSetDelay;
+        [Tooltip("The delay between when EnableUI() is called and the time that it actually activates the container. " +
+            "This can be useful for enable animations that require the UI to open after a certain time")][SerializeField] private float enableDelay;
         [field: SerializeField] public UnityEvent OnUIEnabled { get; set; }
 
 
         [Header("Deactivation")]
+        [Tooltip("The delay between when DisableUI() is called and the time that it actually deactivates the container. " +
+            "This can be useful for disable animations that require the UI to close after a certain time")]
         [SerializeField] private float disableDelay;
         [field: SerializeField] public UnityEvent OnUIDisabled { get; set; }
 
@@ -46,26 +49,27 @@ namespace Game.UI
 
         public virtual void EnableUI()
         {
-            OnUIEnabledAction?.Invoke();
-            OnUIEnabled?.Invoke();
-            Container.SetActive(true);
-
-            if (firstSelected != null)
+            StartCoroutine(Delay());
+            IEnumerator Delay()
             {
-                StartCoroutine(FirstSelectedDelay());
-                IEnumerator FirstSelectedDelay()
-                {
-                    yield return new WaitForSecondsRealtime(firstSelectedSetDelay);
-                    SetFirstSelected(firstSelected);
-                }
+                yield return new WaitForSecondsRealtime(enableDelay);
+                OnUIEnabledAction?.Invoke();
+                OnUIEnabled?.Invoke();
+                Container.SetActive(true);
+                if (firstSelected!=null) SetFirstSelected(firstSelected);
             }
         }
 
         public virtual void DisableUI()
         {
-            OnUIDisabledAction?.Invoke();
-            OnUIDisabled?.Invoke();
-            Container.SetActive(false);
+            StartCoroutine(Delay()); 
+            IEnumerator Delay()
+            {
+                yield return new WaitForSecondsRealtime(disableDelay);
+                OnUIDisabledAction?.Invoke();
+                OnUIDisabled?.Invoke();
+                Container.SetActive(false);
+            }
         }
     }
 }

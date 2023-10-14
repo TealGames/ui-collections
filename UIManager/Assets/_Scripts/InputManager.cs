@@ -11,6 +11,7 @@ using System.IO;
 using UnityEngine.UIElements;
 using UnityEngine.EventSystems;
 using Game.UI;
+using UnityEngine.Events;
 
 namespace Game.Input
 {
@@ -85,30 +86,11 @@ namespace Game.Input
             if (deviceBindingPaths.Count == 0) SetInputDevicePaths();
         }
 
-        public void DisableInputActions(List<string> inputActionNames, string mapName= PLAYER_MAP_NAME)
-        {
-            foreach (var name in inputActionNames)
-            {
-                InputActionMap map = InputAsset.FindActionMap(mapName, throwIfNotFound: true);
-                InputAction action = map.FindAction(name, throwIfNotFound: true);
-                if (action != null) action.Disable();
-            }
-        }
+        
+        
 
-        public void EnablePlayerInputActions(List<string> inputActionNames, string mapName = PLAYER_MAP_NAME)
-        {
-            foreach (var name in inputActionNames)
-            {
-                InputActionMap map = InputAsset.FindActionMap(mapName, throwIfNotFound: true);
-                InputAction action = map.FindAction(name, throwIfNotFound: true);
-                if (action != null) action.Enable();
-            }
-        }
 
-        public void DisableAllInputActions() => InputAsset.Disable();
-
-        public void EnableAllInputActions() => InputAsset.Enable();
-
+        //BINDING METHODS
         public List<string> GetBindingsFromPlayerActionName(string name, bool allCaps, string mapName= PLAYER_MAP_NAME)
         {
             List<string> bindings = new List<string>();
@@ -205,8 +187,6 @@ namespace Game.Input
             return bindings.ToArray();
         }
 
-        public string GetActionPathByName(string name) => PLAYER_MAP_NAME + "/" + name;
-
         public InputDeviceType GetInputDeviceFromBinding(InputBinding binding)
         {
             foreach (var device in Enum.GetValues(typeof(InputDeviceType)))
@@ -216,6 +196,37 @@ namespace Game.Input
             UnityEngine.Debug.LogError($"Could not find an input device from the binding: {binding.name}");
             return default;
         }
+
+
+
+        //ACTION METHODS
+        public void AddStartedAction(string actionName, Action<InputAction.CallbackContext> action) => InputAsset[actionName].started += action;
+        public void AddPerformedAction(string actionName, Action<InputAction.CallbackContext> action) => InputAsset[actionName].performed += action;
+        public void AddCanceledAction(string actionName, Action<InputAction.CallbackContext> action) => InputAsset[actionName].canceled += action;
+
+        public void DisableInputActions(List<string> inputActionNames, string mapName = PLAYER_MAP_NAME)
+        {
+            foreach (var name in inputActionNames)
+            {
+                InputActionMap map = InputAsset.FindActionMap(mapName, throwIfNotFound: true);
+                InputAction action = map.FindAction(name, throwIfNotFound: true);
+                if (action != null) action.Disable();
+            }
+        }
+
+        public void EnablePlayerInputActions(List<string> inputActionNames, string mapName = PLAYER_MAP_NAME)
+        {
+            foreach (var name in inputActionNames)
+            {
+                InputActionMap map = InputAsset.FindActionMap(mapName, throwIfNotFound: true);
+                InputAction action = map.FindAction(name, throwIfNotFound: true);
+                if (action != null) action.Enable();
+            }
+        }
+
+        public void DisableAllInputActions() => InputAsset.Disable();
+
+        public void EnableAllInputActions() => InputAsset.Enable();
 
         /// <summary>
         /// Gets the input action from the name. The name could be either in just the action name, or the id in the form of '{MAP NAME}/{ACTION NAME}'. Note: case does NOT matter
@@ -246,6 +257,9 @@ namespace Game.Input
             //UnityEngine.Debug.Log($"Ended input cooldown on: {name}");
         }
 
+        //PATH METHODS
+        public string GetActionPathByName(string name) => PLAYER_MAP_NAME + "/" + name;
+
         private void SetInputDevicePaths()
         {
             foreach (var value in Enum.GetValues(typeof(InputDeviceType)))
@@ -260,6 +274,7 @@ namespace Game.Input
         public string GetPathFromDeviceType(InputDeviceType type) => deviceBindingPaths[type];
 
 
+        //PROMPT ICON METHODS
         public Sprite? GetIconFromBinding(InputBinding binding)
         {
             //based on the device, we get the SO with that device data
