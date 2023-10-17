@@ -12,6 +12,7 @@ using Game.UI;
 using PlasticGui;
 using System.IO;
 using Codice.Client.Commands;
+using System.Text;
 
 namespace Game.Utilities
 {
@@ -449,120 +450,174 @@ namespace Game.Utilities
             return raysastResults;
         }
 
-        /// <summary>
-        /// Saves the data in the filePath. If it does exist, it will delete it and create a new one in the filePath with data. If the path includes directories, it will create them if they do not exist
-        /// Note: it will save it in Application.PersistentDataPath + filePath.
-        /// You can find where Application.PersistentDataPath is on your device here: https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html
-        /// </summary>
-        /// <param name="filePath">For simplicity you can just make this a string name (which will save in the path directly) or give it a specified path to the file in the persistent path</param>
-        /// <param name="data"></param>
-        public static void SaveDataInFile(string filePath, System.Object data)
+        public static void SaveDataInFile<T>(T saveObject, GamePathType pathType, string path, bool createDirectoriesIfDontExist = true)
         {
-            string path = Application.persistentDataPath + "/" + filePath;
-            string dataAsText = "";
-            if (data.GetType() != typeof(string)) dataAsText = JsonUtility.ToJson(data);
-            else dataAsText = data.ToString();
-                
-            
-            //If we have a path that includes other directories, we create them if they do not exist
-            if (filePath.Contains("/"))
+            string relativePath = GetRelativePathFromPath(path);
+            string fullPath = GetPathFromPathType(pathType) + Path.DirectorySeparatorChar + relativePath;
+            UnityEngine.Debug.Log($"Full path is {fullPath}");
+
+            if (File.Exists(fullPath)) File.Delete(fullPath);
+
+            //create the directory if we need to
+            if (createDirectoriesIfDontExist)
             {
-                List<string> directories = filePath.Split("/").ToList();
+                List<string> directories = relativePath.Split(Path.DirectorySeparatorChar).ToList();
                 directories.Remove(directories.Last());
-                string currentPath = Application.persistentDataPath;
+
+                string currentPath = GetPathFromPathType(pathType);
                 foreach (var directory in directories)
                 {
-                    currentPath += $"/{directory}";
-                    UnityEngine.Debug.Log($"Trying to create directory in the path {currentPath} and directory exists {Directory.Exists(currentPath)}");
-                    if(!Directory.Exists(currentPath) && !File.Exists(currentPath))
-                    {
-                        //UnityEngine.Debug.Log($"Trying to create directory in the path {currentPath}");
-                        Directory.CreateDirectory(currentPath);
-                    }
+                    currentPath += $"{Path.DirectorySeparatorChar}{directory}";
+                    if (!File.Exists(currentPath) && !Directory.Exists(currentPath)) Directory.CreateDirectory(currentPath);
                 }
             }
 
-            //If the file already exists it will be overriden
-            using (FileStream fileStream= File.Create(path))
+            using (FileStream fileStream = File.Create(fullPath))
             {
                 using (StreamWriter writer = new StreamWriter(fileStream))
-                    writer.Write(dataAsText);
+                {
+                    if (typeof(T) != typeof(string)) writer.Write(JsonUtility.ToJson(saveObject));
+                    else writer.Write(saveObject);
+                }
             }
         }
 
-        /// <summary>
-        /// Gets the data from the fileName. Returns ALL the data listed, with no parsing. 
-        /// If it is not found it returns an empty string
-        /// </summary>
-        /// <param name="filePath"></param>
-        /// <returns></returns>
-        public static string LoadDataFromFile(string filePath)
+        public static bool TryLoadFullData(GamePathType pathType, string path, out string data, bool logWarningIfNotFound = true)
         {
-            string path= Application.persistentDataPath + "/" + filePath;
-            if (!File.Exists(path)) return "";
-
-            using (FileStream fileStream = new FileStream(path, FileMode.Open))
+            string relativePath = GetRelativePathFromPath(path);
+            string fullPath = GetPathFromPathType(pathType) + Path.DirectorySeparatorChar + relativePath;
+            data = "";
+            if (!File.Exists(fullPath) && logWarningIfNotFound)
             {
-                string data = "";
+                UnityEngine.Debug.LogWarning($"Tried to load data as string in path {path} but that file does not exist!");
+                return false;
+            }
+
+            using (FileStream fileStream = File.Open(fullPath, FileMode.Open))
+            {
                 using (StreamReader reader = new StreamReader(fileStream))
                 {
                     data = reader.ReadToEnd();
                 }
-                return data;
-            }  
-        }
-
-        /// <summary>
-        /// Gets the data from the fileName, returns the data as the type specified
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="filePath"></param>
-        /// <returns></returns>
-        public static T LoadDataFromFile<T>(string filePath)
-        {
-            string path = Application.persistentDataPath + "/" + filePath;
-            if (!File.Exists(path))
-            {
-                UnityEngine.Debug.LogWarning($"Tried to load data of type: {typeof(T)} from file: {filePath} but it does not exist!");
-                return default;
             }
-            string data= LoadDataFromFile(filePath);
-            T convertedData= JsonUtility.FromJson<T>(data);
-            return convertedData;
+            return true;
         }
 
-        /// <summary>
-        /// Tries to get the data from the fileName. This is more safe than getting the data because it returns true if the file is found, and false if not found.
-        /// If is is found, it returns the parsed data, otherwise it returns it as the defalt for that type
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="filePath"></param>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public static bool TryGetDataFromFile<T>(string filePath, out T data)
+        public static bool TryLoadData<T>(GamePathType pathType, string path, out T loadObject, bool logWarningIfNotFound = true)
         {
-            string path = Application.persistentDataPath + "/" + filePath;
-            if (!File.Exists(path))
+            string relativePath = GetRelativePathFromPath(path);
+            string fullPath = GetPathFromPathType(pathType) + Path.DirectorySeparatorChar + relativePath;
+
+            loadObject = default(T);
+            if (!File.Exists(fullPath) && logWarningIfNotFound)
             {
-                data = default;
+                UnityEngine.Debug.LogWarning($"Tried to load data of type {typeof(T)} in path {path} but that file does not exist!");
                 return false;
             }
-            else
+
+            if (loadObject.GetType().IsSubclassOf(typeof(UnityEngine.Object)))
             {
-                data = LoadDataFromFile<T>(filePath);
-                return true;
+                UnityEngine.Debug.Log($"Tried to save data, but the object type {typeof(T)} inherit from {typeof(UnityEngine.Object)} since JSON cannot serialize these types!");
+                return false;
+            }
+
+            using (FileStream fileStream = File.Open(fullPath, FileMode.Open))
+            {
+                using (StreamReader reader = new StreamReader(fileStream))
+                {
+                    loadObject = JsonUtility.FromJson<T>(reader.ReadToEnd());
+                }
+            }
+            return true;
+        }
+
+        public static bool TryLoadDataOverwrite(GamePathType pathType, string path, object overwriteObject, bool logWarningIfNotFound = true)
+        {
+            string relativePath = GetRelativePathFromPath(path);
+            string fullPath = GetPathFromPathType(pathType) + Path.DirectorySeparatorChar + relativePath;
+
+            if (!File.Exists(fullPath) && logWarningIfNotFound)
+            {
+                UnityEngine.Debug.LogWarning($"Tried to load data of type {overwriteObject.GetType()} in path {path} but that file does not exist!");
+                return false;
+            }
+
+            if (!overwriteObject.GetType().IsSubclassOf(typeof(UnityEngine.Object)))
+            {
+                UnityEngine.Debug.Log($"Tried to save data, but the object type {overwriteObject.GetType()} does not inherit from {typeof(UnityEngine.Object)} which is required for TryLoadDataOverwrite().");
+                return false;
+            }
+
+            using (FileStream fileStream = File.Open(fullPath, FileMode.Open))
+            {
+                using (StreamReader reader = new StreamReader(fileStream))
+                {
+                    JsonUtility.FromJsonOverwrite(reader.ReadToEnd(), overwriteObject);
+                }
+            }
+            return true;
+        }
+
+        public static string GetPathFromPathType(GamePathType pathType)
+        {
+            switch (pathType)
+            {
+                case GamePathType.Game:
+                    UnityEngine.Debug.Log($"Getting game path: {Application.dataPath}");
+                    return Application.dataPath;
+                case GamePathType.StreamingAsset:
+                    UnityEngine.Debug.Log($"Getting streaming asset path: {Application.streamingAssetsPath}");
+                    return Application.streamingAssetsPath;
+                case GamePathType.PersistentSave:
+                    UnityEngine.Debug.Log($"Getting persistent data path: {Application.persistentDataPath}");
+                    return Application.persistentDataPath;
+                default:
+                    UnityEngine.Debug.LogError($"Tried to get path from {typeof(GamePathType)} {pathType} but it does not have path corresponding to that type in GetFullPathFromPathType()");
+                    return "";
             }
         }
 
-        public static void DeleteFile(string filePath)
+        public static string GetRelativePathFromPath(string fullPath)
         {
-            string path = Application.persistentDataPath + "/" + filePath;
+            string relativePath = fullPath;
+            foreach (GamePathType pathType in Enum.GetValues(typeof(GamePathType)))
+            {
+                string startPath = GetPathFromPathType(pathType);
+                if (fullPath.Contains(startPath))
+                {
+                    StringBuilder builder = new StringBuilder(fullPath);
+                    builder.Remove(fullPath.IndexOf(startPath), startPath.Length);
+                    relativePath = builder.ToString();
+                    break;
+                }
+            }
+            UnityEngine.Debug.Log($"Relative path from full path: {fullPath}  -->  {relativePath}");
+            return relativePath;
+        }
+
+        public static void DeleteFile(GamePathType pathType, string filePath)
+        {
+            string path = Path.Combine(GetPathFromPathType(pathType), GetRelativePathFromPath(filePath));
             if (!File.Exists(path))
             {
                 UnityEngine.Debug.LogWarning($"Tried to delete file: {filePath} but it does not exist!");
                 return;
             }
             File.Delete(path);
+        }
+
+        /// <summary>
+        /// Deletes a directory (universal name for folder) in the path if it exists. If not, nothing happens
+        /// </summary>
+        /// <param name="directoryPath"></param>
+        public static void DeleteDirectory(GamePathType pathType, string directoryPath)
+        {
+            string path = Path.Combine(GetPathFromPathType(pathType), GetRelativePathFromPath(directoryPath));
+            if (Directory.Exists(path))
+            {
+                UnityEngine.Debug.Log($"Deleting directory in path {directoryPath}");
+                Directory.Delete(path, true);
+            }
         }
 
         /// <summary>
@@ -573,13 +628,13 @@ namespace Game.Utilities
         /// <param name="filePath"></param>
         /// <param name="pair"></param>
         /// <param name="createFileIfDoesNotExist"></param>
-        public static void AddPairToDictionaryFile<K, V>(string filePath, K key, V value, bool createFileIfDoesNotExist= true)
+        public static void AddPairToDictionaryFile<K, V>(GamePathType pathType, string filePath, K key, V value, bool createFileIfDoesNotExist= true)
         {
-            string path = Application.persistentDataPath + "/" + filePath;
+            string path = Path.Combine(GetPathFromPathType(pathType), GetRelativePathFromPath(filePath));
             if (!File.Exists(path))
             {
                 if (createFileIfDoesNotExist) 
-                    SaveDataInFile(filePath, new Dictionary<K, V>() { { key, value } });
+                    SaveDataInFile(new Dictionary<K, V>() { { key, value } }, pathType, filePath);
                 else
                 {
                     UnityEngine.Debug.LogWarning($"Tried to add dictionary key/value pair of type: {typeof(K)}, {typeof(V)} to file: {filePath} but it does not exist!");
@@ -587,9 +642,9 @@ namespace Game.Utilities
                 }
             }
 
-            Dictionary<K,V> dictionary= LoadDataFromFile<Dictionary<K, V>>(filePath);
+            TryLoadData(pathType, filePath, out Dictionary<K,V> dictionary);
             dictionary.Add(key, value);
-            SaveDataInFile(filePath, dictionary);
+            SaveDataInFile(dictionary, pathType, filePath);
         }
 
         /// <summary>
@@ -599,45 +654,33 @@ namespace Game.Utilities
         /// <typeparam name="V"></typeparam>
         /// <param name="filePath"></param>
         /// <param name=""></param>
-        public static void UpdateValueInDictionaryFile<K, V>(string filePath, K key, V newValue)
+        public static void UpdateValueInDictionaryFile<K, V>(GamePathType pathType, string filePath, K key, V newValue)
         {
-            string path = Application.persistentDataPath + "/" + filePath;
+            string path = Path.Combine(GetPathFromPathType(pathType), GetRelativePathFromPath(filePath));
             if (!File.Exists(path))
             {
                 UnityEngine.Debug.LogWarning($"Tried to udpate pair of type {typeof(K)} from file: {filePath} but it does not exist!");
                 return;
             }
-            Dictionary<K, V> dictionary = LoadDataFromFile<Dictionary<K, V>>(filePath);
+            TryLoadData(pathType, filePath, out Dictionary<K, V> dictionary);
             dictionary[key] = newValue;
-            SaveDataInFile(filePath, dictionary);
+            SaveDataInFile(dictionary, pathType, filePath);
         }
 
-        public static void RemovePairFromDictionaryFile<K,V>(string filePath, K key)
+        public static void RemovePairFromDictionaryFile<K,V>(GamePathType pathType, string filePath, K key)
         {
-            string path = Application.persistentDataPath + "/" + filePath;
+            string path = Path.Combine(GetPathFromPathType(pathType), GetRelativePathFromPath(filePath));
             if (!File.Exists(path))
             {
                 UnityEngine.Debug.LogWarning($"Tried to remove pair of type {typeof(K)} from file: {filePath} but it does not exist!");
                 return;
             }
-            Dictionary<K, V> dictionary = LoadDataFromFile<Dictionary<K, V>>(filePath);
+            TryLoadData(pathType, filePath, out Dictionary<K, V> dictionary);
             dictionary.Remove(key);
-            SaveDataInFile(filePath, dictionary);
+            SaveDataInFile(dictionary, pathType, filePath);
         }
 
-        /// <summary>
-        /// Deletes a directory (universal name for folder) in the path if it exists. If not, nothing happens
-        /// </summary>
-        /// <param name="directoryPath"></param>
-        public static void DeleteDirectory(string directoryPath)
-        {
-            string path = Application.persistentDataPath + "/" + directoryPath;
-            if (Directory.Exists(path))
-            {
-                UnityEngine.Debug.Log($"Deleting directory in path {directoryPath}");
-                Directory.Delete(path, true);
-            }
-        }
+        
        
     }
 }

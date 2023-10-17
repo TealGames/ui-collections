@@ -12,38 +12,40 @@ namespace Game
         public class AudioSettings
         {
             [Range(0, 100)][SerializeField] private int masterVolume;
-            public int MasterVolume { get => masterVolume; }
+            public int MasterVolume { get => masterVolume; set => masterVolume = value; }
 
             [Range(0, 100)][SerializeField] private int musicVolume;
-            public int MusicVolume { get => musicVolume; }
+            public int MusicVolume { get => musicVolume; set => musicVolume = value; }
 
             [Range(0, 100)][SerializeField] private int soundEffectsVolume;
-            public int SoundEffectsVolume { get => soundEffectsVolume; }
+            public int SoundEffectsVolume { get => soundEffectsVolume; set => soundEffectsVolume = value; }
 
             [Range(0, 100)][SerializeField] private int voiceVolume;
-            public int VoiceVolume { get => voiceVolume; }
+            public int VoiceVolume { get => voiceVolume; set => voiceVolume = value; }
 
-            [field: SerializeField] public bool BypassAudioEffects { get; private set; }
+            [field: SerializeField] public bool BypassAudioEffects { get; set; }
         }
 
         [System.Serializable]
         public class InputSettings
         {
-
+            public List<InputSaveData> InputSaveData { get; set;} = new List<InputSaveData>();
         }
 
         [System.Serializable]
         public class GraphicSettings
         {
-            [field: SerializeField] public bool IsVsyncOn { get; private set; }
-            [field: SerializeField] public OptionSelectEnums.QualityLevels QualityLevel { get; private set; }
-            [field: SerializeField] public OptionSelectEnums.AntiAliasingOptions AntiAliasingLevel { get; private set; }
-            [field: SerializeField] public AnisotropicFiltering AnisotropicFiltering { get; private set; }
+            [field: SerializeField] public bool IsVsyncOn { get; set; }
+            [field: SerializeField] public OptionSelectEnums.QualityLevels QualityLevel { get; set; }
+            [field: SerializeField] public OptionSelectEnums.AntiAliasingOptions AntiAliasingLevel { get; set; }
+            [field: SerializeField] public AnisotropicFiltering AnisotropicFiltering { get; set; }
 
-            [field: SerializeField] public bool DoRenderParticles { get; private set; }
+            [field: SerializeField] public bool DoRenderParticles { get; set; }
 
             [Range(100, 2000)][SerializeField] private int maxParticlesPerObject;
-            public int MaxParticlesPerObject { get => maxParticlesPerObject; }
+            public int MaxParticlesPerObject { get => maxParticlesPerObject; set => maxParticlesPerObject = value; }
+
+            [field: SerializeField] public bool DoBackgroundUIBlur { get; set; }
         }
 
         [System.Serializable]
@@ -59,11 +61,11 @@ namespace Game
         }
 
 
-        [field: SerializeField] public AudioSettings Audio { get; private set; }
-        [field: SerializeField] public InputSettings Input { get; private set; }
-        [field: SerializeField] public GraphicSettings Graphics { get; private set; }
-        [field: SerializeField] public DialogueSettings Dialogue { get; private set; }
-        [field: SerializeField] public OtherSettings Other { get; private set; }
+        [field: SerializeField] public AudioSettings Audio { get; set; }
+        [field: SerializeField] public InputSettings Input { get; set; }
+        [field: SerializeField] public GraphicSettings Graphics { get; set; }
+        [field: SerializeField] public DialogueSettings Dialogue { get; set; }
+        [field: SerializeField] public OtherSettings Other { get; set; }
 
 
         //[Header("Input")]

@@ -12,7 +12,7 @@ namespace Game.UI
         [SerializeField] private Slider slider;
         [SerializeField] private TextMeshProUGUI valueText;
         [Tooltip("If true, on Start() will set the slider's default value for OnValueChanged() UnityEvent")][SerializeField] private bool callValueChangedOnDefaultValue;
-        //public MethodInfo minMaxMethodInfo { get; set; } = null;
+        public float SliderValue { get => slider.value; }
 
         // Start is called before the first frame update
         void Start()

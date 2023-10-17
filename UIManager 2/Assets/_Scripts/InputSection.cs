@@ -52,6 +52,8 @@ namespace Game.UI
             return rebindActions;
         }
 
+        public List<ExtendedRebindActionUI> GetExtendedRebindActons() => extendedActions;
+
         public void ResetSectionBindingsToDefault()
         {
             foreach (var action in extendedActions) action.RebindActionUI.ResetToDefault();

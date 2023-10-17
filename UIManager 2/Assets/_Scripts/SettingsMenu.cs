@@ -19,7 +19,7 @@ namespace Game.UI
     public class SettingsMenu : BaseUI
     {
         [System.Serializable]
-        public class References
+        private class References
         {
             [Header("Volume")]
             [SerializeField] public ExtendedSlider masterSlider;
@@ -34,8 +34,9 @@ namespace Game.UI
 
             [SerializeField] public ExtendedToggle vsyncToggle;
             [SerializeField] public ExtendedToggle renderParticlesToggle;
-
             [SerializeField] public ExtendedSlider maxParticlesPerObjectSlider;
+
+            [SerializeField] public ExtendedToggle backgroundUIBlurToggle;
 
 
             [Header("Input")]
@@ -51,8 +52,11 @@ namespace Game.UI
         [SerializeField] public ExtendedRebindActionUI.RebindDisplay displayType;
 
         [field: SerializeField] public SettingsSO DefaultSettings { get; private set; }
-        //[SerializeField] private List<TabContainer> tabContainers = new List<TabContainer>();
 
+        [SerializeField] private bool saveSettingPreferences;
+        private SettingsSO currentSavePreferences = null;
+        public const GamePathType PREFERENCES_PATH_TYPE = GamePathType.PersistentSave;
+        public const string PREFERENCES_RELATIVE_PATH = "setting-preferences";
        
 
         public float MasterVolumeDefault { get=> DefaultSettings.Audio.MasterVolume; }
@@ -87,7 +91,7 @@ namespace Game.UI
 
             SetSettingsOptions(DefaultSettings);
 
-            DisableUI();
+            
         }
 
         // Start is called before the first frame update
@@ -95,6 +99,7 @@ namespace Game.UI
         {
             //since the setting option only changes the current scene's particle systems, we have to update them anytime we change scenes
             SceneManager.sceneLoaded += (Scene newScene, LoadSceneMode mode) => SetRenderParticles(doRenderParticles);
+            Container.SetActive(false);
         }
 
         // Update is called once per frame
@@ -194,15 +199,35 @@ namespace Game.UI
         }
         #endregion
 
-        public void ResetAllRebindActions()
-        {
-            foreach (var section in references.inputSections) section.ResetSectionBindingsToDefault();
-        }
+        
 
         #region Input Methods
         public void SetRebindOverlayStatus(bool status) => references.rebindOverlay.SetActive(status);
         public void EnableRebindOverlay(RebindActionUI rebindAction, InputActionRebindingExtensions.RebindingOperation operation) => SetRebindOverlayStatus(true);
         public void DisableRebindOverlay(RebindActionUI rebindAction, InputActionRebindingExtensions.RebindingOperation operation) => SetRebindOverlayStatus(false);
+
+        public void ResetAllRebindActions()
+        {
+            foreach (var section in references.inputSections) section.ResetSectionBindingsToDefault();
+        }
+
+        public ExtendedRebindActionUI GetExtendedRebindActionFromActionName(string actionName)
+        {
+            ExtendedRebindActionUI foundExtendedRebind = null;
+            foreach (var section in references.inputSections)
+            {
+                foreach (var extendedRebind in section.GetExtendedRebindActons())
+                {
+                    if (extendedRebind.RebindActionUI.actionReference.action.name== actionName)
+                    {
+                        foundExtendedRebind = extendedRebind;
+                        break;
+                    }
+                }
+            }
+            return foundExtendedRebind;
+        }
+        #endregion
 
         public void SetSettingsOptions(SettingsSO newSettings)
         {
@@ -212,7 +237,6 @@ namespace Game.UI
             SetDialogueSettings(newSettings);
             SetOtherSettings(newSettings);
         }
-        #endregion
 
         private void SetAudioSettings(SettingsSO newSettings)
         {
@@ -232,13 +256,25 @@ namespace Game.UI
             if (references.qualityLevelSelector != null) references.qualityLevelSelector.SetCurrentOption(newSettings.Graphics.QualityLevel.ToString());
             if (references.antiAliasingSelector != null) references.antiAliasingSelector.SetCurrentOption(newSettings.Graphics.AntiAliasingLevel.ToString());
             if (references.anisotropicFilteringSelector != null) references.anisotropicFilteringSelector.SetCurrentOption(newSettings.Graphics.AnisotropicFiltering.ToString());
+
+            if (references.backgroundUIBlurToggle != null) references.backgroundUIBlurToggle.SetToggleValue(newSettings.Graphics.DoBackgroundUIBlur);
         }
         public void SetDefaultGraphicSettings() => SetGraphicSettings(DefaultSettings);
 
 
         private void SetInputSettings(SettingsSO newSettings)
         {
+            throw new NotImplementedException();
 
+            foreach (var savedAction in newSettings.Input.InputSaveData)
+            {
+                ExtendedRebindActionUI foundExtendedRebind= GetExtendedRebindActionFromActionName(savedAction.ActionName);
+                if (foundExtendedRebind!=null)
+                {
+                    //foundExtendedRebind.RebindActionUI.binding.path = savedAction.Path;
+                    //foundExtendedRebind.RebindActionUI.binding.overridePath = savedAction.ActionName;
+                }
+            }
         }
         public void SetDefaultInputSettings() => SetInputSettings(DefaultSettings);
 
@@ -255,6 +291,59 @@ namespace Game.UI
 
         }
         public void SetDefaultOtherSettings() => SetOtherSettings(DefaultSettings);
+
+
+        public void SaveSettingPreferences()
+        {
+            SettingsSO data= ScriptableObject.CreateInstance<SettingsSO>();
+
+            if (data.Audio==null) data.Audio=new SettingsSO.AudioSettings();
+            if (data.Graphics==null) data.Graphics = new SettingsSO.GraphicSettings();
+            if (data.Input==null) data.Input=new SettingsSO.InputSettings();
+            if (data.Dialogue==null) data.Dialogue = new SettingsSO.DialogueSettings();
+            if (data.Other==null) data.Other=new SettingsSO.OtherSettings();
+
+            //Audio
+            if (references.masterSlider != null) data.Audio.MasterVolume = (int)references.masterSlider.SliderValue;
+            if (references.musicSlider != null) data.Audio.MusicVolume = (int)references.musicSlider.SliderValue;
+            if (references.sfxSlider != null) data.Audio.SoundEffectsVolume = (int)references.sfxSlider.SliderValue;
+            if (references.voiceSlider != null) data.Audio.VoiceVolume = (int)references.voiceSlider.SliderValue;
+
+            //Graphics
+            if (references.vsyncToggle != null) data.Graphics.IsVsyncOn = references.vsyncToggle.ToggleValue;
+            if (references.renderParticlesToggle != null) data.Graphics.DoRenderParticles = references.renderParticlesToggle.ToggleValue;
+
+            if (references.qualityLevelSelector != null) references.qualityLevelSelector.TryGetCurrentOptionAsEnum<OptionSelectEnums.QualityLevels>(data.Graphics.QualityLevel);
+            if (references.antiAliasingSelector != null) references.antiAliasingSelector.TryGetCurrentOptionAsEnum<OptionSelectEnums.AntiAliasingOptions>(data.Graphics.AntiAliasingLevel);
+            if (references.anisotropicFilteringSelector != null) references.anisotropicFilteringSelector.TryGetCurrentOptionAsEnum<AnisotropicFiltering>(data.Graphics.AntiAliasingLevel);
+
+            if (references.backgroundUIBlurToggle != null) data.Graphics.DoBackgroundUIBlur = references.backgroundUIBlurToggle.ToggleValue;
+
+            //Input
+            List<InputSaveData> inputSaveData= new List<InputSaveData>();
+            foreach (var section in references.inputSections)
+            {
+                foreach (var rebindAction in section.GetRebindActions())
+                {
+                    inputSaveData.Add(new InputSaveData(rebindAction.actionReference.action.name, rebindAction.binding.path, rebindAction.binding.overridePath));
+                }
+            }
+            currentSavePreferences = data;
+
+            //Dialogue
+
+
+            //Other
+        }
+
+        public void LoadSettingPreferences()
+        {
+            if (HelperFunctions.TryLoadDataOverwrite(PREFERENCES_PATH_TYPE, PREFERENCES_RELATIVE_PATH, currentSavePreferences))
+            {
+                SetSettingsOptions(currentSavePreferences);
+            }
+            else UnityEngine.Debug.LogError("Tried to load current setting player preferences but the save data was not found!");
+        }
     }
 }
 

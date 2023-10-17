@@ -15,6 +15,9 @@ namespace Game.UI.EditorExtension
     [CustomEditor(typeof(MemberSelectionSO))]
     public class MemberSelectionEditor : ExtendedEditor
     {
+        /// <summary>
+        /// This is the info that the SO saves about itself, data which is set by the user, which is then persisted so it retains the same info
+        /// </summary>
         public class PersistentInfo
         {
             public string AssemblyName { get; set; } = EditorHelperFunctions.GetDefaultAssemblyName();
@@ -73,7 +76,8 @@ namespace Game.UI.EditorExtension
 
             public string GetDataAsString()
             {
-                return $"{AssemblyName}/{AssemblyIndex}/{((Type!=null)? Type.Name : "null")}/{((MonoScript!=null)? MonoScript.name : "null")}/{InstanceGUID}/{ChoosenMemberIndex}";
+                string separator = HelperFunctions.DATA_SEPARATOR;
+                return $"{AssemblyName}{separator}{AssemblyIndex}{separator}{((Type!=null)? Type.Name : "null")}{separator}{((MonoScript!=null)? MonoScript.name : "null")}{separator}{InstanceGUID}{separator}{ChoosenMemberIndex}";
             }
         }
         private static PersistentInfo persistentInfo = null;
@@ -111,12 +115,14 @@ namespace Game.UI.EditorExtension
 
         private readonly string separator = HelperFunctions.DATA_SEPARATOR;
 
+        private static MemberSelectionSO memberSelectionSO = null;
+
 
         public override void OnInspectorGUI()
         {
             //serializedObject.Update();
             DrawDefaultInspector();
-            MemberSelectionSO memberSelectionSO = (MemberSelectionSO)target;
+            memberSelectionSO = (MemberSelectionSO)target;
             serializedObject.Update();
             TryGetInfo();
             UnityEngine.Debug.Log("Editor has been redrawn!");
@@ -277,8 +283,11 @@ namespace Game.UI.EditorExtension
                     //memberSelectionSO.SelectedMemberInfo = allowedMembers.GetDictionaryValueAtIndex(persistentInfo.ChoosenMemberIndex);
 
                     //Here we save the Assembly name, Object ID, the script type, the member type and the name of the member
-                    string saveString = $"{persistentInfo.AssemblyName}/{persistentInfo.InstanceGUID}/{persistentInfo.MonoScript.GetClass()}/{memberSelectionSO.AttributeType}/{allowedMembers.GetDictionaryValueAtIndex(persistentInfo.ChoosenMemberIndex).Name}";
-                    HelperFunctions.SaveDataInFile(target.GetInstanceID().ToString() + separator + MemberSelectionSO.MEMBER_INFO_FILE_NAME, saveString);
+                    string saveString = $"{persistentInfo.AssemblyName}{separator}{persistentInfo.InstanceGUID}{separator}{persistentInfo.MonoScript.GetClass()}{separator}" +
+                        $"{memberSelectionSO.AttributeType}{separator}{allowedMembers.GetDictionaryValueAtIndex(persistentInfo.ChoosenMemberIndex).Name}";
+
+                    //We also save the member info data so that it can be used by the default MemberSelectionSO, which will try to retrieve this data when getting the member info
+                    HelperFunctions.SaveDataInFile(saveString, MemberSelectionSO.PATH_TYPE, memberSelectionSO.MemberInfoFullPath);
 
                     memberDataFilled = true;
                     SaveInfo();
@@ -295,16 +304,18 @@ namespace Game.UI.EditorExtension
             //Undo.RecordObject(target, target.name);
         }
 
+        /// <summary>
+        /// Tries to load user entered ScriptableObject data
+        /// </summary>
         public void TryGetInfo()
         {
-            string infoAsString = EditorPrefs.HasKey(target.GetInstanceID().ToString()) ? EditorPrefs.GetString(target.GetInstanceID().ToString()) : "";
+            string infoAsString = EditorPrefs.HasKey(memberSelectionSO.InstanceID) ? EditorPrefs.GetString(memberSelectionSO.InstanceID) : "";
 
             if (infoAsString == "")
             {
                 //If the data does not exist in preferences, but is stored in a file (meaning we reopened the editor after closing so the prefs was cleared, but we still have the data)
                 //Then, we can just get it here from the file
-                string loadedData = HelperFunctions.LoadDataFromFile(target.GetInstanceID().ToString()+separator+ MemberSelectionSO.SO_FILE_NAME);
-                if (!loadedData.Equals(""))
+                if (HelperFunctions.TryLoadData<string>(MemberSelectionSO.PATH_TYPE, memberSelectionSO.SOFileFullPath, out string loadedData))
                 {
                     UnityEngine.Debug.Log("Info not saved in EditorPrefs, found data in file instead! (can occur on loading data which is set after relaunching the editor)");
                     infoAsString = loadedData;
@@ -354,11 +365,14 @@ namespace Game.UI.EditorExtension
             persistentInfo = new PersistentInfo(data[0], Convert.ToInt32(data[1]), foundAssembly.GetType(data[2]), foundScript, data[4], Convert.ToInt32(data[5]));
         }
 
+        /// <summary>
+        /// Saves user entered ScriptableObject data
+        /// </summary>
         public void SaveInfo()
         {
-            if (EditorPrefs.HasKey(target.GetInstanceID().ToString())) EditorPrefs.DeleteKey(target.GetInstanceID().ToString());
-            EditorPrefs.SetString(target.GetInstanceID().ToString(), persistentInfo.GetDataAsString());
-            HelperFunctions.SaveDataInFile(target.GetInstanceID().ToString()+separator +MemberSelectionSO.SO_FILE_NAME, persistentInfo.GetDataAsString());
+            if (EditorPrefs.HasKey(memberSelectionSO.InstanceID)) EditorPrefs.DeleteKey(memberSelectionSO.InstanceID);
+            EditorPrefs.SetString(memberSelectionSO.InstanceID, persistentInfo.GetDataAsString());
+            HelperFunctions.SaveDataInFile(persistentInfo.GetDataAsString(), MemberSelectionSO.PATH_TYPE, memberSelectionSO.SOFileFullPath);
         }
     }
 }

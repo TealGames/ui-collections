@@ -25,7 +25,7 @@ namespace Game
                 if (true)
                 {
                     UnityEngine.Debug.Log("Member info null, trying to get it!");
-                    string data = HelperFunctions.LoadDataFromFile(GetInstanceID().ToString()+ separator + MEMBER_INFO_FILE_NAME);
+                    HelperFunctions.TryLoadFullData(PATH_TYPE, MemberInfoFullPath, out string data);
                     if (string.IsNullOrEmpty(data))
                     {
                         UnityEngine.Debug.LogError($"The MemberInfo cannot be accessed because there is no data stored for {name}! " +
@@ -122,10 +122,40 @@ namespace Game
         private MemberInfo selectedMemberInfo = null;
 
         //FILE NAMES
-        public const string SO_FILE_NAME = "SO Data";
-        public const string MEMBER_INFO_FILE_NAME = "Member Info";
+        public string SOFileFullPath
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(instanceID))
+                {
+                    UnityEngine.Debug.LogError($"Tried to get {typeof(MemberSelectionSO)}'s file full path with SO name '{name}' but its instanceID is NULl or empty!");
+                    return "";
+                }
+                else return Path.Combine(GeneralPath, instanceID, "member-info");
+            }
+        }
 
-        private readonly string separator = HelperFunctions.DATA_SEPARATOR;
+        public string MemberInfoFullPath
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(instanceID))
+                {
+                    UnityEngine.Debug.LogError($"Tried to get {typeof(MemberSelectionSO)}'s MemberInfo full path with SO name '{name}' but its instanceID is NULl or empty!");
+                    return "";
+                }
+                else return Path.Combine(GeneralPath, instanceID, "so-data");
+            }
+        }
+        public string GeneralPath
+        {
+            get => Path.Combine(HelperFunctions.GetPathFromPathType(PATH_TYPE), $"ScriptableObjects{Path.DirectorySeparatorChar}MemberSelections{Path.DirectorySeparatorChar}Data");
+        }
+        public const GamePathType PATH_TYPE = GamePathType.Game;
+
+        public readonly string separator = HelperFunctions.DATA_SEPARATOR;
+
+
 
         [Header("Data stored in 'Application.persistentDataPath'")]
         [Space(10)]
@@ -133,15 +163,9 @@ namespace Game
         [ReadOnly] [Tooltip("The instance ID of this object. Some error messages may contain this value as well as the files that stores this data, so it is here for your convience. " +
             "If it is not visible, reload all scripts by pressing SHIFT+ R or going to Shortcuts -> Recompile Scripts")]
         [SerializeField] private string instanceID;
+        public string InstanceID { get => instanceID; }
         [field: SerializeField] public AttributeRestrictionType AttributeType { get; set; } = AttributeRestrictionType.Method;
         [Tooltip("This is the type of a property/field or the return type of a method")][field: SerializeField] public UserSelectedType MemberType { get; private set; } = UserSelectedType.Void;
-
-        public void OnDestroy()
-        {
-            UnityEngine.Debug.Log("Destroyed SO");
-            //When we delete this SO, we make we delete its corresponding data in the files too
-            HelperFunctions.DeleteDirectory(GetInstanceID().ToString());
-        }
 
         public void OnDisable()
         {
@@ -150,7 +174,8 @@ namespace Game
 
         public void OnValidate()
         {
-            instanceID = GetInstanceID().ToString();
+            //instanceID = GetInstanceID().ToString();
+            if (string.IsNullOrEmpty(instanceID)) instanceID= Guid.NewGuid().ToString();
         }
     }
 }

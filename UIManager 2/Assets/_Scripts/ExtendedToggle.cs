@@ -8,6 +8,7 @@ namespace Game.UI
     public class ExtendedToggle : MonoBehaviour
     {
         [SerializeField] private Toggle toggle;
+        public bool ToggleValue { get => toggle.isOn; }
 
         // Start is called before the first frame update
         void Start()

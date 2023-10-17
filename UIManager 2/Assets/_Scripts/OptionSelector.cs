@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,6 +33,19 @@ namespace Game.UI
 
         private List<string> options = new List<string>();
         private int currentOptionIndex = -1;
+        public string CurrentOption
+        {
+            get
+            {
+                if (currentOptionIndex == -1)
+                {
+                    UnityEngine.Debug.LogError($"Tried to get the current option on {typeof(OptionSelector)} {gameObject.name} but the current index is -1! " +
+                    $"Make sure an option is set before getting this property!");
+                    return "";
+                }
+                else return options[currentOptionIndex].ToString();
+            }
+        }
 
         [Tooltip("Called on Start(). If you want to set a default option, this is where you can do it")] 
         [SerializeField] private UnityEvent OnSetup;
@@ -154,6 +168,17 @@ namespace Game.UI
 
             OnPreviousOption?.Invoke(options[currentOptionIndex].ToString());
             SetCurrentOption(options[currentOptionIndex].ToString());
+        }
+
+        public bool TryGetCurrentOptionAsEnum<T>(object overwriteObject) where T : Enum
+        {
+            overwriteObject = null;
+            if (Enum.TryParse(typeof(T), CurrentOption, true, out object result))
+            {
+                overwriteObject = result;
+                return true;
+            }
+            else return false;
         }
     }
 }

@@ -71,6 +71,7 @@ namespace Game.Input
             }
 
             playerMap = InputAsset.FindActionMap(PLAYER_MAP_NAME, throwIfNotFound: true);
+            foreach (var action in InputAsset) action.Enable();
         }
 
         // Update is called once per frame
@@ -346,6 +347,8 @@ namespace Game.Input
             if (deviceButtonSprites.Length == 0) return null;
             return Array.Find(deviceButtonSprites, sprites => sprites.DeviceType == device);
         }
+ 
+
     }
 }
 

@@ -15,7 +15,8 @@ namespace Game.UI
         // Start is called before the first frame update
         void Start()
         {
-            InputManager.Instance.InputAsset[enableAction.name].performed += EnableUIContext;
+            if (enableAction!=null) InputManager.Instance.InputAsset[enableAction.name].performed += EnableUIContext;
+            Container.SetActive(false);
         }
 
         // Update is called once per frame
@@ -29,8 +30,8 @@ namespace Game.UI
         public override void EnableUI()
         {
             base.EnableUI();
-            InputManager.Instance.InputAsset[enableAction.name].performed -= EnableUIContext;
-            InputManager.Instance.InputAsset[disableAction.name].performed += DisableUIContext;
+            if (enableAction != null) InputManager.Instance.InputAsset[enableAction.name].performed -= EnableUIContext;
+            if (disableAction != null) InputManager.Instance.InputAsset[disableAction.name].performed += DisableUIContext;
         }
 
 
@@ -38,8 +39,8 @@ namespace Game.UI
         public override void DisableUI()
         {
             base.DisableUI();
-            InputManager.Instance.InputAsset[disableAction.name].performed -= DisableUIContext;
-            InputManager.Instance.InputAsset[enableAction.name].performed += EnableUIContext;
+            if (disableAction != null) InputManager.Instance.InputAsset[disableAction.name].performed -= DisableUIContext;
+            if (enableAction != null) InputManager.Instance.InputAsset[enableAction.name].performed += EnableUIContext;
         }
 
     }
