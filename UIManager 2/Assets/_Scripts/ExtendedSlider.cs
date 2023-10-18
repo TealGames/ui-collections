@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 namespace Game.UI
 {
+    /// <summary>
+    /// Extends the basic uses of the <see cref="Slider"/> in order to allow more dynamic setups and customizability
+    /// </summary>
     public class ExtendedSlider : MonoBehaviour
     {
         [SerializeField] private Slider slider;

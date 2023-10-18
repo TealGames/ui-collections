@@ -175,7 +175,7 @@ namespace Game
         public void OnValidate()
         {
             //instanceID = GetInstanceID().ToString();
-            if (string.IsNullOrEmpty(instanceID)) instanceID= Guid.NewGuid().ToString();
+            if (string.IsNullOrEmpty(instanceID)) instanceID = GetInstanceID().ToString();
         }
     }
 }

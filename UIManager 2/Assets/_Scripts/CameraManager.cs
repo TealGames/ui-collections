@@ -9,6 +9,9 @@ using UnityEngine.Rendering.Universal;
 
 namespace Game.CameraManagement
 {
+    /// <summary>
+    /// Manages the game's camera. Only one ever exists in a scene. Access the Singleton Instance with <see cref="CameraManager.Instance"/>
+    /// </summary>
     public class CameraManager : MonoBehaviour
     {
         private UniversalAdditionalCameraData additionalMainCameraData;
@@ -37,7 +40,7 @@ namespace Game.CameraManagement
             DontDestroyOnLoad(gameObject);
 
             additionalMainCameraData = HelperFunctions.MainCamera.GetUniversalAdditionalCameraData();
-            if (volume.profile.TryGet<DepthOfField>(out volumeDepthOfField)) SetUIBackgroundBlur(false);
+            if (volume!=null && volume.profile.TryGet<DepthOfField>(out volumeDepthOfField)) SetUIBackgroundBlur(false);
         }
 
         // Start is called before the first frame update

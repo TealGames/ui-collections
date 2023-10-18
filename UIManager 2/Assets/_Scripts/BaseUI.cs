@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 namespace Game.UI
 {
+    /// <summary>
+    /// The base class that an openable UI should inherit from to have basic functionalities such as opening and closing, which can be overriden
+    /// </summary>
     public class BaseUI : MonoBehaviour, IOpenableUI
     {
         [Header("BaseUI")]

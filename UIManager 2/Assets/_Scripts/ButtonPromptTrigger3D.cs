@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Game
 {
+    /// <summary>
+    /// Triggers a <see cref="ButtonPrompt"/> when a <see cref="Collider"/> enters the <see cref="ButtonPromptTrigger3D"/> <see cref="Collider"/>
+    /// </summary>
     [RequireComponent(typeof(Collider))]
     public class ButtonPromptTrigger3D : Trigger3D
     {

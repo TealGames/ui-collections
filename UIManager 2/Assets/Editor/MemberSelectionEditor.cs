@@ -3,6 +3,7 @@ using Game.Utilities.Editor;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using TMPro;
@@ -18,6 +19,7 @@ namespace Game.UI.EditorExtension
         /// <summary>
         /// This is the info that the SO saves about itself, data which is set by the user, which is then persisted so it retains the same info
         /// </summary>
+        [System.Serializable]
         public class PersistentInfo
         {
             public string AssemblyName { get; set; } = EditorHelperFunctions.GetDefaultAssemblyName();
@@ -26,10 +28,12 @@ namespace Game.UI.EditorExtension
             public MonoScript MonoScript { get; set; } = null;
             public string InstanceGUID { get; set; } = "";
             public int ChoosenMemberIndex { get; set;} = -1;
+            public string AssetPath { get; set; } = "Assets/ScriptableObjects/MemberSelections";
+            
 
             public PersistentInfo() { }
 
-            public PersistentInfo(string assemblyName, int assemblyIndex, Type type, MonoScript monoScript, string instanceGUID, int memberIndex)
+            public PersistentInfo(string assemblyName, int assemblyIndex, Type type, MonoScript monoScript, string instanceGUID, int memberIndex, string assetPath)
             {
                 this.AssemblyName = assemblyName;
                 this.AssemblyIndex = assemblyIndex;
@@ -37,24 +41,27 @@ namespace Game.UI.EditorExtension
                 this.MonoScript = monoScript;
                 this.InstanceGUID = instanceGUID;
                 this.ChoosenMemberIndex = memberIndex;
+                this.AssetPath = assetPath;
             }
 
-            public PersistentInfo(string assemblyName, int assemblyIndex, Type type, string instanceGUID, int memberIndex)
+            public PersistentInfo(string assemblyName, int assemblyIndex, Type type, string instanceGUID, int memberIndex, string assetPath)
             {
                 this.AssemblyName = assemblyName;
                 this.AssemblyIndex = assemblyIndex;
                 this.Type = type;
                 this.InstanceGUID = instanceGUID;
                 this.ChoosenMemberIndex = memberIndex;
+                this.AssetPath = assetPath;
             }
 
-            public PersistentInfo(string assemblyName, int assemblyIndex, MonoScript monoScript, string instanceGUID, int memberIndex)
+            public PersistentInfo(string assemblyName, int assemblyIndex, MonoScript monoScript, string instanceGUID, int memberIndex, string assetPath)
             {
                 this.AssemblyName = assemblyName;
                 this.AssemblyIndex = assemblyIndex;
                 this.MonoScript = monoScript;
                 this.InstanceGUID = instanceGUID;
                 this.ChoosenMemberIndex = memberIndex;
+                this.AssetPath = assetPath;
             }
 
             /// <summary>
@@ -64,21 +71,25 @@ namespace Game.UI.EditorExtension
             /// <param name="assemblyIndex"></param>
             /// <param name="instanceGUID"></param>
             /// <param name="memberIndex"></param>
-            public PersistentInfo(string assemblyName, int assemblyIndex, string instanceGUID, int memberIndex)
+            public PersistentInfo(string assemblyName, int assemblyIndex, string instanceGUID, int memberIndex, string assetPath)
             {
                 this.AssemblyName = assemblyName;
                 this.AssemblyIndex = assemblyIndex;
                 this.InstanceGUID = instanceGUID;
                 this.ChoosenMemberIndex = memberIndex;
+                this.AssetPath=assetPath;
             }
 
-            public bool HasData() => AssemblyName != "" && AssemblyIndex != -1 && Type != null && MonoScript != null && InstanceGUID != "" && ChoosenMemberIndex != -1;
+            public bool HasData() => AssemblyName != "" && AssemblyIndex != -1 && Type != null && MonoScript != null && InstanceGUID != "" && ChoosenMemberIndex != -1 && AssetPath != "";
 
             public string GetDataAsString()
             {
                 string separator = HelperFunctions.DATA_SEPARATOR;
-                return $"{AssemblyName}{separator}{AssemblyIndex}{separator}{((Type!=null)? Type.Name : "null")}{separator}{((MonoScript!=null)? MonoScript.name : "null")}{separator}{InstanceGUID}{separator}{ChoosenMemberIndex}";
+                string data= $"{AssemblyName}{separator}{AssemblyIndex}{separator}{((Type != null) ? Type.Name : "null")}{separator}{((MonoScript != null) ? MonoScript.name : "null")}{separator}{InstanceGUID}{separator}{ChoosenMemberIndex}{separator}{assetPath}";
+                UnityEngine.Debug.Log($"Returning data: {data}");
+                return data;
             }
+            public static int GetStoredDataCount() => 7;
         }
         private static PersistentInfo persistentInfo = null;
 
@@ -116,6 +127,7 @@ namespace Game.UI.EditorExtension
         private readonly string separator = HelperFunctions.DATA_SEPARATOR;
 
         private static MemberSelectionSO memberSelectionSO = null;
+        private static string assetPath = "";
 
 
         public override void OnInspectorGUI()
@@ -123,8 +135,34 @@ namespace Game.UI.EditorExtension
             //serializedObject.Update();
             DrawDefaultInspector();
             memberSelectionSO = (MemberSelectionSO)target;
+            assetPath = AssetDatabase.GetAssetPath(memberSelectionSO);
+            
+            UnityEngine.Debug.Log($"Current asset path: {assetPath}");
+
+            foreach (string directory in Directory.GetDirectories("Assets/ScriptableObjects/MemberSelections"))
+            {
+                foreach (var fileName in Directory.GetFiles($"{directory}"))
+                {
+                    if (HelperFunctions.TryLoadData(MemberSelectionSO.PATH_TYPE, $"ScriptableObjects/MemberSelections/{directory}/{fileName}", out string data))
+                    {
+                        string[] dataSplit= data.Split(separator);
+                        string assetRelativepath = dataSplit[6];
+                        MemberSelectionSO asset = AssetDatabase.LoadAssetAtPath<MemberSelectionSO>(assetRelativepath);
+                        if (asset==null)
+                        {
+                            File.Delete($"ScriptableObjects/MemberSelections/{directory}/{fileName}");
+                            return;
+                        }
+                        string instanceID = asset.InstanceID;
+                        AssetDatabase.RenameAsset($"Assets/ScriptableObjects/MemberSelections/{directory}/{fileName}", instanceID);
+                    }
+                }
+            }
+
             serializedObject.Update();
+
             TryGetInfo();
+            
             UnityEngine.Debug.Log("Editor has been redrawn!");
 
             this.allowFields = (memberSelectionSO.AttributeType & AttributeRestrictionType.Field) != 0;
@@ -282,12 +320,21 @@ namespace Game.UI.EditorExtension
                     persistentInfo.ChoosenMemberIndex = EditorGUILayout.Popup(persistentInfo.ChoosenMemberIndex, allowedMembers.Keys.ToArray());
                     //memberSelectionSO.SelectedMemberInfo = allowedMembers.GetDictionaryValueAtIndex(persistentInfo.ChoosenMemberIndex);
 
-                    //Here we save the Assembly name, Object ID, the script type, the member type and the name of the member
-                    string saveString = $"{persistentInfo.AssemblyName}{separator}{persistentInfo.InstanceGUID}{separator}{persistentInfo.MonoScript.GetClass()}{separator}" +
-                        $"{memberSelectionSO.AttributeType}{separator}{allowedMembers.GetDictionaryValueAtIndex(persistentInfo.ChoosenMemberIndex).Name}";
+                    try
+                    {
+                        //Here we save the Assembly name, Object ID, the script type, the member type and the name of the member
+                        string saveString = $"{persistentInfo.AssemblyName}{separator}{persistentInfo.InstanceGUID}{separator}{persistentInfo.MonoScript.GetClass()}{separator}" +
+                            $"{memberSelectionSO.AttributeType}{separator}{allowedMembers.GetDictionaryValueAtIndex(persistentInfo.ChoosenMemberIndex).Name}";
 
-                    //We also save the member info data so that it can be used by the default MemberSelectionSO, which will try to retrieve this data when getting the member info
-                    HelperFunctions.SaveDataInFile(saveString, MemberSelectionSO.PATH_TYPE, memberSelectionSO.MemberInfoFullPath);
+                        //We also save the member info data so that it can be used by the default MemberSelectionSO, which will try to retrieve this data when getting the member info
+                        HelperFunctions.SaveDataInFile(saveString, MemberSelectionSO.PATH_TYPE, memberSelectionSO.MemberInfoFullPath);
+                    }
+                    catch (NullReferenceException e)
+                    {
+                        UnityEngine.Debug.Log($"Tried to save MemberInfo data in MemberSelectionSO {name} but one of the values needed for saving is null! " +
+                            $"Assembly: {persistentInfo.AssemblyName}; ObjectID GUID: {persistentInfo.InstanceGUID}; Class {persistentInfo.MonoScript.GetClass()}; " +
+                            $"Attribute Type: {memberSelectionSO.AttributeType}; Selected Member Name: {allowedMembers.GetDictionaryValueAtIndex(persistentInfo.ChoosenMemberIndex).Name}");
+                    }
 
                     memberDataFilled = true;
                     SaveInfo();
@@ -315,7 +362,7 @@ namespace Game.UI.EditorExtension
             {
                 //If the data does not exist in preferences, but is stored in a file (meaning we reopened the editor after closing so the prefs was cleared, but we still have the data)
                 //Then, we can just get it here from the file
-                if (HelperFunctions.TryLoadData<string>(MemberSelectionSO.PATH_TYPE, memberSelectionSO.SOFileFullPath, out string loadedData))
+                if (HelperFunctions.TryLoadData(MemberSelectionSO.PATH_TYPE, memberSelectionSO.SOFileFullPath, out string loadedData))
                 {
                     UnityEngine.Debug.Log("Info not saved in EditorPrefs, found data in file instead! (can occur on loading data which is set after relaunching the editor)");
                     infoAsString = loadedData;
@@ -326,11 +373,25 @@ namespace Game.UI.EditorExtension
                 {
                     UnityEngine.Debug.Log("Could not find instance id, new info created!");
                     persistentInfo = new PersistentInfo();
+                    persistentInfo.AssetPath = assetPath;
                     return;
                 }
             }
             List<string> data = infoAsString.Split(separator).ToList();
-            //Reference: (0) assemblyName, (1) assemblyIndex, (2) type, (3) monoScript, (4) instanceGUID, (5) memberIndex
+            int dataCount = PersistentInfo.GetStoredDataCount();
+            if (data.Count!= dataCount)
+            {
+                UnityEngine.Debug.Log("There is either a surplus or a data deficit!");
+                if (data.Count< dataCount) for(int i=data.Count; i< dataCount - data.Count; i++) data.Add("");
+                else
+                {
+                    List<string> removedData= new List<string>();
+                    for (int i=data.Count-1; i>data.Count-Math.Abs(data.Count-dataCount)-1; i--) removedData.Add(data[i]);
+                    foreach (var element in removedData) data.Remove(element);
+                }  
+            }
+            UnityEngine.Debug.Log($"There are {data.Count} data");
+            //Reference: (0) assemblyName, (1) assemblyIndex, (2) type, (3) monoScript, (4) instanceGUID, (5) memberIndex, (6) assetPath
 
             List<Assembly> assemblies = EditorHelperFunctions.GetAssemblies();
             Assembly foundAssembly = null;
@@ -339,30 +400,30 @@ namespace Game.UI.EditorExtension
             //If both the type and the monoscript are not found, we create the object without them
             if (data[2].ToLower().Equals("null") && data[3].ToLower().Equals("null"))
             {
-                persistentInfo = new PersistentInfo(data[0], Convert.ToInt32(data[1]), data[4], Convert.ToInt32(data[5]));
+                persistentInfo = new PersistentInfo(data[0], Convert.ToInt32(data[1]), data[4], Convert.ToInt32(data[5]), data[6]);
                 return;
             }
 
-            //Since the type is null, we get the monoscript
+            //Since the type is null, we just set the monoscript
             else if (data[2].ToLower().Equals("null"))
             {
                 foundScript = EditorHelperFunctions.FindMonoScriptByName(data[3]);
-                persistentInfo = new PersistentInfo(data[0], Convert.ToInt32(data[1]), foundScript, data[4], Convert.ToInt32(data[5]));
+                persistentInfo = new PersistentInfo(data[0], Convert.ToInt32(data[1]), foundScript, data[4], Convert.ToInt32(data[5]), data[6]);
                 return;
             }
-            
-            //Since the monoscript is null, we get the type
+
+            //Since the monoscript is null, we just set the type
             else if (data[3].ToLower().Equals("null"))
             {
                 UnityEngine.Debug.Log($"Trying to get assembly name {data[0]}");
                 foundAssembly = assemblies.Where(assembly => assembly.GetName().Name == data[0]).First();
-                persistentInfo = new PersistentInfo(data[0], Convert.ToInt32(data[1]), foundAssembly.GetType(data[2]), data[4], Convert.ToInt32(data[5]));
+                persistentInfo = new PersistentInfo(data[0], Convert.ToInt32(data[1]), foundAssembly.GetType(data[2]), data[4], Convert.ToInt32(data[5]), data[6]);
                 return;
             }
 
             foundAssembly = assemblies.Where(assembly => assembly.GetName().Name == data[0]).First();
             foundScript = EditorHelperFunctions.FindMonoScriptByName(data[3]);
-            persistentInfo = new PersistentInfo(data[0], Convert.ToInt32(data[1]), foundAssembly.GetType(data[2]), foundScript, data[4], Convert.ToInt32(data[5]));
+            persistentInfo = new PersistentInfo(data[0], Convert.ToInt32(data[1]), foundAssembly.GetType(data[2]), foundScript, data[4], Convert.ToInt32(data[5]), data[6]);
         }
 
         /// <summary>

@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 namespace Game.UI
 {
+    /// <summary>
+    /// Used to display ahealth icons that update based on <see cref="Game.Player.PlayerCharacter"/> events
+    /// </summary>
     public class HealthIconManager : HealthUI
     {
         [Header("Health Icons UI")]

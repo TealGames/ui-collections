@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 namespace Game.UI
 {
     /// <summary>
-    /// Used to create button prompt message instances. Each instance is a unique prompt that can be set with the ButtonPrompt script
+    /// Used to create <see cref="ButtonPrompt"/> message instances. Each instance is a unique prompt that can be set with the <see cref="ButtonPrompt"/> script
     /// </summary>
     [CreateAssetMenu(fileName = "ButtonPromptPresetSO", menuName = "ScriptableObjects/Button Prompt Preset")]
     public class ButtonPromptPresetSO : ScriptableObject

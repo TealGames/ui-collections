@@ -7,19 +7,6 @@ namespace Game
     [CreateAssetMenu(fileName = "HealthTestProfileSO", menuName = "ScriptableObjects/Tests/Health Test Values")]
     public class HealthTestProfileSO : ScriptableObject
     {
-        //START VALUES
-        /*
-        [Tooltip("The baseline health when testing begins")]
-        [SerializeField] private int startHealth;
-        public int StartHealth { get => startHealth; }
-        */
-
-        /*
-        [Tooltip("The baseline max health when testing begins")]
-        [SerializeField] private int startMaxHealth;
-        public int StartMaxHealth { get => startMaxHealth; }
-        */
-
         //TESTED VALUES
         [Tooltip("The amount of health lost from the current health when testing losing health. " +
             "Also the amount of health regained when testing gaining health")]

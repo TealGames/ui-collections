@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 namespace Game.UI
 {
+    /// <summary>
+    /// Extends the basic uses of the <see cref="Button"/> in order to allow more dynamic setups and customizability
+    /// </summary>
     public class ExtendedButton : MonoBehaviour
     {
         [SerializeField] private Button button;

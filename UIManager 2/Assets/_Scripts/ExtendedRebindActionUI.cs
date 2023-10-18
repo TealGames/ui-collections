@@ -6,9 +6,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Samples.RebindUI;
 using UnityEngine.UI;
+using RebindActionUI = UnityEngine.InputSystem.Samples.RebindUI.RebindActionUI;
 
 namespace Game.Input
 {
+    /// <summary>
+    /// Extends the basic uses of the RebindActionUI in order to improve accessibility
+    /// </summary>
     public class ExtendedRebindActionUI : MonoBehaviour
     {
         [System.Serializable]

@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 namespace Game.UI
 {
+    /// <summary>
+    /// Used to display a health bar that updates based on <see cref="Game.Player.PlayerCharacter"/> events
+    /// </summary>
     public class HealthBar : HealthUI
     {
         [Header("Health Bar")]

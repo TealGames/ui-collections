@@ -3181,8 +3181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6441ccb846daff642883b7768e0241c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doBackgroundBlurForUI: 0
-  volume: {fileID: 0}
+  doBackgroundBlurForUI: 1
+  volume: {fileID: 2001082139}
   focalLength: 162
 --- !u!4 &1089258934
 Transform:

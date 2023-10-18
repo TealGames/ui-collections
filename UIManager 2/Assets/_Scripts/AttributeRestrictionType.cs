@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Game
 {
+    /// <summary>
+    /// The type of attribute/member that can be publically gettable from a class.
+    /// </summary>
     [System.Flags]
     public enum AttributeRestrictionType
     {

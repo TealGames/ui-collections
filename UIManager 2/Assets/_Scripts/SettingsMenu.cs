@@ -264,16 +264,10 @@ namespace Game.UI
 
         private void SetInputSettings(SettingsSO newSettings)
         {
-            throw new NotImplementedException();
-
             foreach (var savedAction in newSettings.Input.InputSaveData)
             {
                 ExtendedRebindActionUI foundExtendedRebind= GetExtendedRebindActionFromActionName(savedAction.ActionName);
-                if (foundExtendedRebind!=null)
-                {
-                    //foundExtendedRebind.RebindActionUI.binding.path = savedAction.Path;
-                    //foundExtendedRebind.RebindActionUI.binding.overridePath = savedAction.ActionName;
-                }
+                if (foundExtendedRebind!=null) foundExtendedRebind.RebindActionUI.binding = savedAction.InputBinding;
             }
         }
         public void SetDefaultInputSettings() => SetInputSettings(DefaultSettings);
@@ -325,7 +319,7 @@ namespace Game.UI
             {
                 foreach (var rebindAction in section.GetRebindActions())
                 {
-                    inputSaveData.Add(new InputSaveData(rebindAction.actionReference.action.name, rebindAction.binding.path, rebindAction.binding.overridePath));
+                    inputSaveData.Add(new InputSaveData(rebindAction.actionReference.action.name, rebindAction.binding));
                 }
             }
             currentSavePreferences = data;

@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 namespace Game.UI
 {
+    /// <summary>
+    /// Extends the basic uses of the <see cref="Toggle"/> in order to allow more dynamic setups and customizability
+    /// </summary>
     public class ExtendedToggle : MonoBehaviour
     {
         [SerializeField] private Toggle toggle;

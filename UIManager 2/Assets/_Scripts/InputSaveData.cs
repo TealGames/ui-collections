@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Game.UI
 {
@@ -8,14 +9,12 @@ namespace Game.UI
     public class InputSaveData
     {
         [field: SerializeField] public string ActionName { get; private set; }
-        [field: SerializeField] public string Path { get; private set; }
-        [field: SerializeField] public string OverridePath { get; private set; }
+        [field: SerializeField] public InputBinding InputBinding { get; private set; }
 
-        public InputSaveData(string actionName, string path, string overridePath)
+        public InputSaveData(string actionName, InputBinding binding)
         {
             this.ActionName = actionName;
-            this.Path = path;
-            this.OverridePath = overridePath;
+            this.InputBinding = binding;
         }
     }
 }

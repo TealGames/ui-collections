@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Game.UI
 {
+    /// <summary>
+    /// The base class that health scripts can inherit from
+    /// </summary>
     public class HealthUI : MonoBehaviour
     {
         //[Header("HealthUI")]
@@ -22,15 +25,9 @@ namespace Game.UI
 
         }
 
-        public virtual void UpdateHealthUI(int newHealth)
-        {
+        public virtual void UpdateHealthUI(int newHealth) { }
 
-        }
-
-        public virtual void UpdateMaxHealthUI (int newMaxHealth)
-        {
-
-        }
+        public virtual void UpdateMaxHealthUI(int newMaxHealth) { }
     }
 
 }

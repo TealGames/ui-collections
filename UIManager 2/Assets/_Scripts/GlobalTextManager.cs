@@ -8,6 +8,9 @@ using UnityEngine;
 
 namespace Game.UI
 {
+    /// <summary>
+    /// Manages the global text gameObjects in order to allow for more consistent text across the game and allowing for more customizability while maintaining universal settings
+    /// </summary>
     [ExecuteAlways]
     public class GlobalTextManager : MonoBehaviour
     {

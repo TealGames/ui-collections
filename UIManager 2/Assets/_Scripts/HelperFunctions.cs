@@ -16,6 +16,9 @@ using System.Text;
 
 namespace Game.Utilities
 {
+    /// <summary>
+    /// Provides lots of useful methods that abstract more complicated tasks
+    /// </summary>
     public static class HelperFunctions
     {
         //since cameras only have 1 instance and will not be destroyed, we get main camera from start
