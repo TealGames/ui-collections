@@ -17,10 +17,12 @@ MonoBehaviour:
     musicVolume: 80
     soundEffectsVolume: 80
     voiceVolume: 80
+    <BypassAudioEffects>k__BackingField: 0
   <Graphics>k__BackingField:
     <IsVsyncOn>k__BackingField: 0
     <QualityLevel>k__BackingField: 2
     <AntiAliasingLevel>k__BackingField: 0
     <AnisotropicFiltering>k__BackingField: 0
-    <RenderParticles>k__BackingField: 0
+    <DoRenderParticles>k__BackingField: 0
     maxParticlesPerObject: 0
+    <DoBackgroundUIBlur>k__BackingField: 1

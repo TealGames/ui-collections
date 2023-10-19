@@ -8,6 +8,9 @@ using UnityEngine.InputSystem.Samples.RebindUI;
 
 namespace Game.UI
 {
+    /// <summary>
+    /// A section that holds <see cref="ExtendedRebindActionUI"/> that can be used to group them into categories
+    /// </summary>
     public class InputSection : MonoBehaviour
     {
         private List<ExtendedRebindActionUI> extendedActions = new List<ExtendedRebindActionUI>();

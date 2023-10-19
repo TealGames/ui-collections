@@ -16,7 +16,7 @@ namespace Game.UI
         // Start is called before the first frame update
         void Start()
         {
-
+            
         }
 
         // Update is called once per frame
@@ -25,6 +25,16 @@ namespace Game.UI
 
         }
 
-        public void SetToggleValue(bool value) => toggle.isOn = value;
+        /// <summary>
+        /// Will set the <see cref="Toggle"/>'s value to this. Note: if <paramref name="invokeEventOnAnyValue"/> is TRUE this behaves differently than just setting <see cref="Toggle.isOn"/> to the value. 
+        /// If the default value is on, but you set it to on by default, it will NOT trigger the <see cref="UnityEngine.Events.UnityEvent"/> on the <see cref="Toggle"/> since it requires a value CHANGED. 
+        /// Therefore, to ensure it is invoked every time, this will set the value without invoking the event, and then invoke the <see cref="UnityEngine.Events.UnityEvent"/> separately
+        /// </summary>
+        /// <param name="value"></param>
+        public void SetToggleValue(bool value, bool invokeEventOnAnyValue= true)
+        {
+            toggle.SetIsOnWithoutNotify(value);
+            toggle.onValueChanged?.Invoke(ToggleValue);
+        }
     }
 }

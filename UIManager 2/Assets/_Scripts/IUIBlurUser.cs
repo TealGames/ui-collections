@@ -2,6 +2,10 @@ using System;
 
 namespace Game.UI
 {
+    /// <summary>
+    /// Any class for UI containers can implement this interface in order to be show background UI blur when enabled. 
+    /// This blur can only be see if the game is visible while the UI is open.
+    /// </summary>
     public interface IUIBlurUser
     {
         /// <summary>

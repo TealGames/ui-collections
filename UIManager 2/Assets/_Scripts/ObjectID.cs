@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Game
 {
+    /// <summary>
+    /// Adds a unique ID to a gameObject that can be used to access it as long as it is in the scene
+    /// </summary>
     [ExecuteInEditMode]
     public class ObjectID : MonoBehaviour
     {

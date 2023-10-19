@@ -17,7 +17,6 @@ namespace Game.CameraManagement
         private UniversalAdditionalCameraData additionalMainCameraData;
 
         [Header("UI Blur")]
-        [SerializeField] private bool doBackgroundBlurForUI;
         [SerializeField] private Volume volume;
         [SerializeField][Range(1f, 300f)] private float focalLength = 162f;
         private DepthOfField volumeDepthOfField;
@@ -40,9 +39,7 @@ namespace Game.CameraManagement
             DontDestroyOnLoad(gameObject);
 
             additionalMainCameraData = HelperFunctions.MainCamera.GetUniversalAdditionalCameraData();
-            if (volume!=null && volume.profile.TryGet<DepthOfField>(out volumeDepthOfField)) SetUIBackgroundBlur(false);
         }
-
         // Start is called before the first frame update
         void Start()
         {
@@ -59,6 +56,8 @@ namespace Game.CameraManagement
                     OnUIObjectBlurDisabled?.Invoke(UIBlurObject);
                 };
             }
+
+            if (volume != null && volume.profile.TryGet<DepthOfField>(out volumeDepthOfField)) SetUIBackgroundBlur(false);
         }
 
         // Update is called once per frame
@@ -67,12 +66,21 @@ namespace Game.CameraManagement
 
         }
 
-        public void SetIfRenderBackgroundUIBlur(bool doRender) => canEnableUIBackgroundBlur = doRender;
+        public void SetIfRenderBackgroundUIBlur(bool doRender)
+        {
+            UnityEngine.Debug.Log($"Set render background ui blur: {doRender}");
+            canEnableUIBackgroundBlur = doRender;
+        }
 
         private void SetUIBackgroundBlur(bool enable)
         {
-            if (!canEnableUIBackgroundBlur) return;
+            if (!canEnableUIBackgroundBlur)
+            {
+                UnityEngine.Debug.LogWarning("Tried to enable background UI blur, but the current settings options does not allow it!");
+                return;
+            }
 
+            UnityEngine.Debug.Log($"Set Ui background blur: {enable}");
             if (enable)
             {
                 volumeDepthOfField.focalLength.value = focalLength;

@@ -10,6 +10,11 @@ using MemberInfo = Game.MemberInfo;
 
 namespace Game
 {
+    /// <summary>
+    /// Stores data about members from a class instance so that you use it somewhere else. 
+    /// <br></br>This is most useful when you want to subscribe a method to a <see cref="UnityEngine.Events.UnityEvent"/>, which is on a gameObject that might not always be in the active scene. 
+    /// <br></br>In this scenario, you can store that method's data in this SO and it will persistent that data when the gameObject with the<see cref="UnityEngine.Events.UnityEvent"/> appears, and the reference is kept, allowing the <see cref="UnityEngine.Events.UnityEvent"/> to work.
+    /// </summary>
     [CreateAssetMenu(fileName = "MemberSelectionSO", menuName = "ScriptableObjects/Member Selection")]
     public class MemberSelectionSO : ScriptableObject
     {

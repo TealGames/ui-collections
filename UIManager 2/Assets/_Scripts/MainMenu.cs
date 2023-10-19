@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Game.UI
 {
+    /// <summary>
+    /// Manages the game's main menu
+    /// </summary>
     public class MainMenu : BaseUI
     {
         // Start is called before the first frame update

@@ -2,9 +2,13 @@ using Game.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Input;
 
 namespace Game
 {
+    /// <summary>
+    /// Contains data about setting options. Can be used to store the default value, setting presets, or saving player saved setting preferences.
+    /// </summary>
     [CreateAssetMenu(fileName = "SettingsSO", menuName = "ScriptableObjects/Settings")]
     public class SettingsSO : ScriptableObject
     {

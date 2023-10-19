@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8353929140482360575}
   - component: {fileID: 6059990958132192752}
-  - component: {fileID: 4407099209796316110}
+  - component: {fileID: 4924406971471018521}
   m_Layer: 0
   m_Name: Barrier
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6059990958132192752
 BoxCollider2D:
@@ -78,7 +78,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 16.018377}
   m_EdgeRadius: 0
---- !u!114 &4407099209796316110
+--- !u!114 &4924406971471018521
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,8 +87,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7870460918671481148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caacfbede2541834d959418d4dffb640, type: 3}
+  m_Script: {fileID: 11500000, guid: dcf0129b271d3cb47973a3cc2ad937c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barrierCollider: {fileID: 6059990958132192752}
+  colliderArea: {fileID: 6059990958132192752}
   drawBarrierOutline: 1

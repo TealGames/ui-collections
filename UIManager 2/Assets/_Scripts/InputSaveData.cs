@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Game.UI
+namespace Game.Input
 {
     [System.Serializable]
     public class InputSaveData

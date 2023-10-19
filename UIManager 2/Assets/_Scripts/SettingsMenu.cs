@@ -16,6 +16,10 @@ using UnityEngine.UI;
 
 namespace Game.UI
 {
+    /// <summary>
+    /// Manages the settings menu, saves player settings and includes methods for settings that are not part of a separate system or Singleton. 
+    /// The default settings are set on Awake(), so getting settings values can only occur after Awake()
+    /// </summary>
     public class SettingsMenu : BaseUI
     {
         [System.Serializable]
@@ -89,9 +93,7 @@ namespace Game.UI
             if (references.antiAliasingSelector != null) references.antiAliasingSelector.SetAllOptions(HelperFunctions.GetListFromEnum(typeof(OptionSelectEnums.AntiAliasingOptions)));
             if (references.anisotropicFilteringSelector != null) references.anisotropicFilteringSelector.SetAllOptions(HelperFunctions.GetListFromEnum(typeof(AnisotropicFiltering)));
 
-            SetSettingsOptions(DefaultSettings);
-
-            
+            SetSettingsOptions(DefaultSettings); 
         }
 
         // Start is called before the first frame update

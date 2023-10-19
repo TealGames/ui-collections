@@ -7,6 +7,9 @@ using UnityEngine.Events;
 
 namespace Game.UI
 {
+    /// <summary>
+    /// Any UI that can be opened can implement this interface
+    /// </summary>
     public interface IOpenableUI
     {
         public GameObject Container { get; set; }

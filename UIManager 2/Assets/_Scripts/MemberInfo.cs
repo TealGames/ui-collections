@@ -7,6 +7,9 @@ using Object = System.Object;
 
 namespace Game
 {
+    /// <summary>
+    /// Contains data about a member such as <see cref="System.Reflection.FieldInfo"/>, <see cref="System.Reflection.PropertyInfo"/>, or <see cref="System.Reflection.MethodInfo"/>
+    /// </summary>
     [System.Serializable]
     public class MemberInfo
     {
