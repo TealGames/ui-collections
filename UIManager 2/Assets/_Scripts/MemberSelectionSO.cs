@@ -126,7 +126,10 @@ namespace Game
 
         private MemberInfo selectedMemberInfo = null;
 
-        //FILE NAMES
+        #region File Paths and Info
+        /// <summary>
+        /// The full path on your computer of the SO data so that it can persistent between sessions
+        /// </summary>
         public string SOFileFullPath
         {
             get
@@ -136,10 +139,13 @@ namespace Game
                     UnityEngine.Debug.LogError($"Tried to get {typeof(MemberSelectionSO)}'s file full path with SO name '{name}' but its instanceID is NULl or empty!");
                     return "";
                 }
-                else return Path.Combine(GeneralPath, instanceID, "member-info");
+                else return $"{GeneralPath}/{instanceID}/{SO_DATA_FILE_NAME}";
             }
         }
 
+        /// <summary>
+        /// The full path on your computer of the member info data that will be used when getting the stored data during runtime
+        /// </summary>
         public string MemberInfoFullPath
         {
             get
@@ -149,17 +155,36 @@ namespace Game
                     UnityEngine.Debug.LogError($"Tried to get {typeof(MemberSelectionSO)}'s MemberInfo full path with SO name '{name}' but its instanceID is NULl or empty!");
                     return "";
                 }
-                else return Path.Combine(GeneralPath, instanceID, "so-data");
+                else return $"{GeneralPath}/{instanceID}/{MEMBER_INFO_FILE_NAME}";
             }
         }
+        /// <summary>
+        /// The full path of the directory that contains the directories for each S0 on your computer
+        /// </summary>
         public string GeneralPath
         {
-            get => Path.Combine(HelperFunctions.GetPathFromPathType(PATH_TYPE), $"ScriptableObjects{Path.DirectorySeparatorChar}MemberSelections{Path.DirectorySeparatorChar}Data");
+            //We combine the paths, but since the path of the game will always point to the assets folder, we remove that from the data path so we don't have duplicates
+            get => Path.Combine(HelperFunctions.GetPathFromPathType(PATH_TYPE), DATA_UNITY_PATH.Replace("Assets/", ""));
         }
+
+        /// <summary>
+        /// The path that the directories for each SO are found in within the Unity project
+        /// </summary>
+        public const string DATA_UNITY_PATH = "Assets/ScriptableObjects/MemberSelections/Data";
+        /// <summary>
+        /// The name of the file that contains the user-entered data for the SO so its data can persist between Unity sessions
+        /// </summary>
+        public const string SO_DATA_FILE_NAME = "so-data";
+
+        /// <summary>
+        /// The name of the file that contains the member info which is retrieved when accessing this SO's data during runtime with the <see cref="SelectedMemberInfo"/> property
+        /// </summary>
+        public const string MEMBER_INFO_FILE_NAME = "member-info";
+
         public const GamePathType PATH_TYPE = GamePathType.Game;
 
         public readonly string separator = HelperFunctions.DATA_SEPARATOR;
-
+        #endregion
 
 
         [Header("Data stored in 'Application.persistentDataPath'")]

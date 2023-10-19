@@ -14,11 +14,9 @@ namespace Game.UI.EditorExtension
     public class HealthBarEditor : ExtendedEditor
     {
         private static bool isReturnToDefaultTimerRunning = false;
-        private static int returnToDefaultSeconds = 4;
+        //private static int returnToDefaultSeconds = 4;
 
         //Testing Values
-        private static float healthLostFactor = 0.5f;
-        private static float maxHealthIncreaseFacor = 0.25f;
         private static HealthTestProfileSO profile;
 
         public override async void OnInspectorGUI()

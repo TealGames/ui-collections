@@ -13,6 +13,8 @@ using PlasticGui;
 using System.IO;
 using Codice.Client.Commands;
 using System.Text;
+using GluonGui.WorkspaceWindow.Views.WorkspaceExplorer;
+using static Codice.CM.Common.Serialization.PacketFileReader;
 
 namespace Game.Utilities
 {
@@ -36,7 +38,7 @@ namespace Game.Utilities
         /// <summary>
         /// The string used to separate data in a file. Change the initialization value in HelperFunctions in order to universally change the separator
         /// </summary>
-        public const string DATA_SEPARATOR = "/";
+        public const string DATA_SEPARATOR = ";";
 
         //this is an extension function meaning that it can be called without static class and since it changes gameObject's pos, that argument can be
         //omitted because is implied when calling it on a gameObject (ex. call gameObject.SetObjectPos(Vector2.Zero) )
@@ -455,22 +457,25 @@ namespace Game.Utilities
 
         public static void SaveDataInFile<T>(T saveObject, GamePathType pathType, string path, bool createDirectoriesIfDontExist = true)
         {
+            UnityEngine.Debug.Log($"Path is: {path}");
+            path = path.FormatAsSystemPath();
             string relativePath = GetRelativePathFromPath(path);
             string fullPath = GetPathFromPathType(pathType) + Path.DirectorySeparatorChar + relativePath;
-            UnityEngine.Debug.Log($"Full path is {fullPath}");
+            UnityEngine.Debug.Log($"Full path is {fullPath}, relative path is {relativePath}, ");
 
             if (File.Exists(fullPath)) File.Delete(fullPath);
 
             //create the directory if we need to
             if (createDirectoriesIfDontExist)
             {
-                List<string> directories = relativePath.Split(Path.DirectorySeparatorChar).ToList();
+                List<string> directories = relativePath.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar).ToList();
                 directories.Remove(directories.Last());
 
                 string currentPath = GetPathFromPathType(pathType);
                 foreach (var directory in directories)
                 {
                     currentPath += $"{Path.DirectorySeparatorChar}{directory}";
+                    UnityEngine.Debug.Log($"Found directory to create {directory} at path {currentPath}");
                     if (!File.Exists(currentPath) && !Directory.Exists(currentPath)) Directory.CreateDirectory(currentPath);
                 }
             }
@@ -487,6 +492,7 @@ namespace Game.Utilities
 
         public static bool TryLoadFullData(GamePathType pathType, string path, out string data, bool logWarningIfNotFound = true)
         {
+            path = path.FormatAsSystemPath();
             string relativePath = GetRelativePathFromPath(path);
             string fullPath = GetPathFromPathType(pathType) + Path.DirectorySeparatorChar + relativePath;
             data = "";
@@ -508,8 +514,10 @@ namespace Game.Utilities
 
         public static bool TryLoadData<T>(GamePathType pathType, string path, out T loadObject, bool logWarningIfNotFound = true)
         {
+            path = path.FormatAsSystemPath();
             string relativePath = GetRelativePathFromPath(path);
             string fullPath = GetPathFromPathType(pathType) + Path.DirectorySeparatorChar + relativePath;
+            UnityEngine.Debug.Log($"system path: {path}, relative path: {relativePath}, full path: {fullPath}");
 
             loadObject = default(T);
             if (!File.Exists(fullPath) && logWarningIfNotFound)
@@ -518,7 +526,7 @@ namespace Game.Utilities
                 return false;
             }
 
-            if (loadObject.GetType().IsSubclassOf(typeof(UnityEngine.Object)))
+            if (typeof(T).GetType().IsSubclassOf(typeof(UnityEngine.Object)))
             {
                 UnityEngine.Debug.Log($"Tried to save data, but the object type {typeof(T)} inherit from {typeof(UnityEngine.Object)} since JSON cannot serialize these types!");
                 return false;
@@ -528,7 +536,9 @@ namespace Game.Utilities
             {
                 using (StreamReader reader = new StreamReader(fileStream))
                 {
-                    loadObject = JsonUtility.FromJson<T>(reader.ReadToEnd());
+                    UnityEngine.Debug.Log($"Trying to parse data of type {typeof(T)}");
+                    if (typeof(T) != typeof(string)) loadObject = JsonUtility.FromJson<T>(reader.ReadToEnd());
+                    else loadObject= (T)(object)reader.ReadToEnd();
                 }
             }
             return true;
@@ -536,6 +546,7 @@ namespace Game.Utilities
 
         public static bool TryLoadDataOverwrite(GamePathType pathType, string path, object overwriteObject, bool logWarningIfNotFound = true)
         {
+            path = path.FormatAsSystemPath();
             string relativePath = GetRelativePathFromPath(path);
             string fullPath = GetPathFromPathType(pathType) + Path.DirectorySeparatorChar + relativePath;
 
@@ -567,30 +578,46 @@ namespace Game.Utilities
             {
                 case GamePathType.Game:
                     UnityEngine.Debug.Log($"Getting game path: {Application.dataPath}");
-                    return Application.dataPath;
+                    return Application.dataPath.FormatAsSystemPath();
                 case GamePathType.StreamingAsset:
                     UnityEngine.Debug.Log($"Getting streaming asset path: {Application.streamingAssetsPath}");
-                    return Application.streamingAssetsPath;
+                    return Application.streamingAssetsPath.FormatAsSystemPath();
                 case GamePathType.PersistentSave:
                     UnityEngine.Debug.Log($"Getting persistent data path: {Application.persistentDataPath}");
-                    return Application.persistentDataPath;
+                    return Application.persistentDataPath.FormatAsSystemPath();
                 default:
                     UnityEngine.Debug.LogError($"Tried to get path from {typeof(GamePathType)} {pathType} but it does not have path corresponding to that type in GetFullPathFromPathType()");
                     return "";
             }
         }
 
+        /// <summary>
+        /// If a path contains any of the paths derived from <see cref="Game.GamePathType"/> that path segment is removed. 
+        /// </summary>
+        /// <param name="fullPath"></param>
+        /// <returns></returns>
         public static string GetRelativePathFromPath(string fullPath)
         {
             string relativePath = fullPath;
+            if (fullPath.Split("Assets").Length > 2) fullPath.Replace("Assets/", "");
             foreach (GamePathType pathType in Enum.GetValues(typeof(GamePathType)))
             {
                 string startPath = GetPathFromPathType(pathType);
+                UnityEngine.Debug.Log($"start path is: {startPath}");
+                UnityEngine.Debug.Log($"Full path contains start path {fullPath.Contains(startPath)}, Full: {fullPath}    VS    start: {startPath}");
                 if (fullPath.Contains(startPath))
                 {
                     StringBuilder builder = new StringBuilder(fullPath);
-                    builder.Remove(fullPath.IndexOf(startPath), startPath.Length);
-                    relativePath = builder.ToString();
+                    builder= builder.Replace(startPath, "");
+                    UnityEngine.Debug.Log($"Relative path from builder {builder.ToString()}");
+
+                    //Since this path is relative to Unity, we set all directory separtors to be only "/"
+                    relativePath= builder.ToString();
+                    if (relativePath[0].Equals(Path.DirectorySeparatorChar) || relativePath[0].Equals(Path.AltDirectorySeparatorChar))
+                    {
+                        UnityEngine.Debug.Log($"Found ");
+                        relativePath = relativePath.Substring(1);
+                    }
                     break;
                 }
             }
@@ -598,8 +625,71 @@ namespace Game.Utilities
             return relativePath;
         }
 
+        /// <summary>
+        /// If the path contains the directory "Assets", it will format all directory separators and duplicate directory separators to be "/". 
+        /// This should NOT be used when using System.IO functions or file functions from <see cref="HelperFunctions"/> since those also use System.IO. 
+        /// This is most helpful when having a general file path that may need to be converted into a Unity one when using paths in Unity functions such as AssetDatabase
+        /// </summary>
+        /// <remarks>Note: if the string is not a path, nothing happens and the argument string is returned</remarks>
+        /// <param name="fullPath"></param>
+        /// <returns></returns>
+        public static string FormatUnityPath(this string fullPath)
+        {
+            //Only if the string is a valid path and it contains the Unity path root, do we format it
+            if (!IsStringAPath(fullPath) || !fullPath.Contains("Assets")) return fullPath;
+
+            string otherPathSegment = fullPath.Substring(0, fullPath.IndexOf("Assets"));
+            string unityPath= fullPath.Substring(fullPath.IndexOf("Assets"));
+            unityPath.Replace("\\", "/").Replace("\\\\", "/").Replace("//", "/").Replace("\\/", "/").Replace("/\\", "/");
+            return otherPathSegment + unityPath;
+        }
+
+        /// <summary>
+        /// Formats the path to work with System.IO by replacing <see cref="Path.AltDirectorySeparatorChar"/> (which is "/" on Windows) to <see cref="Path.DirectorySeparatorChar"/> (which is "\" on Windows)
+        /// and removes duplicated directory separator characters. This is useful if you are using Unity paths and file paths because this method will clean it up and make sure the path can be used with System.IO. 
+        /// </summary>
+        /// <remarks>Note: if the string is not a path, nothing happens and the argument string is returned</remarks>
+        /// <param name="path"></param>
+        /// <param name="removeRepeatedConsecutiveDirectories">If true will remove directories that have the same name, including capitalization, that are repeated right after each other.</param>
+        /// <returns></returns>
+        public static string FormatAsSystemPath(this string path, bool removeRepeatedConsecutiveDirectories= false)
+        {
+            if (!IsStringAPath(path)) return path;
+            
+            string formattedPath= path.Replace(Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar).
+                Replace($"{Path.DirectorySeparatorChar}{Path.DirectorySeparatorChar}", Path.DirectorySeparatorChar.ToString()).
+                Replace($"{Path.DirectorySeparatorChar}{Path.DirectorySeparatorChar}{Path.DirectorySeparatorChar}", Path.DirectorySeparatorChar.ToString());
+            if (removeRepeatedConsecutiveDirectories)
+            {
+                UnityEngine.Debug.Log($"Formatted path before split: {formattedPath}");
+                List<string> directories = formattedPath.Split(Path.DirectorySeparatorChar).ToList();
+                List<string> duplicateDirectories = new List<string>();
+                foreach (var search in directories) UnityEngine.Debug.Log($"Searching directory: {search}");
+
+                for (int i = 0; i< directories.Count; i++)
+                {
+                    if (i!=directories.Count-1 && directories[i].Equals(directories[Math.Clamp(i + 1, 0, directories.Count-1)]))
+                        duplicateDirectories.Add(directories[i+1]);
+                }
+                foreach (string duplicateDirectory in duplicateDirectories) directories.Remove(duplicateDirectory);
+
+                formattedPath = "";
+                for (int i = 0;i< directories.Count; i++)
+                {
+                    if (i == 0) formattedPath += $"{directories[i]}";
+                    else formattedPath += $"{Path.DirectorySeparatorChar}{directories[i]}";
+                }
+                UnityEngine.Debug.Log($"Path after duplciate check: {formattedPath}");
+            }
+            UnityEngine.Debug.Log($"Returned system path: {path}");
+            return formattedPath;
+        }
+
+        public static bool IsStringAPath(string testedString) => testedString.Contains(Path.DirectorySeparatorChar) || testedString.Contains(Path.AltDirectorySeparatorChar);
+
         public static void DeleteFile(GamePathType pathType, string filePath)
         {
+            filePath = filePath.FormatAsSystemPath();
             string path = Path.Combine(GetPathFromPathType(pathType), GetRelativePathFromPath(filePath));
             if (!File.Exists(path))
             {
@@ -615,6 +705,7 @@ namespace Game.Utilities
         /// <param name="directoryPath"></param>
         public static void DeleteDirectory(GamePathType pathType, string directoryPath)
         {
+            directoryPath = directoryPath.Replace(Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar);
             string path = Path.Combine(GetPathFromPathType(pathType), GetRelativePathFromPath(directoryPath));
             if (Directory.Exists(path))
             {

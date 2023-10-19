@@ -215,8 +215,6 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 }
             }
 
-            UnityEngine.Debug.Log($"Device layout name on binding display update is: {deviceLayoutName}, control path: {controlPath}");
-
             // Set on label (if any).
             if (m_BindingText != null)
             {

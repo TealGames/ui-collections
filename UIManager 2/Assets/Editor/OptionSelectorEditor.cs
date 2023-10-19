@@ -19,8 +19,6 @@ namespace Game.UI
         private MonoScript enumScript;
         private int currentIndex = 0;
 
-        private bool isListReadOnly = false;
-
         public override void OnInspectorGUI()
         {
             DrawDefaultInspector();

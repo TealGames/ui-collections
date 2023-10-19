@@ -108,8 +108,6 @@ namespace Game.UI.EditorExtension
         //private string instanceGUID = "";
         //private int currentIndex = 0;
 
-        private bool memberDataFilled = false;
-
         //MEMBER SELECTION PATH NAMES
         private const string ALLOWED_FIELD_OPTION = "Fields";
         private const string ALLOWED_PROPERTIES_OPTION = "Properties";
@@ -139,22 +137,43 @@ namespace Game.UI.EditorExtension
             
             UnityEngine.Debug.Log($"Current asset path: {assetPath}");
 
-            foreach (string directory in Directory.GetDirectories("Assets/ScriptableObjects/MemberSelections"))
+            string directoriesLocation = HelperFunctions.GetPathFromPathType(GamePathType.Game) + Path.DirectorySeparatorChar + MemberSelectionSO.DATA_UNITY_PATH.Replace("Asset/", "").FormatAsSystemPath(true);
+            UnityEngine.Debug.Log($"Directories location: {directoriesLocation}");
+            foreach (string directory in Directory.GetDirectories(directoriesLocation))
             {
-                foreach (var fileName in Directory.GetFiles($"{directory}"))
+                string soDataFile = directory + $"{Path.DirectorySeparatorChar}{MemberSelectionSO.SO_DATA_FILE_NAME}";
+                UnityEngine.Debug.Log($"SO data file path: {soDataFile}");
+                if (HelperFunctions.TryLoadData(MemberSelectionSO.PATH_TYPE, soDataFile.FormatAsSystemPath(), out string data))
                 {
-                    if (HelperFunctions.TryLoadData(MemberSelectionSO.PATH_TYPE, $"ScriptableObjects/MemberSelections/{directory}/{fileName}", out string data))
+                    UnityEngine.Debug.Log($"Data found {data}");
+                    string[] dataSplit = data.Split(separator);
+                    string assetRelativepath = "";
+                    foreach (var separatedData in dataSplit)
                     {
-                        string[] dataSplit= data.Split(separator);
-                        string assetRelativepath = dataSplit[6];
-                        MemberSelectionSO asset = AssetDatabase.LoadAssetAtPath<MemberSelectionSO>(assetRelativepath);
-                        if (asset==null)
+                        if (HelperFunctions.IsStringAPath(separatedData))
                         {
-                            File.Delete($"ScriptableObjects/MemberSelections/{directory}/{fileName}");
-                            return;
+                            assetRelativepath = separatedData;
+                            break;
                         }
+                    }
+
+                    if (assetRelativepath=="")
+                    {
+                        UnityEngine.Debug.Log($"Should delete asset at path {directory}");
+                    }
+                    UnityEngine.Debug.Log($"Data count found: {dataSplit.Length}");
+                    UnityEngine.Debug.Log($"The path to delete asset is {assetRelativepath}");
+                    MemberSelectionSO asset = AssetDatabase.LoadAssetAtPath<MemberSelectionSO>(assetRelativepath.FormatUnityPath());
+                    if (asset == null)
+                    {
+                        UnityEngine.Debug.Log($"Should delete asset at path {directory}");
+                        //File.Delete($"ScriptableObjects/MemberSelections/{directory}/{fileName}");
+                    }
+                    else
+                    {
                         string instanceID = asset.InstanceID;
-                        AssetDatabase.RenameAsset($"Assets/ScriptableObjects/MemberSelections/{directory}/{fileName}", instanceID);
+                        //AssetDatabase.RenameAsset(assetRelativepath.FormatUnityPath(), instanceID);
+                        Directory.Move(directoriesLocation+Path.DirectorySeparatorChar+directory, directoriesLocation+Path.DirectorySeparatorChar+asset.InstanceID);
                     }
                 }
             }
@@ -332,11 +351,9 @@ namespace Game.UI.EditorExtension
                     catch (NullReferenceException e)
                     {
                         UnityEngine.Debug.Log($"Tried to save MemberInfo data in MemberSelectionSO {name} but one of the values needed for saving is null! " +
-                            $"Assembly: {persistentInfo.AssemblyName}; ObjectID GUID: {persistentInfo.InstanceGUID}; Class {persistentInfo.MonoScript.GetClass()}; " +
+                            $"Assembly: {persistentInfo.AssemblyName}; ObjectID GUID: {persistentInfo.InstanceGUID}; Class {((persistentInfo.MonoScript.GetClass()!=null)? persistentInfo.MonoScript.GetClass() : "NULL")}; " +
                             $"Attribute Type: {memberSelectionSO.AttributeType}; Selected Member Name: {allowedMembers.GetDictionaryValueAtIndex(persistentInfo.ChoosenMemberIndex).Name}");
                     }
-
-                    memberDataFilled = true;
                     SaveInfo();
                 }
                 else
@@ -356,6 +373,7 @@ namespace Game.UI.EditorExtension
         /// </summary>
         public void TryGetInfo()
         {
+            UnityEngine.Debug.Log("Trying to get info!");
             string infoAsString = EditorPrefs.HasKey(memberSelectionSO.InstanceID) ? EditorPrefs.GetString(memberSelectionSO.InstanceID) : "";
 
             if (infoAsString == "")
@@ -433,6 +451,7 @@ namespace Game.UI.EditorExtension
         {
             if (EditorPrefs.HasKey(memberSelectionSO.InstanceID)) EditorPrefs.DeleteKey(memberSelectionSO.InstanceID);
             EditorPrefs.SetString(memberSelectionSO.InstanceID, persistentInfo.GetDataAsString());
+            UnityEngine.Debug.Log($"Saved info at path {memberSelectionSO.SOFileFullPath}");
             HelperFunctions.SaveDataInFile(persistentInfo.GetDataAsString(), MemberSelectionSO.PATH_TYPE, memberSelectionSO.SOFileFullPath);
         }
     }

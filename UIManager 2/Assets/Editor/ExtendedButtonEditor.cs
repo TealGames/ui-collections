@@ -15,9 +15,6 @@ namespace Game.UI.EditorExtension
         private const string assemblyTooltip = "The Assembly that the type is in. You can check an assembly by locating that script, selecting it and checking the Assembly Information. " +
             "The assembly for that script will be under the Assembly Definition field. If not, create a new one by right clicking -> Create -> Assembly Definition";
 
-        private const string INSTANCE_KEY = "InstanceKey";
-        private static int currentAssemblyIndex=-1;
-
         public class PersistentInfo
         {
             public int AssemblyIndex { get; set; } = -1;

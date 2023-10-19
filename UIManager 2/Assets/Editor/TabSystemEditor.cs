@@ -16,13 +16,9 @@ namespace Game.UI
     [CustomEditor(typeof(TabSystem))]
     public class TabSystemEditor : ExtendedEditor
     {
-        //private static int currentTabs = 0;
         private static TabSystem tabSystem = null;
         private static HorizontalLayoutGroup horizontalLayoutGroup = null;
         private static VerticalLayoutGroup verticalLayoutGroup = null;
-        //private static string currentTabsKey = "CurrentTab";
-        private readonly static string currentTabsFileName = "CurrentTabs";
-        
 
         public override void OnInspectorGUI()
         {
