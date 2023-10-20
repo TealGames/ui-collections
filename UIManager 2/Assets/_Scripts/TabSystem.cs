@@ -10,6 +10,9 @@ using static Game.UI.TabSystem;
 
 namespace Game.UI
 {
+    /// <summary>
+    /// The manager that controls a tab system of containers that contain the objects for that tab
+    /// </summary>
     public class TabSystem : MonoBehaviour
     {
         [Header("References")]

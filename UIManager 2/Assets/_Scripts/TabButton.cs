@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 namespace Game.UI
 {
+    /// <summary>
+    /// The tab button that triggers a tab to be activated
+    /// </summary>
     public class TabButton : MonoBehaviour
     {
         [SerializeField] private Button button;

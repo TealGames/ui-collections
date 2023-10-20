@@ -136,7 +136,7 @@ namespace Game
             {
                 if (string.IsNullOrEmpty(instanceID))
                 {
-                    UnityEngine.Debug.LogError($"Tried to get {typeof(MemberSelectionSO)}'s file full path with SO name '{name}' but its instanceID is NULl or empty!");
+                    UnityEngine.Debug.LogError($"Tried to get {typeof(MemberSelectionSO)}'s file full path with SO name '{name}' but its instanceID is NULL or empty!");
                     return "";
                 }
                 else return $"{GeneralPath}/{instanceID}/{SO_DATA_FILE_NAME}";
@@ -152,7 +152,7 @@ namespace Game
             {
                 if (string.IsNullOrEmpty(instanceID))
                 {
-                    UnityEngine.Debug.LogError($"Tried to get {typeof(MemberSelectionSO)}'s MemberInfo full path with SO name '{name}' but its instanceID is NULl or empty!");
+                    UnityEngine.Debug.LogError($"Tried to get {typeof(MemberSelectionSO)}'s MemberInfo full path with SO name '{name}' but its instanceID is NULL or empty!");
                     return "";
                 }
                 else return $"{GeneralPath}/{instanceID}/{MEMBER_INFO_FILE_NAME}";
@@ -170,7 +170,8 @@ namespace Game
         /// <summary>
         /// The path that the directories for each SO are found in within the Unity project
         /// </summary>
-        public const string DATA_UNITY_PATH = "Assets/ScriptableObjects/MemberSelections/Data";
+        public const string SO_UNITY_PATH = "Assets/ScriptableObjects/MemberSelections";
+        public const string DATA_UNITY_PATH = SO_UNITY_PATH+"/Data";
         /// <summary>
         /// The name of the file that contains the user-entered data for the SO so its data can persist between Unity sessions
         /// </summary>
@@ -205,6 +206,11 @@ namespace Game
         public void OnValidate()
         {
             //instanceID = GetInstanceID().ToString();
+            SetInstanceID();
+        }
+
+        public void SetInstanceID()
+        {
             if (string.IsNullOrEmpty(instanceID)) instanceID = GetInstanceID().ToString();
         }
     }

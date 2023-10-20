@@ -9,6 +9,7 @@ using System.Reflection;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 namespace Game.UI.EditorExtension
@@ -16,6 +17,7 @@ namespace Game.UI.EditorExtension
     [CustomEditor(typeof(MemberSelectionSO))]
     public class MemberSelectionEditor : ExtendedEditor
     {
+        #region Persistent Info Definition
         /// <summary>
         /// This is the info that the SO saves about itself, data which is set by the user, which is then persisted so it retains the same info
         /// </summary>
@@ -91,22 +93,14 @@ namespace Game.UI.EditorExtension
             }
             public static int GetStoredDataCount() => 7;
         }
+        #endregion
+
         private static PersistentInfo persistentInfo = null;
 
 
         private bool allowFields = false;
         private bool allowProperties = false;
         private bool allowMethods = false;
-
-        //private Type acceptedType = null;
-        //private Type convertedType = null;
-        //private string otherTypeName = "";
-        //private int currentAssemblyIndex = 0;
-        //Dictionary<string, MemberInfo> allowedMembers = new Dictionary<string, MemberInfo>();
-
-        //private MonoScript selectionScript;
-        //private string instanceGUID = "";
-        //private int currentIndex = 0;
 
         //MEMBER SELECTION PATH NAMES
         private const string ALLOWED_FIELD_OPTION = "Fields";
@@ -126,21 +120,33 @@ namespace Game.UI.EditorExtension
 
         private static MemberSelectionSO memberSelectionSO = null;
         private static string assetPath = "";
-
-
+        
         public override void OnInspectorGUI()
         {
+            
             //serializedObject.Update();
             DrawDefaultInspector();
             memberSelectionSO = (MemberSelectionSO)target;
             assetPath = AssetDatabase.GetAssetPath(memberSelectionSO);
+            UnityEngine.Debug.Log($"Ran OnInspectorGUI on SO: {memberSelectionSO.name}");
             
+            if (memberSelectionSO.InstanceID == null)
+            {
+                memberSelectionSO.SetInstanceID();
+                UnityEngine.Debug.Log($"Set instance id of {memberSelectionSO.name}");
+            }
+            if (memberSelectionSO.name.Contains("MemberSelectionSO")) AssetDatabase.RenameAsset(assetPath, memberSelectionSO.InstanceID);
+            foreach (MemberSelectionSO asset in AssetDatabase.LoadAllAssetsAtPath(MemberSelectionSO.SO_UNITY_PATH))
+            {
+                if (asset.InstanceID == null) GetInstanceID();
+            }
             UnityEngine.Debug.Log($"Current asset path: {assetPath}");
 
-            string directoriesLocation = HelperFunctions.GetPathFromPathType(GamePathType.Game) + Path.DirectorySeparatorChar + MemberSelectionSO.DATA_UNITY_PATH.Replace("Asset/", "").FormatAsSystemPath(true);
+            string directoriesLocation = (HelperFunctions.GetPathFromPathType(GamePathType.Game) + Path.DirectorySeparatorChar + MemberSelectionSO.DATA_UNITY_PATH.Replace("Asset/", "")).FormatAsSystemPath(true);
             UnityEngine.Debug.Log($"Directories location: {directoriesLocation}");
             foreach (string directory in Directory.GetDirectories(directoriesLocation))
             {
+                string directoryName = directory.Split(Path.DirectorySeparatorChar).Last();
                 string soDataFile = directory + $"{Path.DirectorySeparatorChar}{MemberSelectionSO.SO_DATA_FILE_NAME}";
                 UnityEngine.Debug.Log($"SO data file path: {soDataFile}");
                 if (HelperFunctions.TryLoadData(MemberSelectionSO.PATH_TYPE, soDataFile.FormatAsSystemPath(), out string data))
@@ -159,24 +165,43 @@ namespace Game.UI.EditorExtension
 
                     if (assetRelativepath=="")
                     {
-                        UnityEngine.Debug.Log($"Should delete asset at path {directory}");
+                        UnityEngine.Debug.Log($"{MemberSelectionSO.DATA_UNITY_PATH}/{directoryName}");
+                        FileUtil.DeleteFileOrDirectory($"{MemberSelectionSO.DATA_UNITY_PATH}/{directoryName}");
+                        FileUtil.DeleteFileOrDirectory($"{MemberSelectionSO.DATA_UNITY_PATH}/{directoryName}");
+                        continue;
                     }
+
                     UnityEngine.Debug.Log($"Data count found: {dataSplit.Length}");
                     UnityEngine.Debug.Log($"The path to delete asset is {assetRelativepath}");
                     MemberSelectionSO asset = AssetDatabase.LoadAssetAtPath<MemberSelectionSO>(assetRelativepath.FormatUnityPath());
                     if (asset == null)
                     {
-                        UnityEngine.Debug.Log($"Should delete asset at path {directory}");
+                        UnityEngine.Debug.Log($"{MemberSelectionSO.DATA_UNITY_PATH}/{directoryName}");
+                        FileUtil.DeleteFileOrDirectory($"{MemberSelectionSO.DATA_UNITY_PATH}/{directoryName}");
+                        FileUtil.DeleteFileOrDirectory($"{MemberSelectionSO.DATA_UNITY_PATH}/{directoryName}");
                         //File.Delete($"ScriptableObjects/MemberSelections/{directory}/{fileName}");
                     }
                     else
                     {
-                        string instanceID = asset.InstanceID;
+                        if (asset.InstanceID == null)
+                        {
+                            asset.SetInstanceID();
+                            UnityEngine.Debug.Log($"Set instance id of {asset.name}");
+                        }
+                        
                         //AssetDatabase.RenameAsset(assetRelativepath.FormatUnityPath(), instanceID);
-                        Directory.Move(directoriesLocation+Path.DirectorySeparatorChar+directory, directoriesLocation+Path.DirectorySeparatorChar+asset.InstanceID);
+                        if (directoryName!= asset.InstanceID)
+                        {
+                            UnityEngine.Debug.Log($"Last folder: {directory.Split(Path.DirectorySeparatorChar).Last()}, asset instance ID: {asset.InstanceID}");
+                            //Directory.Move(directory, directoriesLocation + Path.DirectorySeparatorChar + asset.InstanceID);
+                            
+                            AssetDatabase.RenameAsset($"{MemberSelectionSO.DATA_UNITY_PATH}/{directoryName}", asset.InstanceID);
+                        }
+                            
                     }
                 }
             }
+            AssetDatabase.Refresh();
 
             serializedObject.Update();
 

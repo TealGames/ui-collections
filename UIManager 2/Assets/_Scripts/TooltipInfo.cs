@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Game.UI
 {
+    /// <summary>
+    /// Info about a tooltip
+    /// </summary>
     [System.Serializable]
     public class TooltipInfo
     {

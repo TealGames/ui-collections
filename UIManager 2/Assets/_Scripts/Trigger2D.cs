@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Game
 {
+    /// <summary>
+    /// The base class for any trigger for 2D
+    /// </summary>
     public class Trigger2D : MonoBehaviour
     {
         [Header("Trigger")]

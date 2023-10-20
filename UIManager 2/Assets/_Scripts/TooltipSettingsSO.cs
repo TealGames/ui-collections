@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Game
 {
+    /// <summary>
+    /// Settings for a tooltip, which can be used to have similar settings on multiple tooltips by having tooltip presets
+    /// </summary>
     [CreateAssetMenu(fileName = "TooltipSettingsSO", menuName = "ScriptableObjects/Tooltip Settings")]
     public class TooltipSettingsSO : ScriptableObject
     {

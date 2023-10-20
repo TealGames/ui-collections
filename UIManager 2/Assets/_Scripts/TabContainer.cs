@@ -6,6 +6,9 @@ using UnityEngine.Events;
 
 namespace Game.UI
 {
+    /// <summary>
+    /// The container that contains all the UI elements objects for the tab, so that when it is enabled all the objects within that container will also be enabled.
+    /// </summary>
     public class TabContainer : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI tabTitle;

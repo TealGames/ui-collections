@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 995974605756bda418ce5f6435a32111, type: 3}
   m_Name: Something
   m_EditorClassIdentifier: 
-  instanceID: 
+  instanceID: 29042
   <AttributeType>k__BackingField: 4
   <MemberType>k__BackingField: 6

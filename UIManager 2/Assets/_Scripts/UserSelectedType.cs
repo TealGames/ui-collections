@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Game
 {
+    /// <summary>
+    /// The possible type of a member
+    /// </summary>
     [System.Serializable]
     public enum UserSelectedType
     {
