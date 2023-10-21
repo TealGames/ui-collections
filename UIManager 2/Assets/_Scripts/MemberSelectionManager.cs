@@ -10,30 +10,30 @@ using System.Security.Permissions;
 using UnityEditor;
 using UnityEngine;
 
-namespace Game
+namespace Game.Utilities
 {
+    /// <summary>
+    /// Manages the game's <see cref="MemberSelectionSO"/> instances by deleting data when the instance is deleted
+    /// </summary>
     [ExecuteInEditMode]
-    public class MemberSelectionManager : MonoBehaviour
+    internal class MemberSelectionManager : MonoBehaviour
     {
 
         // Start is called before the first frame update
         void OnEnable()
         {
             DeleteUnsedDirectories();
-            //SetInstanceID();
         }
 
         // Update is called once per frame
         void Update()
         {
-            DeleteUnsedDirectories();
-            //SetInstanceID();
+            //DeleteUnsedDirectories();
         }
 
         private void OnValidate()
         {
             DeleteUnsedDirectories();
-            //SetInstanceID();
         }
 
         private void DeleteUnsedDirectories()
@@ -104,7 +104,10 @@ namespace Game
             string[] assetPaths = Directory.GetFiles(directoriesLocation, "*.asset");
             foreach (string fileInfo in assetPaths) memberSelections.Add(AssetDatabase.LoadAssetAtPath<MemberSelectionSO>(fileInfo));
 
-            foreach (var directory in directoriesForDeletion) Directory.Delete(directory, false);
+            foreach (var directory in directoriesForDeletion)
+            {
+                Directory.Delete(directory, true);
+            }
 
             /*
             foreach (var dir in directories) UnityEngine.Debug.Log($"Found directory {dir}");

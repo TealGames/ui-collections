@@ -12,7 +12,7 @@ namespace Game.CameraManagement
     /// <summary>
     /// Manages the game's camera. Only one ever exists in a scene. Access the Singleton Instance with <see cref="CameraManager.Instance"/>
     /// </summary>
-    public class CameraManager : MonoBehaviour
+    public sealed class CameraManager : MonoBehaviour
     {
         private UniversalAdditionalCameraData additionalMainCameraData;
 

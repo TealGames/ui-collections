@@ -6,13 +6,12 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Layouts;
 using System;
 using System.Reflection;
-using static Codice.Client.BaseCommands.BranchExplorer.ExplorerData.BrExTreeBuilder.BrExFilter;
 
 namespace Game.Utilities.Editor
 {
-    public static class EditorHelperFunctions
+    internal static class EditorHelperFunctions
     {
-        private static string assemblyName = "UICollection";
+        private const string MAIN_ASSEMBLY_NAME = "UICollection";
 
         /// <summary>
         /// Normally when instantiating it creates a clone, but this can instantiate it as a prefab instance instead
@@ -64,7 +63,7 @@ namespace Game.Utilities.Editor
             return assemblies;
         }
 
-        public static string GetDefaultAssemblyName() => assemblyName;
+        public static string GetDefaultAssemblyName() => MAIN_ASSEMBLY_NAME;
 
         public static MonoScript FindMonoScriptByName(string name)
         {

@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Presets;
 using UnityEngine;
-using static UnityEditor.MaterialProperty;
 
 namespace Game.UI
 {
-    public class ButtonPromptManager : MonoBehaviour
+    public sealed class ButtonPromptManager : MonoBehaviour
     {
         public List<ButtonPrompt> buttonPrompts { get; private set; } = new List<ButtonPrompt>();
 

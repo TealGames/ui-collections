@@ -18,7 +18,7 @@ namespace Game.Input
     /// <summary>
     /// Manages the game's audio. Only one ever exists in a scene. Access the Singleton Instance with <see cref="InputManager.Instance"/>
     /// </summary>
-    public class InputManager : MonoBehaviour
+    public sealed class InputManager : MonoBehaviour
     {
         [field: SerializeField] public InputActionAsset InputAsset { get; private set; }
         private string[] allActions;

@@ -12,7 +12,7 @@ using Object = System.Object;
 namespace Game.UI.EditorExtension
 {
     [CustomEditor(typeof(ExtendedSlider))]
-    public class ExtendedSliderEditor : ExtendedEditor
+    internal class ExtendedSliderEditor : ExtendedEditor
     {
         private bool setMinAndMaxFromMember;
         private bool setDefaultValueFromMember;

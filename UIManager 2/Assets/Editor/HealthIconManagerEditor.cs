@@ -9,7 +9,7 @@ using UnityEngine;
 namespace Game.UI
 {
     [CustomEditor(typeof(HealthIconManager))]
-    public class HealthIconManagerEditor : ExtendedEditor
+    internal class HealthIconManagerEditor : ExtendedEditor
     {
         private static int returnToDefaultSeconds = 4;
         private static bool isReturnToDefaultTimerRunning = false;

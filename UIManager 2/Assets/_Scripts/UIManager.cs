@@ -10,7 +10,7 @@ namespace Game.UI
     /// <summary>
     /// Manages the game's user interface. Only one ever exists in a scene. Access the Singleton Instance with <see cref="UIManager.Instance"/>
     /// </summary>
-    public class UIManager: MonoBehaviour
+    public sealed class UIManager: MonoBehaviour
     {
         [Header("Tooltips")]
         [SerializeField] private GameObject tooltipContainer;

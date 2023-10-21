@@ -552,7 +552,7 @@ namespace Game.Utilities
 
             if (!File.Exists(fullPath) && logWarningIfNotFound)
             {
-                UnityEngine.Debug.LogWarning($"Tried to load data of type {overwriteObject.GetType()} in path {path} but that file does not exist!");
+                UnityEngine.Debug.LogWarning($"Tried to load data of type {overwriteObject.GetType()} in path {fullPath} but that file does not exist!");
                 return false;
             }
 

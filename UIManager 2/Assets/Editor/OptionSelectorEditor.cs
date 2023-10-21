@@ -1,5 +1,4 @@
 using Game.Utilities;
-using Microsoft.SqlServer.Server;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,7 +11,7 @@ using UnityEngine;
 namespace Game.UI
 {
     [CustomEditor(typeof(OptionSelector))]
-    public class OptionSelectorEditor : Editor
+    internal class OptionSelectorEditor : Editor
     {
         private bool storeListFromEnum;
 

@@ -57,6 +57,7 @@ namespace Game.UI
 
         [field: SerializeField] public SettingsSO DefaultSettings { get; private set; }
 
+        [Tooltip("If true, will save the settings options set during runtime so that it can be loaded when the player opens the settings menu during the next session")]
         [SerializeField] private bool saveSettingPreferences;
         private SettingsSO currentSavePreferences = null;
         public const GamePathType PREFERENCES_PATH_TYPE = GamePathType.PersistentSave;
@@ -93,7 +94,8 @@ namespace Game.UI
             if (references.antiAliasingSelector != null) references.antiAliasingSelector.SetAllOptions(HelperFunctions.GetListFromEnum(typeof(OptionSelectEnums.AntiAliasingOptions)));
             if (references.anisotropicFilteringSelector != null) references.anisotropicFilteringSelector.SetAllOptions(HelperFunctions.GetListFromEnum(typeof(AnisotropicFiltering)));
 
-            SetSettingsOptions(DefaultSettings); 
+            if (saveSettingPreferences) LoadSettingPreferences();
+            else SetSettingsOptions(DefaultSettings);
         }
 
         // Start is called before the first frame update
@@ -129,16 +131,18 @@ namespace Game.UI
             }
         }
 
-        /*
-        public void EnableTabContainer(TabContainer tabContainer)
+        public override void EnableUI()
         {
-            foreach (var container in tabContainers)
-            {
-                if (container == tabContainer) container.gameObject.SetActive(true);
-                else container.gameObject.SetActive(false);
-            }
+            if (saveSettingPreferences) LoadSettingPreferences();
+            else SetSettingsOptions(DefaultSettings);
+            base.EnableUI();
         }
-        */
+
+        public override void DisableUI()
+        {
+            base.DisableUI();
+            if (saveSettingPreferences) SaveSettingPreferences();
+        }
 
         #region Graphics Methods
         public void SetVsync(bool isOn)
@@ -330,14 +334,15 @@ namespace Game.UI
 
 
             //Other
+
+            HelperFunctions.SaveDataInFile(currentSavePreferences, PREFERENCES_PATH_TYPE, PREFERENCES_RELATIVE_PATH);
         }
 
         public void LoadSettingPreferences()
         {
-            if (HelperFunctions.TryLoadDataOverwrite(PREFERENCES_PATH_TYPE, PREFERENCES_RELATIVE_PATH, currentSavePreferences))
-            {
+            if (currentSavePreferences!=null && HelperFunctions.TryLoadDataOverwrite(PREFERENCES_PATH_TYPE, PREFERENCES_RELATIVE_PATH, currentSavePreferences)) 
                 SetSettingsOptions(currentSavePreferences);
-            }
+            else if (DefaultSettings != null) SetSettingsOptions(DefaultSettings);
             else UnityEngine.Debug.LogError("Tried to load current setting player preferences but the save data was not found!");
         }
     }

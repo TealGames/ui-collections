@@ -6,7 +6,10 @@ using UnityEngine.Events;
 
 namespace Game.Player
 {
-    public class PlayerCharacter : MonoBehaviour
+    /// <summary>
+    /// Manages the player. Only one ever exists in a scene. Access the Singleton Instance with <see cref="PlayerCharacter.Instance"/>
+    /// </summary>
+    public sealed class PlayerCharacter : MonoBehaviour
     {
         [Header("Health")]
         [Tooltip("The max health of the player by default (on Start())")]

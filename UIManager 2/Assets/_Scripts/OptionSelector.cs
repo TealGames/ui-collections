@@ -11,6 +11,9 @@ using UnityEngine.UI;
 
 namespace Game.UI
 {
+    /// <summary>
+    /// Creates a UI element that allows the player to choose an option from a list by clicking on the "Next" or "Previous" buttons
+    /// </summary>
     public class OptionSelector : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI currentOptionText;

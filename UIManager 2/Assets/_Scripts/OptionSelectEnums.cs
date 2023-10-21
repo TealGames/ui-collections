@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Game.UI
 {
+    /// <summary>
+    /// Enums designed ONLY for the <see cref="OptionSelector"/> should be stored here for easy access. If the enum is used elsewhere, it might not make the most sense to store it here.
+    /// </summary>
     [System.Serializable]
     public class OptionSelectEnums
     {

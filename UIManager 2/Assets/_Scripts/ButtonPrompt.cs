@@ -5,8 +5,6 @@ using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem.HID;
 using Game.Input;
 
 namespace Game.UI
@@ -23,12 +21,6 @@ namespace Game.UI
         [SerializeField] private TextMeshProUGUI messageText1;
         [SerializeField] private TextMeshProUGUI messageText2;
         [SerializeField] private Image[] images;
-
-        //[SerializeField] private ButtonPromptPresetSO[] presets;
-
-        //[Header("Lerping Text and Images")]
-        //[SerializeField] private float enableImageAndTextTime;
-        //[SerializeField] private float disableImageAndTextTime;
 
         [Header("Options")]
         [Tooltip("Preset set on start")][SerializeField] private ButtonPromptPresetSO startPreset;

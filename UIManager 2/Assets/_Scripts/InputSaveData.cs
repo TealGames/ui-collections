@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 
 namespace Game.Input
 {
+    /// <summary>
+    /// Data containing info about the input binding and action used for saving Input Bindings and restoring data between sessions
+    /// </summary>
     [System.Serializable]
     public class InputSaveData
     {

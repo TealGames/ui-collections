@@ -19,13 +19,6 @@ namespace Game.UI
 #if UNITY_EDITOR
         public TooltipSettingsSO TooltipSettings { get => tooltipSettings; set => tooltipSettings = value; }
 #endif
-        /*[SerializeField] private TooltipType tooltipType;
-        [SerializeField] private float enableDelay;
-        [Tooltip("Sometimes, preferred width is not enough for all of the text, so we also add this buffer")][SerializeField] private float extraWidthBuffer = 50;
-
-        [SerializeField] private bool setTooltipPositionAsObjectPosition = true;
-        [Tooltip("If setTooltipPositionAsObjectPosition is true, will apply this offset to it. If false, will add this to the event hover postion")]
-        [SerializeField] private Vector2 objectPositionOffset = new Vector3(0f, -50f, 0f);*/
 
         public enum TooltipType
         {

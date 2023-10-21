@@ -21,20 +21,6 @@ namespace Game.UI
         // Start is called before the first frame update
         void Start()
         {
-            /*
-            if (healthIconParent != null)
-            {
-                for (int i=0; i< healthIconParent.transform.childCount; i++)
-                {
-                    if (healthIconParent.transform.GetChild(i).TryGetComponent<HealthIcon>(out HealthIcon healthIcon)) healthIcons.Add(healthIcon);
-                    else
-                    {
-                        UnityEngine.Debug.LogError($"There was a gameObject with the name {gameObject.name} that does not have a HealthIcon.cs script and is part of the HealthIcon system! " +
-                            $"Only HealthIcons should be part of the health icon parent '{healthIconParent.gameObject.name}'");
-                    }
-                }
-            }
-            */
         }
 
         // Update is called once per frame

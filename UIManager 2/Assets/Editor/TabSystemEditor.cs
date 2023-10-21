@@ -14,7 +14,7 @@ using UnityEngine.UIElements;
 namespace Game.UI
 {
     [CustomEditor(typeof(TabSystem))]
-    public class TabSystemEditor : ExtendedEditor
+    internal class TabSystemEditor : ExtendedEditor
     {
         private static TabSystem tabSystem = null;
         private static HorizontalLayoutGroup horizontalLayoutGroup = null;

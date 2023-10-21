@@ -11,7 +11,7 @@ using UnityEngine;
 namespace Game.UI.EditorExtension
 {
     [CustomEditor(typeof(HealthBar))]
-    public class HealthBarEditor : ExtendedEditor
+    internal class HealthBarEditor : ExtendedEditor
     {
         private static bool isReturnToDefaultTimerRunning = false;
         //private static int returnToDefaultSeconds = 4;

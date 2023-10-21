@@ -8,7 +8,7 @@ using TMPro;
 namespace Game.UI
 {
     [CustomEditor(typeof(UIManager))]
-    public class GameManagerEditor : Editor
+    internal class GameManagerEditor : Editor
     {
         public override void OnInspectorGUI()
         {

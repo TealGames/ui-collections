@@ -17,6 +17,7 @@ namespace Game.UI
         [SerializeField] private Selectable firstSelected;
 
         
+        [Tooltip("The container that holds all the UI elements for a UI system. This can be beneficial to allow the parent class to still be running while the container is disabled")]
         [field: SerializeField] public GameObject Container { get; set; }
 
 

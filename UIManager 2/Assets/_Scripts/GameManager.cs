@@ -7,7 +7,7 @@ namespace Game.Management
     /// <summary>
     /// Manages the game and game states. Only one ever exists in a scene. Access the Singleton Instance with <see cref="GameManager.Instance"/>
     /// </summary>
-    public class GameManager : MonoBehaviour
+    public sealed class GameManager : MonoBehaviour
     {
         public static GameManager Instance { get; private set; }
 

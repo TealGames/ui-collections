@@ -10,7 +10,7 @@ using UnityEngine;
 namespace Game.UI.EditorExtension
 {
     //[CustomEditor(typeof(ExtendedButton))]
-    public class ExtendedButtonEditor : ExtendedEditor
+    internal class ExtendedButtonEditor : ExtendedEditor
     {
         private const string assemblyTooltip = "The Assembly that the type is in. You can check an assembly by locating that script, selecting it and checking the Assembly Information. " +
             "The assembly for that script will be under the Assembly Definition field. If not, create a new one by right clicking -> Create -> Assembly Definition";

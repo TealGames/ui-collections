@@ -5,97 +5,99 @@ using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
-using System.Collections;
 
 using Object = UnityEngine.Object;
 using Assembly = System.Reflection.Assembly;
+using Editor = UnityEditor.Editor;
 
-using Unity.VisualScripting;
 using System.Collections.Generic;
 using UnityEditor.Compilation;
-using UnityEngine.InputSystem.HID;
 
-public class InspectorLockToggle
+namespace Game.Utilities
 {
-    private static EditorWindow _mouseOverWindow;
-
-    //IMPORTANT: %= ctrl, #= shift, &= alt, just regular key= _(key name)
-
-    [MenuItem("Shortcuts/Select Inspector under mouse cursor (use hotkey) #&q")]
-    private static void SelectLockableInspector()
+    internal class InspectorLockToggle
     {
-        if (EditorWindow.mouseOverWindow.GetType().Name == "InspectorWindow")
+        private static EditorWindow _mouseOverWindow;
+
+        //IMPORTANT: %= ctrl, #= shift, &= alt, just regular key= _(key name)
+
+        [MenuItem("Shortcuts/Select Inspector under mouse cursor (use hotkey) #&q")]
+        private static void SelectLockableInspector()
         {
-            _mouseOverWindow = EditorWindow.mouseOverWindow;
-            Type type = Assembly.GetAssembly(typeof(Editor)).GetType("UnityEditor.InspectorWindow");
-            Object[] findObjectsOfTypeAll = Resources.FindObjectsOfTypeAll(type);
-            int indexOf = findObjectsOfTypeAll.ToList().IndexOf(_mouseOverWindow);
-            EditorPrefs.SetInt("LockableInspectorIndex", indexOf);
-        }
-    }
-
-    [MenuItem("Shortcuts/Toggle Lock #l")]
-    private static void ToggleInspectorLock()
-    {
-        if (_mouseOverWindow == null)
-        {
-            if (!EditorPrefs.HasKey("LockableInspectorIndex"))
-                EditorPrefs.SetInt("LockableInspectorIndex", 0);
-            int i = EditorPrefs.GetInt("LockableInspectorIndex");
-
-            Type type = Assembly.GetAssembly(typeof(Editor)).GetType("UnityEditor.InspectorWindow");
-            Object[] findObjectsOfTypeAll = Resources.FindObjectsOfTypeAll(type);
-            _mouseOverWindow = (EditorWindow)findObjectsOfTypeAll[i];
-        }
-
-        if (_mouseOverWindow != null && _mouseOverWindow.GetType().Name == "InspectorWindow")
-        {
-            Type type = Assembly.GetAssembly(typeof(Editor)).GetType("UnityEditor.InspectorWindow");
-            PropertyInfo propertyInfo = type.GetProperty("isLocked");
-            bool value = (bool)propertyInfo.GetValue(_mouseOverWindow, null);
-            propertyInfo.SetValue(_mouseOverWindow, !value, null);
-            _mouseOverWindow.Repaint();
-        }
-    }
-
-    [MenuItem("Shortcuts/Clear Console #&c")]
-    private static void ClearConsole()
-    {
-        Type type = Assembly.GetAssembly(typeof(Editor)).GetType("UnityEditorInternal.LogEntries");
-        type.GetMethod("Clear").Invoke(null, null);
-    }
-
-    [MenuItem("Shortcuts/Select Children #e")]
-    private static void SelectAllChildren()
-    {
-        List<GameObject> allChildren = new List<GameObject>();
-        List<GameObject> allSelected = new List<GameObject>(Selection.gameObjects);
-        Selection.objects = null;
-
-        foreach (var selectedObject in allSelected)
-        {
-            //if they have children
-            if (selectedObject.transform.childCount > 0)
+            if (EditorWindow.mouseOverWindow.GetType().Name == "InspectorWindow")
             {
-                //add each children to the all children
-                foreach (Transform child in selectedObject.transform)
-                {
-                    if (child.gameObject != selectedObject.gameObject)
-                    {
-                        allChildren.Add(child.gameObject);
-                    }
-                }
+                _mouseOverWindow = EditorWindow.mouseOverWindow;
+                Type type = Assembly.GetAssembly(typeof(UnityEditor.Editor)).GetType("UnityEditor.InspectorWindow");
+                Object[] findObjectsOfTypeAll = Resources.FindObjectsOfTypeAll(type);
+                int indexOf = findObjectsOfTypeAll.ToList().IndexOf(_mouseOverWindow);
+                EditorPrefs.SetInt("LockableInspectorIndex", indexOf);
             }
         }
 
+        [MenuItem("Shortcuts/Toggle Lock #l")]
+        private static void ToggleInspectorLock()
+        {
+            if (_mouseOverWindow == null)
+            {
+                if (!EditorPrefs.HasKey("LockableInspectorIndex"))
+                    EditorPrefs.SetInt("LockableInspectorIndex", 0);
+                int i = EditorPrefs.GetInt("LockableInspectorIndex");
 
-        Selection.objects = allChildren.ToArray();
+                Type type = Assembly.GetAssembly(typeof(UnityEditor.Editor)).GetType("UnityEditor.InspectorWindow");
+                Object[] findObjectsOfTypeAll = Resources.FindObjectsOfTypeAll(type);
+                _mouseOverWindow = (EditorWindow)findObjectsOfTypeAll[i];
+            }
+
+            if (_mouseOverWindow != null && _mouseOverWindow.GetType().Name == "InspectorWindow")
+            {
+                Type type = Assembly.GetAssembly(typeof(UnityEditor.Editor)).GetType("UnityEditor.InspectorWindow");
+                PropertyInfo propertyInfo = type.GetProperty("isLocked");
+                bool value = (bool)propertyInfo.GetValue(_mouseOverWindow, null);
+                propertyInfo.SetValue(_mouseOverWindow, !value, null);
+                _mouseOverWindow.Repaint();
+            }
+        }
+
+        [MenuItem("Shortcuts/Clear Console #&c")]
+        private static void ClearConsole()
+        {
+            Type type = Assembly.GetAssembly(typeof(UnityEditor.Editor)).GetType("UnityEditorInternal.LogEntries");
+            type.GetMethod("Clear").Invoke(null, null);
+        }
+
+        [MenuItem("Shortcuts/Select Children #e")]
+        private static void SelectAllChildren()
+        {
+            List<GameObject> allChildren = new List<GameObject>();
+            List<GameObject> allSelected = new List<GameObject>(Selection.gameObjects);
+            Selection.objects = null;
+
+            foreach (var selectedObject in allSelected)
+            {
+                //if they have children
+                if (selectedObject.transform.childCount > 0)
+                {
+                    //add each children to the all children
+                    foreach (Transform child in selectedObject.transform)
+                    {
+                        if (child.gameObject != selectedObject.gameObject)
+                        {
+                            allChildren.Add(child.gameObject);
+                        }
+                    }
+                }
+            }
+
+
+            Selection.objects = allChildren.ToArray();
+        }
+
+        [MenuItem("Shortcuts/Recompile Scripts #r")]
+        private static void Recompile()
+        {
+            CompilationPipeline.RequestScriptCompilation();
+        }
+
     }
-
-    [MenuItem("Shortcuts/Recompile Scripts #r")]
-    private static void Recompile()
-    {
-        CompilationPipeline.RequestScriptCompilation();
-    }
-
 }
+

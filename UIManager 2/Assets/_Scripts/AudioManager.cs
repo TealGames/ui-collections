@@ -9,7 +9,7 @@ namespace Game.Audio
     /// <summary>
     /// Manages the game's audio. Only one ever exists in a scene. Access the Singleton Instance with <see cref="AudioManager.Instance"/>
     /// </summary>
-    public class AudioManager : MonoBehaviour
+    public sealed class AudioManager : MonoBehaviour
     {
         // Start is called before the first frame update
         [SerializeField] private AudioMixer audioMixer;
