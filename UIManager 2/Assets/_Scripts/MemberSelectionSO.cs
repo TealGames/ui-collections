@@ -136,10 +136,11 @@ namespace Game
             {
                 if (string.IsNullOrEmpty(instanceID))
                 {
-                    UnityEngine.Debug.LogError($"Tried to get {typeof(MemberSelectionSO)}'s file full path with SO name '{name}' but its instanceID is NULL or empty!");
-                    return "";
+                    SetInstanceID();
+                    //UnityEngine.Debug.LogError($"Tried to get {typeof(MemberSelectionSO)}'s file full path with SO name '{name}' but its instanceID is NULL or empty!");
+                    //return "";
                 }
-                else return $"{GeneralPath}/{instanceID}/{SO_DATA_FILE_NAME}";
+                return $"{GeneralPath}/{instanceID}/{SO_DATA_FILE_NAME}";
             }
         }
 
@@ -152,10 +153,11 @@ namespace Game
             {
                 if (string.IsNullOrEmpty(instanceID))
                 {
-                    UnityEngine.Debug.LogError($"Tried to get {typeof(MemberSelectionSO)}'s MemberInfo full path with SO name '{name}' but its instanceID is NULL or empty!");
-                    return "";
+                    SetInstanceID();
+                    //UnityEngine.Debug.LogError($"Tried to get {typeof(MemberSelectionSO)}'s MemberInfo full path with SO name '{name}' but its instanceID is NULL or empty!");
+                    //return "";
                 }
-                else return $"{GeneralPath}/{instanceID}/{MEMBER_INFO_FILE_NAME}";
+                return $"{GeneralPath}/{instanceID}/{MEMBER_INFO_FILE_NAME}";
             }
         }
         /// <summary>

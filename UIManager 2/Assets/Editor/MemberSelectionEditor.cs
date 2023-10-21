@@ -136,12 +136,16 @@ namespace Game.UI.EditorExtension
                 UnityEngine.Debug.Log($"Set instance id of {memberSelectionSO.name}");
             }
             if (memberSelectionSO.name.Contains("MemberSelectionSO")) AssetDatabase.RenameAsset(assetPath, memberSelectionSO.InstanceID);
+            
+            /*
             foreach (MemberSelectionSO asset in AssetDatabase.LoadAllAssetsAtPath(MemberSelectionSO.SO_UNITY_PATH))
             {
                 if (asset.InstanceID == null) GetInstanceID();
             }
             UnityEngine.Debug.Log($"Current asset path: {assetPath}");
+            */
 
+            /*
             string directoriesLocation = (HelperFunctions.GetPathFromPathType(GamePathType.Game) + Path.DirectorySeparatorChar + MemberSelectionSO.DATA_UNITY_PATH.Replace("Asset/", "")).FormatAsSystemPath(true);
             UnityEngine.Debug.Log($"Directories location: {directoriesLocation}");
             foreach (string directory in Directory.GetDirectories(directoriesLocation))
@@ -202,6 +206,7 @@ namespace Game.UI.EditorExtension
                 }
             }
             AssetDatabase.Refresh();
+            */
 
             serializedObject.Update();
 
