@@ -17,7 +17,7 @@ namespace Game.CameraManagement
         private UniversalAdditionalCameraData additionalMainCameraData;
 
         [Header("UI Blur")]
-        [SerializeField] private Volume volume;
+        [Tooltip("The Volume that will enable UI background blur")][SerializeField] private Volume volume;
         [SerializeField][Range(1f, 300f)] private float focalLength = 162f;
         private DepthOfField volumeDepthOfField;
         private bool canEnableUIBackgroundBlur;

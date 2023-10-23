@@ -9,7 +9,9 @@ namespace Game.UI
     public class DynamicRect : MonoBehaviour
     {
         [SerializeField] private RectTransform rectTransform;
+        [Tooltip("If true, will set the height of the rect transform based on the children sizes. Most useful if used with a VerticalLayoutGroup!")]
         [SerializeField] private bool setHeightFromChildren;
+        [Tooltip("The extra padding for the height of the RectTransform in addition to the size of the children")]
         [SerializeField] private float padding;
 
         // Start is called before the first frame update

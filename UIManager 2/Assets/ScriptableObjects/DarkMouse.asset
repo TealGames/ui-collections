@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DarkMouse
   m_EditorClassIdentifier: 
   <DeviceType>k__BackingField: 3
+  <GamepadType>k__BackingField: 0
   <IconColor>k__BackingField: 2
   spritePairSections:
   - <SectionName>k__BackingField: All

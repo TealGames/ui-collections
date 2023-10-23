@@ -5,26 +5,25 @@ using UnityEngine;
 using System.Linq;
 using System.Reflection;
 using UnityEngine.EventSystems;
-using UnityEditor;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using Game.UI;
-using PlasticGui;
 using System.IO;
-using Codice.Client.Commands;
 using System.Text;
-using GluonGui.WorkspaceWindow.Views.WorkspaceExplorer;
-using static Codice.CM.Common.Serialization.PacketFileReader;
 
 namespace Game.Utilities
 {
     /// <summary>
-    /// Provides lots of useful methods that abstract more complicated tasks
+    /// Provides lots of useful methods that abstract more complicated tasks. 
+    /// <br>If you are unsure what Extension Methods are, there is more info here: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods</br>
     /// </summary>
     public static class HelperFunctions
     {
-        //since cameras only have 1 instance and will not be destroyed, we get main camera from start
+        #region Properties and Constants
         private static Camera mainCamera;
+        /// <summary>
+        /// Since doining Camera.Main is expensive because it searches through every hierarchy gameObject, it will be cached once and you can get the reference here rather than re-searching all the gameObjects
+        /// </summary>
         public static Camera MainCamera
         {
             get
@@ -39,16 +38,25 @@ namespace Game.Utilities
         /// The string used to separate data in a file. Change the initialization value in HelperFunctions in order to universally change the separator
         /// </summary>
         public const string DATA_SEPARATOR = ";";
+        #endregion
 
-        //this is an extension function meaning that it can be called without static class and since it changes gameObject's pos, that argument can be
-        //omitted because is implied when calling it on a gameObject (ex. call gameObject.SetObjectPos(Vector2.Zero) )
+
+
+        #region Quality of Life Methods
+        /// <summary>
+        /// A shorthand for setting the position of a gameObject
+        /// </summary>
+        /// <param name="gameObject"></param>
+        /// <param name="position"></param>
         public static void SetObjectPos(this GameObject gameObject, Vector2 position) => gameObject.transform.position = position;
-
-        //public static void InstantiateGameObject(this GameObject prefab, Vector2 position) => Instantiate(prefab, position, Quaternion.identity);
 
         public static string GenerateRandomID() => System.Guid.NewGuid().ToString();
 
-        public static int GenerateRandomPrecentage() => UnityEngine.Random.Range(0, 100);
+        /// <summary>
+        /// Will generate a random int from 0-100 inclusive
+        /// </summary>
+        /// <returns></returns>
+        public static int GenerateRandomPrecentage() => UnityEngine.Random.Range(0, 101);
 
         public static void PlaySound(this AudioClip audioClip, AudioSource audioSource, float minPitch, float maxPitch, float volume)
         {
@@ -58,6 +66,10 @@ namespace Game.Utilities
 
         public static Quaternion LookAt2D(Vector2 forward) => Quaternion.Euler(0, 0, Mathf.Atan2(forward.y, forward.x) * Mathf.Rad2Deg);
 
+        /// <summary>
+        /// Will deselect a <see cref="Button"/> by disabling is interactability and reenabling it
+        /// </summary>
+        /// <param name="button"></param>
         public static void Deselect(this Button button)
         {
             button.interactable = false;
@@ -73,25 +85,35 @@ namespace Game.Utilities
         /// <returns></returns>
         public static bool DoVerticalPointsOverlap(Vector2 range1, Vector2 range2)
         {
-            //we make sure that the points are ordered, (min, max)
+            //We make sure that the points are ordered, (min, max)
             if (range1.x > range1.y) range1 = new Vector2(range1.y, range1.x);
             if (range2.x > range2.y) range2 = new Vector2(range2.y, range2.x);
 
-            //UnityEngine.Debug.Log($"Checked if vertical points {range1} and {range2} overlap: {!(range2.x > range1.y && range2.y> range1.y) || (range2.x<range1.x && range2.y<range1.x)}");
-            //we check if range2 is either above range1 or below range1 and then reverse it (since we are checking if they overlap)
+            //We check if range2 is either above range1 or below range1 and then reverse it (since we are checking if they overlap)
             return !((range2.x > range1.y && range2.y > range1.y) || (range2.x < range1.x && range2.y < range1.x));
         }
 
 
 
-        //gets the world coordinates of a UI elment give its rect transform (UI transform) (1 use case: so that you can position non-UI objects
-        //to match behind UI elements, like particle effects)
+        /// <summary>
+        /// Gets the world coordinates of a UI elment given its <see cref="RectTransform"/>. 
+        /// An example of a use case is if you have to position non-UI objects to match behind UI elements, like particle effects.
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
         public static Vector2 GetWorldPositionOfCanvasElement(RectTransform element)
         {
             RectTransformUtility.ScreenPointToWorldPointInRectangle(element, element.position, MainCamera, out var result);
             return result;
         }
 
+        /// <summary>
+        /// Will set <see cref="RectTransform.anchorMin"/> and <see cref="RectTransform.anchorMax"/> of <paramref name="transform"/> based on <paramref name="preset"/>. 
+        /// You can check out what each preset does by selecting a <see cref="RectTransform"/> and changing the preset in the top left corner 
+        /// <br>(Notice the values that are set for <see cref="RectTransform.anchorMin"/> and <see cref="RectTransform.anchorMax"/>).</br>
+        /// </summary>
+        /// <param name="transform"></param>
+        /// <param name="preset"></param>
         public static void SetAnchorPreset(this RectTransform transform, AnchorPresets preset)
         {
             switch(preset)
@@ -154,6 +176,12 @@ namespace Game.Utilities
             }
         }
 
+        /// <summary>
+        /// Will set <see cref="RectTransform.anchorMin"/> and <see cref="RectTransform.anchorMax"/> of <paramref name="transform"/>
+        /// </summary>
+        /// <param name="transform"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
         public static void SetAnchors(this RectTransform transform, Vector2 min, Vector2 max)
         {
             Vector3 position= transform.localPosition;
@@ -169,21 +197,6 @@ namespace Game.Utilities
         public static void DestroyChildren(this Transform parentTransform)
         {
             foreach (Transform child in parentTransform) UnityEngine.Object.Destroy(child.gameObject);
-        }
-
-        //Note: this currently may not work
-        public static T GetKey<T, V>(Dictionary<T, V> dictionary, V dictionaryValue)
-        {
-            T Key = default;
-            foreach (KeyValuePair<T, V> pair in dictionary)
-            {
-                if (EqualityComparer<V>.Default.Equals(pair.Value, dictionaryValue))
-                {
-                    Key = pair.Key;
-                    break;
-                }
-            }
-            return Key;
         }
 
         public static V GetDictionaryValueAtIndex<T, V>(this Dictionary<T, V> dictionary, int targetIndex)
@@ -213,6 +226,12 @@ namespace Game.Utilities
             return newArray;
         }
 
+        /// <summary>
+        /// Will copy the component values from <paramref name="originalComponent"/> to <paramref name="newComponent"/>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalComponent"></param>
+        /// <param name="newComponent"></param>
         public static void CopyComponentValues<T>(T originalComponent, T newComponent) where T : Component
         {
             var json = JsonUtility.ToJson(originalComponent);
@@ -239,6 +258,11 @@ namespace Game.Utilities
             }
         }
 
+        /// <summary>
+        /// Will convert the enum values of enum type <paramref name="enumType"/> to a <see cref="string"/> List
+        /// </summary>
+        /// <param name="enumType"></param>
+        /// <returns></returns>
         public static List<string> GetListFromEnum(Type enumType)
         {
             //UnityEngine.Debug.Log($"Called GetListFromEnum with argument: {enumType} type: {enumType.GetType()}");
@@ -252,6 +276,11 @@ namespace Game.Utilities
             return list;
         }
 
+        /// <summary>
+        /// Will get the <see cref="Type"/> from the <see cref="UserSelectedType"/>
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static Type GetTypeFromUserSelectedType(UserSelectedType type)
         {
             switch (type)
@@ -277,7 +306,12 @@ namespace Game.Utilities
         }
 
 
-        //scales an object around an arbitrary point rather than a gameObject's pivot
+        /// <summary>
+        /// Scales an object around an arbitrary point rather than a gameObject's pivot
+        /// </summary>
+        /// <param name="target"></param>
+        /// <param name="pivot"></param>
+        /// <param name="newScale"></param>
         public static void ScaleAround(GameObject target, Vector3 pivot, Vector3 newScale)
         {
             //pivot
@@ -290,8 +324,12 @@ namespace Game.Utilities
             //scale
             target.transform.localScale = newScale;
         }
-
-        //gets all of the non-zero (None value) flags in a multi-select enum
+        
+        /// <summary>
+        /// Gets all of the non-zero (None value) flags in a multi-select (<see cref="System.FlagsAttribute"/>) enum
+        /// </summary>
+        /// <param name="flagEnum"></param>
+        /// <returns></returns>
         public static List<string> GetFlagEnumValues(Enum flagEnum)
         {
             List<string> list = new List<string>();
@@ -301,20 +339,20 @@ namespace Game.Utilities
                 string newValue = flag.ToString().Trim();
                 if (newValue.Contains(" "))
                 {
-                    //UnityEngine.Debug.Log($"Flag contains a space! Old value: {newValue}");
-
                     for (int i = 0; i < newValue.Length; i++)
                     {
-                        //UnityEngine.Debug.Log($"Checking character: {newValue[i]}");
                         if (newValue[i] == ' ') newValue.Remove(i, 1);
-                        //UnityEngine.Debug.Log($"Flag contains a space! New value: {newValue}");
                     }
                 }
                 list.Add(newValue);
-                //UnityEngine.Debug.Log($"Added flag: {newValue}");
             }
             return list;
         }
+        #endregion
+        
+
+
+        #region Reflection Methods
 
         public static List<string> GetAllPublicVoidMethods(Type type)
         {
@@ -390,8 +428,8 @@ namespace Game.Utilities
         public static EventInfo GetEventInfoByEventName(string name, Type typeForEvent) => typeForEvent.GetEvent(name);
 
         /// <summary>
-        /// Checks is a class has anu subscribers to an event. Source is the publisher or the class that holds/invokes the event.
-        /// EventHandler is the actual event, where object is the class you are checking
+        /// Checks is a class has any subscribers to an event. <paramref name="source"/>"/> is the publisher or the class that holds/invokes the event.
+        /// <paramref name="eventHandler"/> is the actual event, where <paramref name="target"/> is the class you are checking
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="source"></param>
@@ -409,20 +447,14 @@ namespace Game.Utilities
 
         public static bool TryGetUnityEventByName(string name, Type type, object typeInstance, out UnityEvent foundEvent)
         {
-            //UnityEngine.Debug.Log($"Called TryGetUnityEvent for event: {name} in type {type.Name} for instance: {typeInstance}");
             FieldInfo[] fields = typeInstance.GetType().GetFields();
-            //UnityEngine.Debug.Log($"Type: {type} has {fields.Length} fields!");
-            //foreach (var field in fields) UnityEngine.Debug.Log($"When trying to get unity event found field: {field.Name}");
-
             List<FieldInfo> unityEvents = fields.Where(f => f.FieldType == typeof(UnityEvent)).ToList();
-            //foreach (var field in unityEvents) UnityEngine.Debug.Log($"When trying to get unity event found UnityEvent: {field.Name}");
 
             foundEvent = null;
             foreach (FieldInfo field in unityEvents)
             {
                 if (field.Name == name)
                 {
-                    //UnityEngine.Debug.Log($"Found target UnityEvent from fields with name: {field.Name}");
                     foundEvent = (UnityEvent)field.GetValue(typeInstance);
                     break;
                 }
@@ -431,21 +463,60 @@ namespace Game.Utilities
             return foundEvent != null;
         }
 
-
-        public static List<MonoBehaviour> GetAllMonoBehaviorsWithInterface(Type type)
+        /// <summary>
+        /// Gets all the <see cref="MonoBehaviour"/> that implement the interface of type <typeparamref name="T"/>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static List<MonoBehaviour> GetAllMonoBehaviorsWithInterfaceType<T>()
         {
+            if (!typeof(T).IsInterface)
+            {
+                UnityEngine.Debug.LogError($"Tried to call GetAllMonoBehaviorsWithInterfaceType<T>() but the generic type {typeof(T)} is not an interface!");
+                return null;
+            }
             MonoBehaviour[] monoBehaviors = UnityEngine.Object.FindObjectsOfType<MonoBehaviour>();
-            return monoBehaviors.Where(behavior => behavior.GetType().GetInterfaces().Contains(type)).ToList();
+            return monoBehaviors.Where(behavior => behavior.GetType().GetInterfaces().Contains(typeof(T))).ToList();
         }
 
-        public static T[] GetInterfacesOfType<T>(bool includeInactive) =>
-            UnityEngine.Object.FindObjectsOfType<MonoBehaviour>(includeInactive).Where(behavoir => behavoir.GetType().GetInterfaces().Contains(typeof(T))).Cast<T>().ToArray<T>();
-
-        public static GameObject[] GetInterfacesAsGameObjectsOfType<T>(bool includeInactive) =>
-            UnityEngine.Object.FindObjectsOfType<MonoBehaviour>(includeInactive).Where(behavoir => behavoir.GetType().GetInterfaces().Contains(typeof(T))).
+        /// <summary>
+        /// Gets a <typeparamref name="T"/> array of all the Monobheaviours that implement the interface <typeparamref name="T"/>"/>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="includeInactive"></param>
+        /// <returns></returns>
+        public static T[] GetInterfacesOfType<T>(bool includeInactive)
+        {
+            if (!typeof(T).IsInterface)
+            {
+                UnityEngine.Debug.LogError($"Tried to call GetInterfacesOfType<T>() but the generic type {typeof(T)} is not an interface!");
+                return null;
+            }
+            return UnityEngine.Object.FindObjectsOfType<MonoBehaviour>(includeInactive).Where(behavoir => behavoir.GetType().GetInterfaces().Contains(typeof(T))).Cast<T>().ToArray<T>();
+        }
+            
+        /// <summary>
+        /// Gets an array of <see cref="GameObject"/> that have a <see cref="MonoBehaviour"/> that implements the interface of type <typeparamref name="T"/>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="includeInactive"></param>
+        /// <returns></returns>
+        public static GameObject[] GetInterfacesAsGameObjectsOfType<T>(bool includeInactive)
+        {
+            if (!typeof(T).IsInterface)
+            {
+                UnityEngine.Debug.LogError($"Tried to call GetInterfacesAsGameObjectsOfType<T>() but the generic type {typeof(T)} is not an interface!");
+                return null;
+            }
+            return UnityEngine.Object.FindObjectsOfType<MonoBehaviour>(includeInactive).Where(behavoir => behavoir.GetType().GetInterfaces().Contains(typeof(T))).
             Select(behavior => behavior.gameObject).ToArray<GameObject>();
+        }
+            
 
-        //Gets all event system raycast results of current mouse or touch position.
+        /// <summary>
+        /// Will get all event system raycast results of the current mouse or touch position.
+        /// </summary>
+        /// <returns></returns>
         public static List<RaycastResult> GetEventSystemRaycastResults()
         {
             PointerEventData eventData = new PointerEventData(EventSystem.current);
@@ -454,7 +525,23 @@ namespace Game.Utilities
             EventSystem.current.RaycastAll(eventData, raysastResults);
             return raysastResults;
         }
+        #endregion
 
+
+
+        #region File Management Methods
+
+        /// <summary>
+        /// Will save data in the file. If you save this data for the first time, it will create a new file. 
+        /// Otherwise, it will delete that file and create a new one with the file data, basically overriding the old data.
+        /// If <paramref name="createDirectoriesIfDontExist"/> is true, it will create the directories that don't exist.
+        /// </summary>
+        /// <remarks>Note: the <paramref name="path"/> can either be relative or absolute since it will be formatted correctly either way</remarks>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="saveObject"></param>
+        /// <param name="pathType"></param>
+        /// <param name="path"></param>
+        /// <param name="createDirectoriesIfDontExist"></param>
         public static void SaveDataInFile<T>(T saveObject, GamePathType pathType, string path, bool createDirectoriesIfDontExist = true)
         {
             UnityEngine.Debug.Log($"Path is: {path}");
@@ -490,28 +577,18 @@ namespace Game.Utilities
             }
         }
 
-        public static bool TryLoadFullData(GamePathType pathType, string path, out string data, bool logWarningIfNotFound = true)
-        {
-            path = path.FormatAsSystemPath();
-            string relativePath = GetRelativePathFromPath(path);
-            string fullPath = GetPathFromPathType(pathType) + Path.DirectorySeparatorChar + relativePath;
-            data = "";
-            if (!File.Exists(fullPath) && logWarningIfNotFound)
-            {
-                UnityEngine.Debug.LogWarning($"Tried to load data as string in path {path} but that file does not exist!");
-                return false;
-            }
-
-            using (FileStream fileStream = File.Open(fullPath, FileMode.Open))
-            {
-                using (StreamReader reader = new StreamReader(fileStream))
-                {
-                    data = reader.ReadToEnd();
-                }
-            }
-            return true;
-        }
-
+        public static bool TryLoadFullData(GamePathType pathType, string path, out string data, bool logWarningIfNotFound = true) => TryLoadData(pathType, path, out data, logWarningIfNotFound);
+        /// <summary>
+        /// Will try and load the data from the file. If it is found, it returns true and the out parameter is the type <typeparamref name="T"/>. 
+        /// If it is not found, it returns false and the out parameter is the default of <typeparamref name="T"/>.
+        /// </summary>
+        /// <remarks>Note: the T type must NOT inherit from <see cref="UnityEngine.Object"/>(ScriptableObjects, Monobehaviour, etc.). Otherwise use <see cref="HelperFunctions.TryLoadDataOverwrite(GamePathType, string, object, bool)"/></remarks>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="pathType"></param>
+        /// <param name="path"></param>
+        /// <param name="loadObject"></param>
+        /// <param name="logWarningIfNotFound"></param>
+        /// <returns></returns>
         public static bool TryLoadData<T>(GamePathType pathType, string path, out T loadObject, bool logWarningIfNotFound = true)
         {
             path = path.FormatAsSystemPath();
@@ -544,6 +621,17 @@ namespace Game.Utilities
             return true;
         }
 
+
+        /// <summary>
+        /// Will try and load the data from the file. If it is found, it returns true and <paramref name="overwriteObject"/> is overriden with the data. 
+        /// If it is not found, it returns false and <paramref name="overwriteObject"/> is not overriden
+        /// </summary>
+        /// <remarks>Note: the T type MUST inherit from <see cref="UnityEngine.Object"/>(ScriptableObjects, Monobehaviour, etc.). Otherwise use <see cref="HelperFunctions.TryLoadData{T}(GamePathType, string, out T, bool)"/></remarks>
+        /// <param name="pathType"></param>
+        /// <param name="path"></param>
+        /// <param name="overwriteObject"></param>
+        /// <param name="logWarningIfNotFound"></param>
+        /// <returns></returns>
         public static bool TryLoadDataOverwrite(GamePathType pathType, string path, object overwriteObject, bool logWarningIfNotFound = true)
         {
             path = path.FormatAsSystemPath();
@@ -572,6 +660,11 @@ namespace Game.Utilities
             return true;
         }
 
+        /// <summary>
+        /// Will get the corresponding path formatted as a system path using <see cref="HelperFunctions.FormatAsSystemPath(string, bool)"/> from <see cref="GamePathType"/>
+        /// </summary>
+        /// <param name="pathType"></param>
+        /// <returns></returns>
         public static string GetPathFromPathType(GamePathType pathType)
         {
             switch (pathType)
@@ -685,6 +778,11 @@ namespace Game.Utilities
             return formattedPath;
         }
 
+        /// <summary>
+        /// Checks if a string is a path by checking if it contains <see cref="Path.DirectorySeparatorChar"/> or <see cref="Path.AltDirectorySeparatorChar"/>
+        /// </summary>
+        /// <param name="testedString"></param>
+        /// <returns></returns>
         public static bool IsStringAPath(string testedString) => testedString.Contains(Path.DirectorySeparatorChar) || testedString.Contains(Path.AltDirectorySeparatorChar);
 
         public static void DeleteFile(GamePathType pathType, string filePath)
@@ -693,7 +791,7 @@ namespace Game.Utilities
             string path = Path.Combine(GetPathFromPathType(pathType), GetRelativePathFromPath(filePath));
             if (!File.Exists(path))
             {
-                UnityEngine.Debug.LogWarning($"Tried to delete file: {filePath} but it does not exist!");
+                UnityEngine.Debug.LogWarning($"Tried to delete file {filePath} but it does not exist!");
                 return;
             }
             File.Delete(path);
@@ -709,9 +807,10 @@ namespace Game.Utilities
             string path = Path.Combine(GetPathFromPathType(pathType), GetRelativePathFromPath(directoryPath));
             if (Directory.Exists(path))
             {
-                UnityEngine.Debug.Log($"Deleting directory in path {directoryPath}");
+                UnityEngine.Debug.Log($"Deleted directory at {path}");
                 Directory.Delete(path, true);
             }
+            else UnityEngine.Debug.LogWarning($"Tried to delete directory at {path} but it does not exist!");
         }
 
         /// <summary>
@@ -761,6 +860,14 @@ namespace Game.Utilities
             SaveDataInFile(dictionary, pathType, filePath);
         }
 
+        /// <summary>
+        /// Will remove the pair based on the <paramref name="key"/> from the directory located in the <paramref name="filePath"/>
+        /// </summary>
+        /// <typeparam name="K"></typeparam>
+        /// <typeparam name="V"></typeparam>
+        /// <param name="pathType"></param>
+        /// <param name="filePath"></param>
+        /// <param name="key"></param>
         public static void RemovePairFromDictionaryFile<K,V>(GamePathType pathType, string filePath, K key)
         {
             string path = Path.Combine(GetPathFromPathType(pathType), GetRelativePathFromPath(filePath));
@@ -773,9 +880,7 @@ namespace Game.Utilities
             dictionary.Remove(key);
             SaveDataInFile(dictionary, pathType, filePath);
         }
-
-        
-       
+        #endregion
     }
 }
 

@@ -11,7 +11,6 @@ namespace Game.Audio
     /// </summary>
     public sealed class AudioManager : MonoBehaviour
     {
-        // Start is called before the first frame update
         [SerializeField] private AudioMixer audioMixer;
 
         public AudioManager Instance { get; private set; }

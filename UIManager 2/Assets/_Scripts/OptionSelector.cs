@@ -82,20 +82,7 @@ namespace Game.UI
             //foreach (var option in options) UnityEngine.Debug.Log($"Setting option on {gameObject.name} to {option}");
 
             this.options.Clear();
-            foreach (var option in options)
-            {
-                string optionFormatted = "";
-                
-                for (int i=0; i<option.Length; i++)
-                {
-                    if (char.IsUpper(option[i]) && i != 0 && char.IsLower(option[i - 1])) optionFormatted += " ";
-                    optionFormatted+= option[i];    
-                }
-                optionFormatted = optionFormatted.Replace("_", " ");
-
-                this.options.Add(optionFormatted);
-                UnityEngine.Debug.Log($"Setting option on {gameObject.name} to {optionFormatted}");
-            }
+            this.options = options;
 
             //We also update all the inspector visible options so we can see the ones that are actually used during runtime in the inspector
             AllOptions.Clear();
@@ -121,6 +108,10 @@ namespace Game.UI
             UnityEngine.Debug.Log($"After all options set, total options: {this.options.Count}");
         }
 
+        /// <summary>
+        /// Will set the current option of the <see cref="OptionSelector"/>
+        /// </summary>
+        /// <param name="newCurrentOption"></param>
         public void SetCurrentOption(string newCurrentOption)
         {
             if (options.Count <= 0)
@@ -130,7 +121,15 @@ namespace Game.UI
             }
 
             int index = -1;
-            for (int i = 0; i < options.Count; i++) if (options[i].Equals(newCurrentOption)) index = i;
+            for (int i = 0; i < options.Count; i++)
+            {
+                UnityEngine.Debug.Log($"Checking option: {options[i]} for current option {newCurrentOption}");
+                if (options[i].Equals(newCurrentOption))
+                {
+                    index = i;
+                    break;
+                }
+            }
 
             if (index == -1)
             {
@@ -140,7 +139,27 @@ namespace Game.UI
 
             OnAnyOptionSet?.Invoke(newCurrentOption);   
             currentOptionIndex = index;
-            currentOptionText.text = options[index].ToString();
+            currentOptionText.text = FormatOption(options[index].ToString());
+        }
+
+        /// <summary>
+        /// Will format a string so that all underscores are replaced with spaces (Very_Low -> Very Low) 
+        /// and Pascal Case settings will be split into words (VeryLow -> Very Low)
+        /// </summary>
+        /// <param name="option"></param>
+        /// <returns></returns>
+        private string FormatOption(string option)
+        {
+            string optionFormatted = "";
+
+            for (int i = 0; i < option.Length; i++)
+            {
+                if (char.IsUpper(option[i]) && i != 0 && char.IsLower(option[i - 1])) optionFormatted += " ";
+                optionFormatted += option[i];
+            }
+            optionFormatted = optionFormatted.Replace("_", " ");
+            UnityEngine.Debug.Log($"Setting option on {gameObject.name} to {optionFormatted}");
+            return optionFormatted;
         }
 
         public void SetNextOption()
@@ -173,6 +192,12 @@ namespace Game.UI
             SetCurrentOption(options[currentOptionIndex].ToString());
         }
 
+        /// <summary>
+        /// Will try to convert the current option to an enum value, which will be stored in <paramref name="overwriteObject"/>.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="overwriteObject"></param>
+        /// <returns></returns>
         public bool TryGetCurrentOptionAsEnum<T>(object overwriteObject) where T : Enum
         {
             overwriteObject = null;

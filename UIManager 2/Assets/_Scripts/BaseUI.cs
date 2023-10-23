@@ -14,7 +14,8 @@ namespace Game.UI
     public class BaseUI : MonoBehaviour, IOpenableUI
     {
         [Header("BaseUI")]
-        [SerializeField] private Selectable firstSelected;
+        [Tooltip("The first UI element that inherits from Selectable that should be selected when this UI opens. " +
+            "Leave empty if you do not want any selected.")][SerializeField] private Selectable firstSelected;
 
         
         [Tooltip("The container that holds all the UI elements for a UI system. This can be beneficial to allow the parent class to still be running while the container is disabled")]

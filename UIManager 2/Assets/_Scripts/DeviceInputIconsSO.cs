@@ -11,13 +11,14 @@ namespace Game.Input
     /// <summary>
     /// Stores the <see cref="InputBinding"/> that corresponds to each binding button prompt icon in order to get the icon from the <see cref="InputBinding"/>
     /// </summary>
-    [CreateAssetMenu(fileName = "DeviceInputIconsSO", menuName = "ScriptableObjects/Device Input Prompts")]
+    [CreateAssetMenu(fileName = "DeviceInputIconsSO", menuName = "ScriptableObjects/Device Input Icons")]
     [System.Serializable]
     public class DeviceInputIconsSO : ScriptableObject
     {
         [System.Serializable]
         public class IconSection
         {
+            [Tooltip("Name is for your convience and is only for organization when having a large quantity of icons")]
             [field: SerializeField] public string SectionName { get; private set; }
             [field: SerializeField] public List<BindingIconPair> SpritePairsSections { get; private set; } = new List<BindingIconPair>();
         }
@@ -25,8 +26,8 @@ namespace Game.Input
         [System.Serializable]
         public class BindingIconPair
         {
-            [field: SerializeField] public InputAction InputBinding { get; set; }
-            [field: SerializeField] public Sprite Sprite { get; private set; }
+            [Tooltip("The binding that corresponds to the icon")][field: SerializeField] public InputAction InputBinding { get; set; }
+            [Tooltip("The icon that corresponds to the binding")][field: SerializeField] public Sprite Sprite { get; private set; }
 
             public BindingIconPair(InputAction inputBinding, Sprite whiteSprite, Sprite blackSprite)
             {
@@ -41,6 +42,7 @@ namespace Game.Input
         }
 
         [field: SerializeField] public InputDeviceType DeviceType { get; private set; }
+        [field: SerializeField] public GamepadType GamepadType { get; private set; }
         [field: SerializeField] public BindingIconColor IconColor { get; private set; }
 
 
@@ -57,6 +59,8 @@ namespace Game.Input
 
         private void OnValidate()
         {
+            if (DeviceType != InputDeviceType.Gamepad) GamepadType = GamepadType.None;
+            if (DeviceType == InputDeviceType.Gamepad && GamepadType == GamepadType.None) GamepadType = GamepadType.Xbox;
             AddAllPairsToDictionary();
         }
 

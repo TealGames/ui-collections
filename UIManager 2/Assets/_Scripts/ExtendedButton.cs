@@ -15,6 +15,8 @@ namespace Game.UI
         [SerializeField] private Button button;
 
         [Header("Persistent Subscribers")]
+        [Tooltip("A list of subscribers to the OnClick event of the Button that will persist even if the GameObject leaves the scene. " +
+            "However, when OnClick is called, the GameObject MUST be in the scene, otherwise there will be errors thrown")]
         [SerializeField] private List<MemberSelectionSO> persistentSubscribers = new List<MemberSelectionSO>();
         // Start is called before the first frame update
         void Start()

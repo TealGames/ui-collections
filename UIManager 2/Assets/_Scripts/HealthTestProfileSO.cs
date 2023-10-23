@@ -8,22 +8,19 @@ namespace Game
     /// A profile that can be used when testing health UI objects such as <see cref="Game.UI.HealthBar"/> and <see cref="Game.UI.HealthIconManager"/>
     /// </summary>
     [CreateAssetMenu(fileName = "HealthTestProfileSO", menuName = "ScriptableObjects/Tests/Health Test Values")]
-    public class HealthTestProfileSO : ScriptableObject
+    public class HealthTestProfileSO : TestProfileSO
     {
         //TESTED VALUES
-        [Tooltip("The amount of health lost from the current health when testing losing health. " +
-            "Also the amount of health regained when testing gaining health")]
-        [SerializeField] private int healthLost;
-        public int HealthLost { get => healthLost; }
+        [SerializeField] private int healthDelta;
+        public int HealthDelta { get => healthDelta; }
 
-        [Tooltip("The amount of health increased from the current max health when testing max health increase")]
-        [SerializeField] private int maxHealthIncrease;
-        public int MaxHealthIncrease { get => maxHealthIncrease; }
-
-        private void OnValidate()
+        [System.Serializable]
+        public enum HealthType
         {
-            if (healthLost < 0) healthLost = Mathf.Abs(healthLost);
-            if (maxHealthIncrease < 0) maxHealthIncrease = Mathf.Abs(maxHealthIncrease);
+            NormalHealth,
+            MaxHealth,
         }
+        [SerializeField] private HealthType healthChangeType;
+        public HealthType HealthChangeType { get=> healthChangeType; }
     }
 }

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98b4217bba294243b57a1ad88a78a32, type: 3}
+  m_Name: DeviceInputIconsSO
+  m_EditorClassIdentifier: 
+  <DeviceType>k__BackingField: 0
+  <GamepadType>k__BackingField: 1
+  <IconColor>k__BackingField: 2
+  spritePairSections:
+  - <SectionName>k__BackingField: All
+    <SpritePairsSections>k__BackingField:
+    - <InputBinding>k__BackingField:
+        m_Name: Input Binding
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 92871b2f-6908-40c6-abaf-736b519b5b63
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: 087e1288-a2c7-43d3-a0ec-2b6e8708d40d
+          m_Path: <Gamepad>/buttonEast
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input Binding
+          m_Flags: 0
+        m_Flags: 0
+      <Sprite>k__BackingField: {fileID: 21300000, guid: 9371628fa531fa54a90a3e275531dd01, type: 3}

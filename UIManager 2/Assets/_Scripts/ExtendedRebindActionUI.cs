@@ -26,10 +26,26 @@ namespace Game.Input
         [Tooltip("If true, the global display type (in SettingsMenu.cs) will be ignored and will not set this display type")]
         [SerializeField] private bool overrideGlobalDisplayType;
 
-        [SerializeField] private Image bindingIconImage;
-        [SerializeField] private Text bindingText;
+        [Tooltip("If true, will update the binding so that it matches the connected device")][SerializeField] private bool setBindingFromConnectedDevice;
+        [Tooltip("If you choose to set the action of the RebindActionUI as a composite member, then specify the index from the composite using 0 as first composite member, 1 as the second, etc...")]
+        [Range(0, 3)][SerializeField] private int compositeIndex;
+
+        [Tooltip("The image that displays the binding icon")][SerializeField] private Image bindingIconImage;
+        [Tooltip("The text that displays the binding in text form")][SerializeField] private Text bindingText;
+
+        /// <summary>
+        /// The <see cref="InputAction"/> that correpsponds to this <see cref="RebindActionUI"/>
+        /// </summary>
         public InputAction Action { get; private set; }
+
+        /// <summary>
+        /// The <see cref="InputBinding"/> that correpsponds to this <see cref="RebindActionUI"/>
+        /// </summary>
         public InputBinding Binding { get; private set; }
+
+        /// <summary>
+        /// The icon that corresponds to the <see cref="InputBinding"/> of this <see cref="RebindActionUI"/>
+        /// </summary>
         public Sprite ActionIcon { get; private set; }
 
         public event Action OnRebindStart;
@@ -77,6 +93,21 @@ namespace Game.Input
         {
             Action = RebindActionUI.actionReference.action;
             Binding = RebindActionUI.binding;
+
+            if (setBindingFromConnectedDevice)
+            {
+                InputBinding targetBinding;
+                List<InputBinding> usableBindings = InputManager.Instance.GetBindingsForConnectedDeviceFromAction(Action);
+                if (compositeIndex!=-1 && usableBindings.Count>0)
+                {
+                    targetBinding = usableBindings[compositeIndex];
+                    RebindActionUI.binding = targetBinding;
+                    UnityEngine.Debug.Log($"Reset the {typeof(InputBinding)} on {typeof(RebindActionUI)} named {RebindActionUI.gameObject.name} " +
+                        $"because the {typeof(InputBinding)} did not match the connected device's {typeof(InputBinding)}!");
+                }
+            }
+
+
             if (displayType == RebindDisplay.Icon && bindingIconImage != null)
             {
                 ActionIcon = InputManager.Instance.GetIconFromBinding(Binding);

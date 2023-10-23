@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7389048053779667710}
   - component: {fileID: 3385723431293883738}
   - component: {fileID: 7621996998419766916}
-  - component: {fileID: 9003471460743783246}
-  m_Layer: 0
+  - component: {fileID: 8372856186236752877}
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 3565025301168747270}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &3385723431293883738
 CapsuleCollider2D:
@@ -82,10 +82,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -96,8 +96,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &9003471460743783246
+  m_Constraints: 4
+--- !u!114 &8372856186236752877
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,16 +106,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 3735659163575937827}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec7ba1a16051b1644ad22ec8970660db, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a8daa9fb7ad26d49b4a9a6da538b45f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMaxHealth: 0
+  rigidbody: {fileID: 7621996998419766916}
+  defaultMaxHealth: 100
   OnMaxHealthUpdated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Game.UI.HealthBar, UICollection
+        m_MethodName: UpdateMaxHealthUI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHealthUpdated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Game.UI.HealthBar, UICollection
+        m_MethodName: UpdateHealthUI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  moveAction: {fileID: 6772243147845819567, guid: 54afb40bb5abeab4cb96bc3ea855818e, type: 3}
+  moveForce: 300
 --- !u!1 &3838668401798619198
 GameObject:
   m_ObjectHideFlags: 0

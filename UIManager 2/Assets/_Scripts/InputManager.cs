@@ -77,6 +77,13 @@ namespace Game.Input
             foreach (var action in InputAsset) action.Enable();
         }
 
+        private void Start()
+        {
+            UnityEngine.Debug.Log($"Current mouse: {Mouse.current.description.manufacturer}");
+            foreach (var device in InputSystem.devices) UnityEngine.Debug.Log($"Connected device: {device.name}: {device.description.product}");
+            foreach (var binding in InputAsset["Move"].bindings) UnityEngine.Debug.Log($"The binding on MOVE is {binding}");
+        }
+
         // Update is called once per frame
         private void Update()
         {
@@ -90,11 +97,11 @@ namespace Game.Input
             if (deviceBindingPaths.Count == 0) SetInputDevicePaths();
         }
 
-        
-        
 
 
-        //BINDING METHODS
+
+
+        #region Binding Methods
         public List<string> GetBindingsFromPlayerActionName(string name, bool allCaps, string mapName= PLAYER_MAP_NAME)
         {
             List<string> bindings = new List<string>();
@@ -200,13 +207,19 @@ namespace Game.Input
             UnityEngine.Debug.LogError($"Could not find an input device from the binding: {binding.name}");
             return default;
         }
+        #endregion
 
 
 
-        //ACTION METHODS
+        #region Action Methods
         public void AddStartedAction(string actionName, Action<InputAction.CallbackContext> action) => InputAsset[actionName].started += action;
+        public void RemoveStartedAction(string actionName, Action<InputAction.CallbackContext> action) => InputAsset[actionName].started -= action;
+
         public void AddPerformedAction(string actionName, Action<InputAction.CallbackContext> action) => InputAsset[actionName].performed += action;
+        public void RemovePerformedAction(string actionName, Action<InputAction.CallbackContext> action) => InputAsset[actionName].performed -= action;
+
         public void AddCanceledAction(string actionName, Action<InputAction.CallbackContext> action) => InputAsset[actionName].canceled += action;
+        public void RemoveCanceledAction(string actionName, Action<InputAction.CallbackContext> action) => InputAsset[actionName].canceled -= action;
 
         public void DisableInputActions(List<string> inputActionNames, string mapName = PLAYER_MAP_NAME)
         {
@@ -276,21 +289,44 @@ namespace Game.Input
         }
 
         public string GetPathFromDeviceType(InputDeviceType type) => deviceBindingPaths[type];
+        #endregion
 
 
-        //PROMPT ICON METHODS
+
+        #region Prompt Icon Methods
+        public List<Sprite> GetIconsFromAction(InputAction action)
+        {
+            InputDeviceType? targetDevice = GetConnectedDeviceType();
+            if(targetDevice==null)
+            {
+                UnityEngine.Debug.LogError("Tried to execute GetIconFromAction(), but there are no currently connected devices that are accepted!");
+                return null;
+            }
+
+            List<InputBinding> inputBindings= GetBindingsForConnectedDeviceFromAction(action);
+            if(inputBindings.Count==0)
+            {
+                UnityEngine.Debug.LogError($"Tried to execute GetIconFromAction(), but no {typeof(InputBinding)}s are found for the current connected device type: {targetDevice}");
+                return null;
+            }
+
+            List<Sprite> sprites = new List<Sprite>();
+            foreach (var binding in inputBindings) sprites.Add(GetIconFromBinding(binding));
+            return sprites; 
+        }
+
         public Sprite? GetIconFromBinding(InputBinding binding)
         {
             //based on the device, we get the SO with that device data
-            BindingIconColor color = this.bindingIconColor;
             InputDeviceType bindingDevice= GetInputDeviceFromBinding(binding);
+            GamepadType gamepadType= GetCurrentGamepadType();
             DeviceInputIconsSO buttonSpriteData = null;
 
             if (deviceButtonSprites.Length > 0)
             {
                 foreach (var device in deviceButtonSprites)
                 {
-                    if (device.DeviceType == bindingDevice && device.IconColor== color)
+                    if (device.DeviceType == bindingDevice && device.GamepadType== gamepadType)
                     {
                         buttonSpriteData = device;
                         break;
@@ -301,14 +337,15 @@ namespace Game.Input
             //dont allow to continue if that device has no sprites
             if (buttonSpriteData == null)
             {
-                UnityEngine.Debug.LogError($"Tried to find DeviceInputIconSO with device type: {bindingDevice} and color: {color} in GameInput for button sprites but it was not found!");
+                UnityEngine.Debug.LogError($"Tried to find {typeof(DeviceInputIconsSO)} with {typeof(InputDeviceType)}: {bindingDevice} and {typeof(GamepadType)} {gamepadType} in {typeof(InputManager)} " +
+                    $"for button sprites but it was not found!");
                 return null;
             }
 
-            //dont allow to continue if the color pairs in the SO is not filled up
+            //dont allow to continue if the actual data has no pairs
             if (buttonSpriteData.GetIconPairs().Count==0)
             {
-                UnityEngine.Debug.LogError($"Was looking for the color: {color} for button sprites but " +
+                UnityEngine.Debug.LogError($"Was looking for the button sprites but " +
                     $"{bindingDevice} button sprites has 0 of those pairs: {buttonSpriteData.GetIconPairs().Count}");
                 return null;
             }
@@ -350,8 +387,74 @@ namespace Game.Input
             if (deviceButtonSprites.Length == 0) return null;
             return Array.Find(deviceButtonSprites, sprites => sprites.DeviceType == device);
         }
- 
 
+        public GamepadType GetCurrentGamepadType()
+        {
+            if (Gamepad.current == null || Gamepad.current.description.empty) return GamepadType.None;
+
+            string productName = Gamepad.current.description.product.ToLower();
+
+            if (productName.Contains("xbox")) return GamepadType.Xbox;
+            else if (productName.Contains("dualsense") || productName.Contains("dualshock")) return GamepadType.PlayStation;
+            else if (productName.Contains("switch")) return GamepadType.PlayStation;
+            else if (productName.Contains("luna")) return GamepadType.AmazonLuna;
+            else if (productName.Contains("stadia")) return GamepadType.GoogleStadia;
+            else if (productName.Contains("wii")) return GamepadType.WiiU;
+            else if (productName.Contains("steam")) return GamepadType.SteamDeck;
+            else return GamepadType.None;
+        }
+
+        public InputDeviceType? GetConnectedDeviceType()
+        {
+            if (Gamepad.current != null) return InputDeviceType.Gamepad;
+            else if (Keyboard.current != null) return InputDeviceType.Keyboard;
+            else if (Mouse.current != null) return InputDeviceType.Keyboard;
+            else return null;
+        }
+
+        public List<InputBinding> GetBindingsForConnectedDeviceFromAction(InputAction action)
+        {
+            int index = 0;
+            InputDeviceType? targetDevice = GetConnectedDeviceType();
+            if (targetDevice == null)
+            {
+                UnityEngine.Debug.LogError($"Tried to call {typeof(InputManager)}.GetBindingsForConnectedDeviceFromAction(), but there are no currently connected devices that are accepted!");
+                return null;
+            }
+
+            List<InputBinding> inputBindings = new List<InputBinding>();
+            foreach (var binding in action.bindings)
+            {
+                //If it is not a compsite and it matches the correct connected device, we check further. 
+                //Note: Since we can get either keyboard or mouse, either is accepted. This may not work for all games
+                if (!binding.isComposite && (GetInputDeviceFromBinding(binding) == targetDevice ||
+                    targetDevice == InputDeviceType.Keyboard && GetInputDeviceFromBinding(binding) == InputDeviceType.Mouse))
+                {
+                    //If the binding is by itself, we just return it
+                    if (!binding.isPartOfComposite)
+                    {
+                        inputBindings.Add(binding);
+                        return inputBindings;
+                    }
+                    else
+                    {
+                        //Otherwise, we continue from this binding and look until we either find another composite or finish with all bindings.
+                        //By then, we should have gathered all the bindings in the composite and then get the icons for each binding  
+                        for (int i = index; i < action.bindings.Count; i++)
+                        {
+                            if (action.bindings[i].isComposite) break;
+                            else if (action.bindings[i].isPartOfComposite) inputBindings.Add(action.bindings[i]);
+                        }
+                        return inputBindings;
+                    }
+                }
+                index++;
+            }
+            UnityEngine.Debug.LogError($"Tried to find the {typeof(InputBinding)}s from {typeof(InputAction)} {action.name} for the current connected device type: {GetConnectedDeviceType()} but there aren't any! " +
+                $"Make sure that the connected device is correct and that there are {typeof(InputBinding)}s for it! ");
+            return null;
+        }
+        #endregion
     }
 }
 

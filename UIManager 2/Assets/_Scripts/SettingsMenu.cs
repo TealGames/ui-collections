@@ -46,6 +46,7 @@ namespace Game.UI
             [Header("Input")]
             [SerializeField] public InputSection[] inputSections;
             [SerializeField] public GameObject rebindOverlay;
+            [SerializeField] public Text rebindOverlayText;
             
         }
 
@@ -211,6 +212,21 @@ namespace Game.UI
         public void SetRebindOverlayStatus(bool status) => references.rebindOverlay.SetActive(status);
         public void EnableRebindOverlay(RebindActionUI rebindAction, InputActionRebindingExtensions.RebindingOperation operation) => SetRebindOverlayStatus(true);
         public void DisableRebindOverlay(RebindActionUI rebindAction, InputActionRebindingExtensions.RebindingOperation operation) => SetRebindOverlayStatus(false);
+
+        public void SetOverlayReferences()
+        {
+            if (references.inputSections.Length>0)
+            {
+                foreach (var section in references.inputSections)
+                {
+                    foreach (var extendedAction in section.GetExtendedRebindActons())
+                    {
+                        extendedAction.RebindActionUI.rebindOverlay = references.rebindOverlay;
+                        extendedAction.RebindActionUI.rebindPrompt = references.rebindOverlayText;
+                    }
+                }
+            }
+        }
 
         public void ResetAllRebindActions()
         {

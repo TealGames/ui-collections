@@ -4,10 +4,14 @@ using UnityEngine;
 
 namespace Game
 {
+    /// <summary>
+    /// Will draw an outline of a rectangular area in the Editor, which can be useful for having an area reference even when the GameObject is not selected
+    /// </summary>
     public class ColliderOutline : MonoBehaviour
     {
-        [SerializeField] private BoxCollider2D colliderArea;
-        [SerializeField] private bool drawBarrierOutline = true;
+        [Tooltip("The collider that should be drawn")][SerializeField] private BoxCollider2D colliderArea;
+        [Tooltip("If true, will draw an outline of the collider in the Editor even when this GameObject is not selected. " +
+            "This is helpful for having collider area references when this GameObject is not selected")][SerializeField] private bool drawBarrierOutline = true;
 
         // Start is called before the first frame update
         void Start()

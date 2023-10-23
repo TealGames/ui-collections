@@ -1,5 +1,5 @@
 {
-    "name": "UiCollectionEditor",
+    "name": "UICollectionEditor",
     "rootNamespace": "",
     "references": [
         "GUID:195c307f942d28748a1fb0706faccbe8",

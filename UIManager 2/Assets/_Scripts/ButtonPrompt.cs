@@ -17,16 +17,19 @@ namespace Game.UI
     public class ButtonPrompt : MonoBehaviour
     {
         [Header("References")]
+        [Tooltip("The container that holds all the UI elements for a UI system. This can be beneficial to allow the parent class to still be running while the container is disabled")]
         [SerializeField] private GameObject container;
         [SerializeField] private TextMeshProUGUI messageText1;
         [SerializeField] private TextMeshProUGUI messageText2;
+        [Tooltip("The Images that will display the prompt icons. " +
+            "Usually this should be 1, 2 (positive/negative), or 4 (left/right/down/up composite)")]
         [SerializeField] private Image[] images;
 
         [Header("Options")]
-        [Tooltip("Preset set on start")][SerializeField] private ButtonPromptPresetSO startPreset;
-        [field: SerializeField] public ButtonPromptType PromptType { get; private set; }
-        //[SerializeField] private float textHorizontalOffsetFromIcon;
-
+        [Tooltip("Preset set on start")][SerializeField] private ButtonPromptPresetSO defaultPreset;
+        [Tooltip("The unique location of the prompt on the screen used to identify which prompt the ButtonPromptManager should enable")]
+        [SerializeField] private ButtonPromptType promptType;
+        public ButtonPromptType PromptType { get => promptType; }
 
         [Header("Target Pressed")]
         [SerializeField] private bool disableOnTargetButtonPressed = false;
@@ -39,7 +42,7 @@ namespace Game.UI
             //set all images to have the sprite null so that when we switch alpha, only the null ones are set
             foreach (var image in images) image.sprite = null;
 
-            DisableButtonPromptMessage();
+            container.SetActive(false);
         }
 
         private void OnDestroy()
@@ -68,6 +71,7 @@ namespace Game.UI
 
             //we get the binding or bindings that correspond to this first action
             InputBinding[] bindingPaths = InputManager.Instance.GetFirstFullPathCompositeOrBindingFromActionName(preset.InputAction.name);
+            UnityEngine.Debug.Log($"Binding paths found: {bindingPaths.Length}");
             if (bindingPaths.Length > images.Length)
             {
                 UnityEngine.Debug.LogError($"Tried to fit binding paths: {bindingPaths.Length} in {images.Length} button prompt images!");
@@ -78,78 +82,58 @@ namespace Game.UI
                 //set all images to not have alpha and make the sprite null so that when we switch alpha, only the null ones are set
                 foreach (var image in images)
                 {
-                    image.color = new Color(image.color.r, image.color.g, image.color.b, 0);
                     image.sprite = null;
                     image.gameObject.SetActive(false);
                 }
 
+                List<Sprite> sprites = InputManager.Instance.GetIconsFromAction(preset.InputAction.action);
+                if(sprites.Count==0)
+                {
+                    UnityEngine.Debug.LogError($"Tried to assign the sprites for {typeof(ButtonPrompt)} {gameObject.name} but the sprite list from {typeof(InputAction)} {preset.InputAction.action.name} is 0!");
+                    return;
+                }
+
+                for (int i=0; i< sprites.Count; i++)
+                {
+                    images[i].sprite = sprites[i];
+                    images[i].gameObject.SetActive(true);
+                }
+
+                /*
                 //we can have a composite, so we make sure we go through each path
                 for (int i = 0; i < bindingPaths.Length; i++)
                 {
                     Sprite sprite = InputManager.Instance.GetIconFromBinding(bindingPaths[i]);
                     if (sprite != null)
                     {
-                        images[i].sprite = sprite;
-                        images[i].gameObject.SetActive(true);
+                        
                     }
                     else UnityEngine.Debug.LogError($"Tried to assign button message sprite for binding path:{bindingPaths[i].name} but it was not found!");
                 }
+                */
             }
 
-            //get the last image, find the max horizontal position and then set it with the offset
-            //RectTransform lastImageTransform = images[bindingPaths.Length - 1].GetComponent<RectTransform>();
-            //float lastPosition = lastImageTransform.localPosition.x + lastImageTransform.sizeDelta.x / 2;
-
-            //if (messageText2 != null) messageText2.GetComponent<RectTransform>().localPosition = new Vector2(lastPosition + textHorizontalOffsetFromIcon,
-            //   messageText2.GetComponent<RectTransform>().localPosition.y);
-
-
-            container.SetActive(true);
-            //SetImageAndTextAlpha(1f, enableImageAndTextTime);
             container.SetActive(true);
 
             InputManager.Instance.InputAsset[preset.InputAction.name].performed += TargetActionTriggered;
         }
 
         /// <summary>
-        /// Enables this ButtonPrompt.cs's default/start preset. If this does not exist or is null, it will throw an error
+        /// Enables this <see cref="ButtonPrompt"/> default/start preset: <see cref="ButtonPrompt.defaultPreset"/>. If this does not exist or is null, it will throw an error
         /// </summary>
         public void EnableButtonPromptMessage()
         {
-            if (startPreset==null)
+            if (defaultPreset==null)
             {
                 UnityEngine.Debug.LogError($"Tried to call EnableButtonPromptMessage() in {gameObject.name} with no ButtonPromptPresetSO argument, but this instance does not have a startPreset set up!");
                 return;
             }
-            EnableButtonPromptMessage(startPreset);
+            EnableButtonPromptMessage(defaultPreset);
         }
-
-        /*
-        private void SetImageAndTextAlpha(float newAlpha, float time, bool disableGameObject = false)
-        {
-            //we then begin gradually increasing the text and image alpha
-            if (messageText1 != null) StartCoroutine(HUD.Instance.LerpTextAlpha(messageText1, time, newAlpha));
-            if (messageText2 != null) StartCoroutine(HUD.Instance.LerpTextAlpha(messageText2, time, newAlpha));
-            foreach (var image in images) if (image.sprite != null) StartCoroutine(HUD.Instance.LerpImageAlpha(image, time, newAlpha));
-
-            if (disableGameObject)
-            {
-                IEnumerator DisableAfterLerpEnd()
-                {
-                    //UnityEngine.Debug.Log("Container timer for disabling has begun!");
-                    yield return new WaitForSecondsRealtime(time);
-                    container.SetActive(false);
-                }
-                StartCoroutine(DisableAfterLerpEnd());
-            }
-        }
-        */
 
         public void DisableButtonPromptMessage()
         {
             isEnabled = false;
-            //UnityEngine.Debug.Log("Disabling called for sprite message!");
-            //if (gameObject.activeInHierarchy) SetImageAndTextAlpha(0f, disableImageAndTextTime, disableGameObject: true);
             container.gameObject.SetActive(false);
         }
 
