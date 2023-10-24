@@ -43,7 +43,6 @@ namespace Game.Input
 
         [field: SerializeField] public InputDeviceType DeviceType { get; private set; }
         [field: SerializeField] public GamepadType GamepadType { get; private set; }
-        [field: SerializeField] public BindingIconColor IconColor { get; private set; }
 
 
         [Tooltip("You can fit all of the pairs in 1 section, but for devices with many sprite pairs, you can separate them into sections, " +

@@ -1,0 +1,2236 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.4f1 (35713cd46cd7) revision 3502396'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22621) 64bit Core' Language: 'en' Physical Memory: 12095 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.4f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/lukas/Desktop/Projects/Unity/ui-collections-2/ui-collections/UIManager 2
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+59290
+Successfully changed project path to: C:/Users/lukas/Desktop/Projects/Unity/ui-collections-2/ui-collections/UIManager 2
+C:/Users/lukas/Desktop/Projects/Unity/ui-collections-2/ui-collections/UIManager 2
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [9288] Host "[IP] 10.0.0.9 [Port] 0 [Flags] 2 [Guid] 2143972430 [EditorId] 2143972430 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-LF53H7L) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [9288] Host "[IP] 10.0.0.9 [Port] 0 [Flags] 2 [Guid] 2143972430 [EditorId] 2143972430 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-LF53H7L) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 56.01 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.4f1 (35713cd46cd7)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.4f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/lukas/Desktop/Projects/Unity/ui-collections-2/ui-collections/UIManager 2/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) UHD Graphics 630 (ID=0x3e92)
+    Vendor:   Intel
+    VRAM:     6047 MB
+    Driver:   30.0.100.9864
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.4f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.4f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56264
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.4f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.029583 seconds.
+- Loaded All Assemblies, in  0.758 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.450 seconds
+Domain Reload Profiling: 1202ms
+	BeginReloadAssembly (244ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (6ms)
+	RebuildCommonClasses (61ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (138ms)
+	LoadAllAssembliesAndSetupDomain (291ms)
+		LoadAssemblies (215ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (271ms)
+			TypeCache.Refresh (270ms)
+				TypeCache.ScanAssembly (244ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (451ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (355ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (20ms)
+			SetLoadedEditorAssemblies (10ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (3ms)
+			ProcessInitializeOnLoadAttributes (240ms)
+			ProcessInitializeOnLoadMethodAttributes (81ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\lukas\Desktop\Projects\Unity\ui-collections-2\ui-collections\UIManager 2\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\lukas\Desktop\Projects\Unity\ui-collections-2\ui-collections\UIManager 2\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+- Loaded All Assemblies, in  2.860 seconds
+Refreshing native plugins compatible for Editor in 18.36 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.235 seconds
+Domain Reload Profiling: 4074ms
+	BeginReloadAssembly (229ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (10ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (36ms)
+	RebuildCommonClasses (69ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (75ms)
+	LoadAllAssembliesAndSetupDomain (2449ms)
+		LoadAssemblies (1758ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (774ms)
+			TypeCache.Refresh (700ms)
+				TypeCache.ScanAssembly (670ms)
+			ScanForSourceGeneratedMonoScriptInfo (59ms)
+			ResolveRequiredComponents (15ms)
+	FinalizeReload (1236ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (892ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (16ms)
+			SetLoadedEditorAssemblies (7ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (159ms)
+			ProcessInitializeOnLoadAttributes (565ms)
+			ProcessInitializeOnLoadMethodAttributes (122ms)
+			AfterProcessingInitializeOnLoad (22ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (10ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 12.66 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6092 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 91 unused Assets / (350.7 KB). Loaded Objects now: 6557.
+Memory consumption went from 228.2 MB to 227.8 MB.
+Total: 9.995500 ms (FindLiveObjects: 2.414900 ms CreateObjectMapping: 1.098000 ms MarkObjects: 5.729500 ms  DeleteObjects: 0.751500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 77345.451433 seconds.
+  path: Assets/Art/Sprites/UIMaster.psb
+  artifactKey: Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Sprites/UIMaster.psb using Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d0d080db6f30b04a44c2385151f9990') in 0.024993 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 41
+========================================================================
+Received Import Request.
+  Time since last request: 53.201845 seconds.
+  path: Assets/Art/Sprites/UIMaster.psb
+  artifactKey: Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Sprites/UIMaster.psb using Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e9aad71d6061b545e36055bd9d4b538') in 0.026547 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 41
+========================================================================
+Received Import Request.
+  Time since last request: 129.262145 seconds.
+  path: Assets/Art/Sprites/UIMaster.psb
+  artifactKey: Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Sprites/UIMaster.psb using Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '148bd0464ae3e70fe749cb002b430e5a') in 0.037352 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 41
+========================================================================
+Received Import Request.
+  Time since last request: 583.779836 seconds.
+  path: Assets/Art/Sprites/UIMaster.psb
+  artifactKey: Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Sprites/UIMaster.psb using Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '609d4b536d0ae8a22d08b93abb0e940f') in 0.096042 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 45
+========================================================================
+Received Import Request.
+  Time since last request: 27.078992 seconds.
+  path: Assets/Art/Sprites/UIMaster.psb
+  artifactKey: Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Sprites/UIMaster.psb using Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe01ef3b146e38dd33fa486e9570f397') in 0.017900 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 41
+========================================================================
+Received Import Request.
+  Time since last request: 63.674625 seconds.
+  path: Assets/Art/Sprites/UIMaster.psb
+  artifactKey: Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Sprites/UIMaster.psb using Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '181df907788da808bf708644c98eecd2') in 0.052480 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 41
+========================================================================
+Received Import Request.
+  Time since last request: 60.540272 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Y_Key_Dark.png
+  artifactKey: Guid(64abf152e6dc65a4c8ea30c664ea46a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Y_Key_Dark.png using Guid(64abf152e6dc65a4c8ea30c664ea46a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4d0c6dc39d7eb1ba02eca13f7c1644a') in 0.015801 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Z_Key_Dark.png
+  artifactKey: Guid(ac270101add0c9f4d8befbf2a86d48f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Z_Key_Dark.png using Guid(ac270101add0c9f4d8befbf2a86d48f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0daf5b090f6ed869eb03977755054a18') in 0.005421 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Y_Key_Light.png
+  artifactKey: Guid(6a664c04df9fb0d47a223ff1a579eb77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Y_Key_Light.png using Guid(6a664c04df9fb0d47a223ff1a579eb77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '575d3580b61cbb80155a741388ddfab6') in 0.017651 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Z_Key_Light.png
+  artifactKey: Guid(19c5f4fcad87e004aadfd4d2c2de3cec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Z_Key_Light.png using Guid(19c5f4fcad87e004aadfd4d2c2de3cec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da8e57f802cab2036d643e61dcdd0e1a') in 0.008404 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.661173 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Win_Key_Dark.png
+  artifactKey: Guid(07dd1a4f165e54a438ce14b84c6b3ea6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Win_Key_Dark.png using Guid(07dd1a4f165e54a438ce14b84c6b3ea6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c244b60983bb8201e8c238bee324582') in 0.002664 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Win_Key_Light.png
+  artifactKey: Guid(8168da5a725d0a441a448550c34f52a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Win_Key_Light.png using Guid(8168da5a725d0a441a448550c34f52a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '852ecd818640af0792425e0f988061e7') in 0.003500 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.177722 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Touch_Left.png
+  artifactKey: Guid(44f627963e89a824980c515e67e14ed1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Touch_Left.png using Guid(44f627963e89a824980c515e67e14ed1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cd875939ac04eb434d733312d06eb50') in 0.007816 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/W_Key_Light.png
+  artifactKey: Guid(5d5283749c8658a4d8e6bc31d49efa61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/W_Key_Light.png using Guid(5d5283749c8658a4d8e6bc31d49efa61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86c3f2f09368c70becd448a883f7c380') in 0.005928 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Touch_Scroll_Right.png
+  artifactKey: Guid(7d933e2eea8ce0541b148d3d3d1704ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Touch_Scroll_Right.png using Guid(7d933e2eea8ce0541b148d3d3d1704ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5250dcbcb21778e158b679690bfc18aa') in 0.008371 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Touch_Scroll_Left.png
+  artifactKey: Guid(a78894ea1474bd346b0c897bbd25917c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Touch_Scroll_Left.png using Guid(a78894ea1474bd346b0c897bbd25917c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d604afe7d4e5ab627bd3dbfbc974d96') in 0.004824 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Touch_Up.png
+  artifactKey: Guid(13d6445147170784f942a9176cef1040) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Touch_Up.png using Guid(13d6445147170784f942a9176cef1040) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd18a04819f6c37e80b2035a072aad24') in 0.009272 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/W_Key_Dark.png
+  artifactKey: Guid(b459aec635818e747abc25f3b4f969f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/W_Key_Dark.png using Guid(b459aec635818e747abc25f3b4f969f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4a81ae7382dcea3a12d515aab8467f6') in 0.006548 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_TriggerBlank.png
+  artifactKey: Guid(f911f3791fc5f9f43b3b07d0756cf006) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_TriggerBlank.png using Guid(f911f3791fc5f9f43b3b07d0756cf006) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24f431616a69f54b0ab4209f43d164e7') in 0.005519 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000133 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Touch_Right.png
+  artifactKey: Guid(4f3985922a3df8e42b11bd4a944ec5f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Touch_Right.png using Guid(4f3985922a3df8e42b11bd4a944ec5f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6fdd1cf399cdad83411c6405c1d2cb93') in 0.003824 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.003781 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/T_Key_Dark.png
+  artifactKey: Guid(cba12c893847ce94799b9c4930d93f13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/T_Key_Dark.png using Guid(cba12c893847ce94799b9c4930d93f13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '347f6317db89156cb6a99dbf3ce317aa') in 0.003918 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000832 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/T_Key_Light.png
+  artifactKey: Guid(c7cfda00ec6c95a49836280b109a1b3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/T_Key_Light.png using Guid(c7cfda00ec6c95a49836280b109a1b3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ceb78a35ab3bca6f874c4ce8944863d') in 0.001897 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Tab_Key_Dark.png
+  artifactKey: Guid(bb61450ba9013ac45a3a8d050a965145) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Tab_Key_Dark.png using Guid(bb61450ba9013ac45a3a8d050a965145) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e804308a2d574e0e86e8857fbe4fe57') in 0.003082 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Dpad.png
+  artifactKey: Guid(4f0dd95d6ba21974bbf265a041f257f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Dpad.png using Guid(4f0dd95d6ba21974bbf265a041f257f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f6afb23b0ff7c2cacbffc166ccb4f90') in 0.002643 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Plus.png
+  artifactKey: Guid(676d8dbd98329d540a4276413d18bbe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Plus.png using Guid(676d8dbd98329d540a4276413d18bbe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50d833db268def03dc8a8365d9c9ed7a') in 0.002497 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Square.png
+  artifactKey: Guid(0e95c57c340cfa7479fb18b70cc4dc75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Square.png using Guid(0e95c57c340cfa7479fb18b70cc4dc75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ddee70bda2a97114ada50f6ad42a61b2') in 0.003257 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000628 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Grip_Right.png
+  artifactKey: Guid(b3268ca73753559479bd4823b670cdac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Grip_Right.png using Guid(b3268ca73753559479bd4823b670cdac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9f022ae6d03ff299a0f57e60d3bddf7') in 0.002974 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Hand_Right.png
+  artifactKey: Guid(324fa595b5501464cb9f607403714bbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Hand_Right.png using Guid(324fa595b5501464cb9f607403714bbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7e2533b7040bf425426b6bb74d70a6d') in 0.008007 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000073 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Touch_Down.png
+  artifactKey: Guid(f5e692345a614db4fb46fcf37f31cd23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Touch_Down.png using Guid(f5e692345a614db4fb46fcf37f31cd23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04fbbb4abc851fb326b310b9ee1934f5') in 0.003111 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/U_Key_Light.png
+  artifactKey: Guid(18a976767005aad468cbe1ca351d933b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/U_Key_Light.png using Guid(18a976767005aad468cbe1ca351d933b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9087bbb907306bd6e94f06e32055199f') in 0.003211 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Left_Stick.png
+  artifactKey: Guid(9dd2f123433772440ab561e10f4a0398) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Left_Stick.png using Guid(9dd2f123433772440ab561e10f4a0398) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44031ee94308de18732c8bd48e93947e') in 0.002582 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_System.png
+  artifactKey: Guid(1d1dde501ed1eff418f683ca6495288a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_System.png using Guid(1d1dde501ed1eff418f683ca6495288a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a9f3a25d7e5c18e8321ffaa43930346') in 0.003002 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Dpad_Down.png
+  artifactKey: Guid(461b35a2a14c96c49a2095dad73700f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Dpad_Down.png using Guid(461b35a2a14c96c49a2095dad73700f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2661e966900ca3a3ed7958803497254b') in 0.010632 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000086 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Hold_Right.png
+  artifactKey: Guid(27452c2d2951bc8409826f6186ff508f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Hold_Right.png using Guid(27452c2d2951bc8409826f6186ff508f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9808c0297a815db3d6a449571836b753') in 0.006907 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/U_Key_Dark.png
+  artifactKey: Guid(de4bed0c33796b54bb25fc434d7e7d08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/U_Key_Dark.png using Guid(de4bed0c33796b54bb25fc434d7e7d08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c4117c65b9aa729c3236f1730df97bb') in 0.005041 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Tab_Key_Light.png
+  artifactKey: Guid(a3b364a46b6efc941922b0c4e7cf1dd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Tab_Key_Light.png using Guid(a3b364a46b6efc941922b0c4e7cf1dd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da3e1ce5d178c5f029905d59cb25b0a7') in 0.005102 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Right_Stick.png
+  artifactKey: Guid(97c83947b4c3da145850051d7fe69176) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Right_Stick.png using Guid(97c83947b4c3da145850051d7fe69176) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92b268d6f30f3ac2fb37628370277496') in 0.002119 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000371 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Tilda_Key_Light.png
+  artifactKey: Guid(a49d881d878ef144eb2f8f02735ddc0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Tilda_Key_Light.png using Guid(a49d881d878ef144eb2f8f02735ddc0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4179addf930c073e1b0cacbbf76e53ad') in 0.002838 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Bumpter_Left.png
+  artifactKey: Guid(5203c591b5d36d842b38cced6e5eaa07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Bumpter_Left.png using Guid(5203c591b5d36d842b38cced6e5eaa07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3300ffad69313da88e9ebe7fb961c7bb') in 0.002676 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Dpad_Right.png
+  artifactKey: Guid(e9fea3d819efc1b43a2aa3f2fdfedde0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Dpad_Right.png using Guid(e9fea3d819efc1b43a2aa3f2fdfedde0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '961bda00630d8e550879963b064ba9f5') in 0.003394 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000261 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Hold_Left.png
+  artifactKey: Guid(a737e9ce281e16d46af1773fc238de7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Hold_Left.png using Guid(a737e9ce281e16d46af1773fc238de7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2125354ed55eec783657766f6184e3d') in 0.004729 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Girp_Left.png
+  artifactKey: Guid(53721ee4484cd3b42afeca4dae6bd2dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Girp_Left.png using Guid(53721ee4484cd3b42afeca4dae6bd2dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f7bb161e29c20ce73aaa46edfbb003b') in 0.001742 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Steam/Steam_Tilt_Pitch.png
+  artifactKey: Guid(fd6788d98928fca47bed06424361d1cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Steam/Steam_Tilt_Pitch.png using Guid(fd6788d98928fca47bed06424361d1cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1780ec6a3fdfc28faa120c46ea49ab7') in 0.002847 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Steam/Steam_Y.png
+  artifactKey: Guid(1a25339d71f0563418b3d10e8bd29af6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Steam/Steam_Y.png using Guid(1a25339d71f0563418b3d10e8bd29af6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53364bef3381f24639e406bf18bcecfc') in 0.002622 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000082 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Steam/Steam_Tilt_Roll.png
+  artifactKey: Guid(095949f16f76a5e4eb5d0bb9218d3948) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Steam/Steam_Tilt_Roll.png using Guid(095949f16f76a5e4eb5d0bb9218d3948) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74592b42d5f88c85641ae207bc28c15a') in 0.006981 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Steam/Steam_System.png
+  artifactKey: Guid(4223662ccd57d504889038e9db45f384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Steam/Steam_System.png using Guid(4223662ccd57d504889038e9db45f384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40cfa3dbdf462799710a3f6b5efc201a') in 0.005698 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Hand_Left.png
+  artifactKey: Guid(e98e918a849e6ec45b7e71c4da8e4a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Hand_Left.png using Guid(e98e918a849e6ec45b7e71c4da8e4a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '464dd52ea567316f07d20e57f97b312b') in 0.003292 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Start.png
+  artifactKey: Guid(b2bc6cc70bc7a21469103b1e120909b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Start.png using Guid(b2bc6cc70bc7a21469103b1e120909b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8dbcbd1817a87bd12843db8dc31301f') in 0.003664 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_RT.png
+  artifactKey: Guid(b0a3a0964b6981d4ba9d970768077e71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_RT.png using Guid(b0a3a0964b6981d4ba9d970768077e71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e1953e15335ccd9b1182df1f4b85af1') in 0.002523 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Power.png
+  artifactKey: Guid(1e0f65c92eea60d4eb843d36417cd057) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Power.png using Guid(1e0f65c92eea60d4eb843d36417cd057) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '977db6bcaffe9eb9070a1d220e6a2997') in 0.003180 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000307 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Touch.png
+  artifactKey: Guid(7330e659b7ff3114e9fa235042fc84cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Touch.png using Guid(7330e659b7ff3114e9fa235042fc84cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc6cea9fba8d79b44645935bc1a4fe96') in 0.002327 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Dpad_Up.png
+  artifactKey: Guid(e1c30ba84cc32de42a716c9fcd143c7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Dpad_Up.png using Guid(e1c30ba84cc32de42a716c9fcd143c7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5dcd78fcde8b1155b1e4dc3358552dc7') in 0.002619 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Dpad_Left.png
+  artifactKey: Guid(312b7f96bc314bc40b8d2ed6db204b80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Dpad_Left.png using Guid(312b7f96bc314bc40b8d2ed6db204b80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd01555b1dd05a79f1b4c5dd70db3ea3e') in 0.003768 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Steam/Steam_Tilt_Yaw.png
+  artifactKey: Guid(5ce91d684d240ff41b20aef02a1888ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Steam/Steam_Tilt_Yaw.png using Guid(5ce91d684d240ff41b20aef02a1888ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46694d46da20af5eed917a18f342ad7a') in 0.003546 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Touch_Center.png
+  artifactKey: Guid(942dedbf2e547d445ad14b6995c6046c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Touch_Center.png using Guid(942dedbf2e547d445ad14b6995c6046c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ddf42d11516bb0f8e18e2de6dd4a3f6') in 0.003664 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Circle.png
+  artifactKey: Guid(357d2e3799df11149ab5caddf34ab9c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Circle.png using Guid(357d2e3799df11149ab5caddf34ab9c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5605c52ce661ecfab9df3903a4a1a34b') in 0.004428 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000182 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Menu.png
+  artifactKey: Guid(2da32bc1e2254ff448e6247253fd7318) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_Menu.png using Guid(2da32bc1e2254ff448e6247253fd7318) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fcc3edd2b0cdde16b263697d126d5e9') in 0.004355 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Tilda_Key_Dark.png
+  artifactKey: Guid(d5bf3c87b5652704598f058031c4beeb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Tilda_Key_Dark.png using Guid(d5bf3c87b5652704598f058031c4beeb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d854ded8aceff3ba59c3e857e4c41ec') in 0.003731 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000134 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Bumper_Right.png
+  artifactKey: Guid(8489680eb4306664bbc13e66f403a003) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Bumper_Right.png using Guid(8489680eb4306664bbc13e66f403a003) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a31f997e1b9d82b34f9559cdce340307') in 0.002312 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Touch_Pad.png
+  artifactKey: Guid(5612454ec0ce95b429de931ca54d042e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Touch_Pad.png using Guid(5612454ec0ce95b429de931ca54d042e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5aae7270ac33dbced538e2d1df43e1c3') in 0.002393 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Minus.png
+  artifactKey: Guid(08157a688bb178a478b70ce259f95971) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Minus.png using Guid(08157a688bb178a478b70ce259f95971) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1b99c2be41649be31a70d9038ccc824') in 0.002797 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_LT.png
+  artifactKey: Guid(91abc5e1556d4f2469f31286925a4ec2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/VR/Vive/Vive_LT.png using Guid(91abc5e1556d4f2469f31286925a4ec2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '552a8790dc0994ea86d8f4a23ff8d5a2') in 0.003686 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Triangle.png
+  artifactKey: Guid(4a08b79207f0b004194d6231d7685c43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Triangle.png using Guid(4a08b79207f0b004194d6231d7685c43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a4fd8e9587d47a277b1b15441d6cac5') in 0.004787 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Select.png
+  artifactKey: Guid(525633f4f02690849b9f74784818d117) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Select.png using Guid(525633f4f02690849b9f74784818d117) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b071a0976a7a54e2bf2eaf2d66383891') in 0.002704 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000349 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/V_Key_Dark.png
+  artifactKey: Guid(e8828fc8d6e7bbe4ea9647172e575fb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/V_Key_Dark.png using Guid(e8828fc8d6e7bbe4ea9647172e575fb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f8f535ecabce4c6d26a7ea7922e8a99') in 0.003632 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000059 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/V_Key_Light.png
+  artifactKey: Guid(4a3449d8af399a344a92f88df97a0a82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/V_Key_Light.png using Guid(4a3449d8af399a344a92f88df97a0a82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '086f178e661a8b6b85ee4ae7aafcf24c') in 0.002007 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Cross.png
+  artifactKey: Guid(ae717eb516ac54843be3b6b8fc786a44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/PS Vita/Vita_Cross.png using Guid(ae717eb516ac54843be3b6b8fc786a44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6c708d37ef62942c2f658db2f280b3c') in 0.003573 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 60.811745 seconds.
+  path: Assets/Art/Sprites/UIMaster.psb
+  artifactKey: Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Sprites/UIMaster.psb using Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ea91e7c79b794cf256e761abacbd482') in 0.103397 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 45
+========================================================================
+Received Import Request.
+  Time since last request: 141.344393 seconds.
+  path: Assets/Art/Sprites/UIMaster.psb
+  artifactKey: Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Sprites/UIMaster.psb using Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e115cebefdbba4b8694d7b2598a74011') in 0.047899 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 49
+========================================================================
+Received Import Request.
+  Time since last request: 342.816314 seconds.
+  path: Assets/Art/Sprites/UIMaster.psb
+  artifactKey: Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Sprites/UIMaster.psb using Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b12f0d0be55b4f5b4b49d55b469b77f3') in 0.108864 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 61
+========================================================================
+Received Import Request.
+  Time since last request: 57.020869 seconds.
+  path: Assets/Prefabs/Basic Elements/Scroll View.prefab
+  artifactKey: Guid(c2169a701fc587a4e84924b5717d53bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Basic Elements/Scroll View.prefab using Guid(c2169a701fc587a4e84924b5717d53bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4f4775a94119da440411830111fff84') in 0.841144 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 251
+========================================================================
+Received Import Request.
+  Time since last request: 1.849436 seconds.
+  path: Assets/Prefabs/Basic Elements/Scroll View.prefab
+  artifactKey: Guid(c2169a701fc587a4e84924b5717d53bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Basic Elements/Scroll View.prefab using Guid(c2169a701fc587a4e84924b5717d53bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04177469cc96a6b35ccd85e9e894c302') in 0.064643 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 251
+========================================================================
+Received Import Request.
+  Time since last request: 120.743635 seconds.
+  path: Assets/Assets/ScriptableObjects
+  artifactKey: Guid(9915bc1297aa9fb438ffb35be6ab5d32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/ScriptableObjects using Guid(9915bc1297aa9fb438ffb35be6ab5d32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '379da333e4e56b398f4fb2ba575b9fa7') in 0.001386 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 4.265077 seconds.
+  path: Assets/Assets/ScriptableObjects/MemberSelections
+  artifactKey: Guid(ebb24e8afc2cbb547a4e2c811ee19fee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/ScriptableObjects/MemberSelections using Guid(ebb24e8afc2cbb547a4e2c811ee19fee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '761d845a5c1e0578592ac431aca5b671') in 0.003359 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 26.159174 seconds.
+  path: Assets/Prefabs/Input Settings.prefab
+  artifactKey: Guid(d137b6c3e6ed5cc41ae78ee0d4b0b39f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Input Settings.prefab using Guid(d137b6c3e6ed5cc41ae78ee0d4b0b39f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f3717bdec83a03b255dbd471de3ecc4') in 0.311558 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 291
+========================================================================
+Received Import Request.
+  Time since last request: 0.423028 seconds.
+  path: Assets/Prefabs/Basic Elements/Scroll View.prefab
+  artifactKey: Guid(c2169a701fc587a4e84924b5717d53bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Basic Elements/Scroll View.prefab using Guid(c2169a701fc587a4e84924b5717d53bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a644e75c48173cf756fbdc13729d14ab') in 0.032076 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 252
+========================================================================
+Received Import Request.
+  Time since last request: 251.611484 seconds.
+  path: Assets/Art/Sprites/UIMaster.psb
+  artifactKey: Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Sprites/UIMaster.psb using Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf06697f2e0915381745b57ff38d3aed') in 0.079210 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 61
+========================================================================
+Received Import Request.
+  Time since last request: 36.093848 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_Dpad_Left.png
+  artifactKey: Guid(50cf0ad9428d5c24e8a34dc9121d5424) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_Dpad_Left.png using Guid(50cf0ad9428d5c24e8a34dc9121d5424) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a1ff52c79cd06808cb734bb0072ea33') in 0.007960 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_Dpad_Up.png
+  artifactKey: Guid(be3eb4647b6b4524290e45a538d0c846) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_Dpad_Up.png using Guid(be3eb4647b6b4524290e45a538d0c846) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e4f4482fc2a354958cf5d2ac9262d8d') in 0.003353 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_Dpad_Right.png
+  artifactKey: Guid(f461df5334b7e7541bdc5887ccce19ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_Dpad_Right.png using Guid(f461df5334b7e7541bdc5887ccce19ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4337782ada49f57a5da9af5b25fbe8a5') in 0.003136 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_R1.png
+  artifactKey: Guid(e3071afd19246ad428ac68d2d62bd2fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_R1.png using Guid(e3071afd19246ad428ac68d2d62bd2fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d939b9029031c24f1aeb939f4a4175c') in 0.006702 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000058 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_Left_Stick.png
+  artifactKey: Guid(2e9a72105b1216f49bc27cc396bb819a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_Left_Stick.png using Guid(2e9a72105b1216f49bc27cc396bb819a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1dddd14730905e172094f46b66cba8e9') in 0.011598 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Print_Screen_Key_Light.png
+  artifactKey: Guid(0565301c6f6848243a929f6783149678) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Print_Screen_Key_Light.png using Guid(0565301c6f6848243a929f6783149678) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f063e4458a40a7644d1eee2786bd413b') in 0.006215 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Positional Prompts/Positional_Prompts_Up.png
+  artifactKey: Guid(1b12b5f97c3bacf449b6b36250a68da4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Positional Prompts/Positional_Prompts_Up.png using Guid(1b12b5f97c3bacf449b6b36250a68da4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0f48e5317b74f8115737f74c320318b') in 0.006260 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000469 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Positional Prompts/Positional_Prompts_Down.png
+  artifactKey: Guid(3e9767d9004334c4c9892a01d5782f6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Positional Prompts/Positional_Prompts_Down.png using Guid(3e9767d9004334c4c9892a01d5782f6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3851bf1768e258d558b2d4a812e923af') in 0.002624 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Plus_Key_Dark.png
+  artifactKey: Guid(bd8ca677f75e8144cb92d826741a2559) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Plus_Key_Dark.png using Guid(bd8ca677f75e8144cb92d826741a2559) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02715603e135b61488b26fc34ace93e5') in 0.005373 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Page_Down_Key_Light.png
+  artifactKey: Guid(472153c70cc83eb4a93b046a36f0f599) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Page_Down_Key_Light.png using Guid(472153c70cc83eb4a93b046a36f0f599) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9e68e61fa05d3e16c108119c5b30d57') in 0.005468 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Page_Up_Key_Dark.png
+  artifactKey: Guid(ec94f800311d7df449b1eb76c2d236f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Page_Up_Key_Dark.png using Guid(ec94f800311d7df449b1eb76c2d236f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df0417e7bf2e3e17eb74394509c6c5df') in 0.005350 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Plus_Tall_Key_Dark.png
+  artifactKey: Guid(a918c71632c78934fa1823290cafec9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Plus_Tall_Key_Dark.png using Guid(a918c71632c78934fa1823290cafec9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5822d1109281f37c889bd78567e574b5') in 0.003920 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_O.png
+  artifactKey: Guid(037ac7f695caa1e40908f5bfed695388) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_O.png using Guid(037ac7f695caa1e40908f5bfed695388) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '104b6e555e022b4201f9caa08fc8c801') in 0.005959 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_R2.png
+  artifactKey: Guid(c901e510005ed4340b6bc87b62ba4281) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_R2.png using Guid(c901e510005ed4340b6bc87b62ba4281) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '436613eec8121aa899798a1e3cdf74bd') in 0.006677 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_U.png
+  artifactKey: Guid(97f17e9794334804d9e8371045fc0fd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_U.png using Guid(97f17e9794334804d9e8371045fc0fd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '820e2b058164918c62054c4146dd4e84') in 0.004929 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000147 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_L1.png
+  artifactKey: Guid(00ab2f91842c63547a580e4b0526cd89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_L1.png using Guid(00ab2f91842c63547a580e4b0526cd89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a7c25e4d48e4ea4c7d08d54558bd46b') in 0.002196 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Positional Prompts/Positional_Prompts_Left.png
+  artifactKey: Guid(3ca1057042d567a43849b7ff1f63c192) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Positional Prompts/Positional_Prompts_Left.png using Guid(3ca1057042d567a43849b7ff1f63c192) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '91520e96f9cd4eca280fe20095f65d25') in 0.003241 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Page_Down_Key_Dark.png
+  artifactKey: Guid(aeed1f862885e9b4bbb734350ec00f31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Page_Down_Key_Dark.png using Guid(aeed1f862885e9b4bbb734350ec00f31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b2e2c3f1034367e06982063eb3fe84e') in 0.003831 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Plus_Tall_Key_Light.png
+  artifactKey: Guid(9ab7dd15d8dd53d46a738610ee199bea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Plus_Tall_Key_Light.png using Guid(9ab7dd15d8dd53d46a738610ee199bea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9527f32db83143dc2d75e98f67a6d136') in 0.002718 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_L2.png
+  artifactKey: Guid(c85a95598a74fb84ca9c7db045840a58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_L2.png using Guid(c85a95598a74fb84ca9c7db045840a58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca29dfa154abcf7addb12a204529698b') in 0.002306 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_Right_Stick.png
+  artifactKey: Guid(605be40a893a83b478f45bb67e45157a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_Right_Stick.png using Guid(605be40a893a83b478f45bb67e45157a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de82a499b29b053a3d5c29cda732203e') in 0.002459 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/P_Key_Dark.png
+  artifactKey: Guid(3d7c788cd7d8d7f4681a36e8c9d38f8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/P_Key_Dark.png using Guid(3d7c788cd7d8d7f4681a36e8c9d38f8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1eda137933fef2a25274b2517294ea98') in 0.003489 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Plus_Key_Light.png
+  artifactKey: Guid(50a3c7c155407e6418cea3fb74c10e50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Plus_Key_Light.png using Guid(50a3c7c155407e6418cea3fb74c10e50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffbaf92ac933d1bb1d083b58eedd309a') in 0.002800 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Positional Prompts/Positional_Prompts_Right.png
+  artifactKey: Guid(b815e1521e959eb47b8d489ed9284281) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Positional Prompts/Positional_Prompts_Right.png using Guid(b815e1521e959eb47b8d489ed9284281) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3416cff63e7243176cc3d78fffe89b8') in 0.002544 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_Touch.png
+  artifactKey: Guid(90e2231325a67ed45a31f5fa479830b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_Touch.png using Guid(90e2231325a67ed45a31f5fa479830b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '535b75fb2dc342fac813ae3f5cd8a45f') in 0.003485 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_Menu.png
+  artifactKey: Guid(dbdc1f0aa4485664db00c192e9e1c645) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_Menu.png using Guid(dbdc1f0aa4485664db00c192e9e1c645) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd33645ee491bcfaf67b125309b5e5259') in 0.002719 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_Y.png
+  artifactKey: Guid(80aa111bb52c1e04082de0b9506a0a4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Ouya/Ouya_Y.png using Guid(80aa111bb52c1e04082de0b9506a0a4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54e487bd186b418cfb91820c55ef1fd0') in 0.002982 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Page_Up_Key_Light.png
+  artifactKey: Guid(6d7d32d3ed1bb2847bdc764a0cef48da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Page_Up_Key_Light.png using Guid(6d7d32d3ed1bb2847bdc764a0cef48da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f572d0a26dd54844574869c7d317d940') in 0.003946 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000096 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/P_Key_Light.png
+  artifactKey: Guid(c443d14a2cfdf8e4bb5ebe5510a272f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/P_Key_Light.png using Guid(c443d14a2cfdf8e4bb5ebe5510a272f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da7586cacf673af62d907063bbb1a5b8') in 0.005196 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Print_Screen_Key_Dark.png
+  artifactKey: Guid(77c91e104ec987447a167d01c5ff3914) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Print_Screen_Key_Dark.png using Guid(77c91e104ec987447a167d01c5ff3914) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3408e84ad0b7f1116ca3822cad90fd34') in 0.007072 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\lukas\Desktop\Projects\Unity\ui-collections-2\ui-collections\UIManager 2\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\lukas\Desktop\Projects\Unity\ui-collections-2\ui-collections\UIManager 2\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+- Loaded All Assemblies, in  5.936 seconds
+Refreshing native plugins compatible for Editor in 16.51 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  4.952 seconds
+Domain Reload Profiling: 10875ms
+	BeginReloadAssembly (1343ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (378ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (1ms)
+		CreateAndSetChildDomain (427ms)
+	RebuildCommonClasses (57ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (69ms)
+	LoadAllAssembliesAndSetupDomain (4436ms)
+		LoadAssemblies (3942ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (626ms)
+			TypeCache.Refresh (606ms)
+				TypeCache.ScanAssembly (535ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (19ms)
+	FinalizeReload (4953ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (764ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (16ms)
+			SetLoadedEditorAssemblies (9ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (157ms)
+			ProcessInitializeOnLoadAttributes (451ms)
+			ProcessInitializeOnLoadMethodAttributes (110ms)
+			AfterProcessingInitializeOnLoad (20ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (21ms)
+Refreshing native plugins compatible for Editor in 12.92 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5925 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 50 unused Assets / (322.3 KB). Loaded Objects now: 6564.
+Memory consumption went from 198.4 MB to 198.1 MB.
+Total: 7.555000 ms (FindLiveObjects: 0.756500 ms CreateObjectMapping: 0.703700 ms MarkObjects: 5.903700 ms  DeleteObjects: 0.189700 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\lukas\Desktop\Projects\Unity\ui-collections-2\ui-collections\UIManager 2\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\lukas\Desktop\Projects\Unity\ui-collections-2\ui-collections\UIManager 2\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+- Loaded All Assemblies, in  1.449 seconds
+Refreshing native plugins compatible for Editor in 23.19 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  4.522 seconds
+Domain Reload Profiling: 5959ms
+	BeginReloadAssembly (241ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (16ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (56ms)
+	RebuildCommonClasses (54ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (60ms)
+	LoadAllAssembliesAndSetupDomain (1062ms)
+		LoadAssemblies (642ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (513ms)
+			TypeCache.Refresh (490ms)
+				TypeCache.ScanAssembly (432ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (23ms)
+	FinalizeReload (4523ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2247ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (23ms)
+			SetLoadedEditorAssemblies (7ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (333ms)
+			ProcessInitializeOnLoadAttributes (1431ms)
+			ProcessInitializeOnLoadMethodAttributes (408ms)
+			AfterProcessingInitializeOnLoad (44ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (48ms)
+Refreshing native plugins compatible for Editor in 13.46 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5925 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 48 unused Assets / (321.9 KB). Loaded Objects now: 6569.
+Memory consumption went from 198.4 MB to 198.1 MB.
+Total: 5.031900 ms (FindLiveObjects: 0.548900 ms CreateObjectMapping: 0.558800 ms MarkObjects: 3.798300 ms  DeleteObjects: 0.124800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\lukas\Desktop\Projects\Unity\ui-collections-2\ui-collections\UIManager 2\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\lukas\Desktop\Projects\Unity\ui-collections-2\ui-collections\UIManager 2\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+- Loaded All Assemblies, in  1.612 seconds
+Refreshing native plugins compatible for Editor in 18.68 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  8.636 seconds
+Domain Reload Profiling: 10234ms
+	BeginReloadAssembly (351ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (33ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (86ms)
+	RebuildCommonClasses (71ms)
+	RebuildNativeTypeToScriptingClass (20ms)
+	initialDomainReloadingComplete (62ms)
+	LoadAllAssembliesAndSetupDomain (1093ms)
+		LoadAssemblies (674ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (538ms)
+			TypeCache.Refresh (521ms)
+				TypeCache.ScanAssembly (504ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (17ms)
+	FinalizeReload (8637ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1972ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (30ms)
+			SetLoadedEditorAssemblies (17ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (258ms)
+			ProcessInitializeOnLoadAttributes (1263ms)
+			ProcessInitializeOnLoadMethodAttributes (346ms)
+			AfterProcessingInitializeOnLoad (58ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (59ms)
+Refreshing native plugins compatible for Editor in 22.69 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5925 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 48 unused Assets / (322.0 KB). Loaded Objects now: 6574.
+Memory consumption went from 198.4 MB to 198.1 MB.
+Total: 8.451900 ms (FindLiveObjects: 0.745100 ms CreateObjectMapping: 1.063400 ms MarkObjects: 6.400400 ms  DeleteObjects: 0.241000 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\lukas\Desktop\Projects\Unity\ui-collections-2\ui-collections\UIManager 2\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\lukas\Desktop\Projects\Unity\ui-collections-2\ui-collections\UIManager 2\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+- Loaded All Assemblies, in  1.498 seconds
+Refreshing native plugins compatible for Editor in 33.37 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  6.817 seconds
+Domain Reload Profiling: 8302ms
+	BeginReloadAssembly (282ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (19ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (84ms)
+	RebuildCommonClasses (50ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (63ms)
+	LoadAllAssembliesAndSetupDomain (1070ms)
+		LoadAssemblies (604ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (552ms)
+			TypeCache.Refresh (524ms)
+				TypeCache.ScanAssembly (500ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (28ms)
+	FinalizeReload (6818ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (806ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (18ms)
+			SetLoadedEditorAssemblies (9ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (189ms)
+			ProcessInitializeOnLoadAttributes (442ms)
+			ProcessInitializeOnLoadMethodAttributes (107ms)
+			AfterProcessingInitializeOnLoad (37ms)
+			EditorAssembliesLoaded (4ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (35ms)
+Refreshing native plugins compatible for Editor in 12.48 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5925 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 48 unused Assets / (321.1 KB). Loaded Objects now: 6579.
+Memory consumption went from 198.4 MB to 198.1 MB.
+Total: 4.823300 ms (FindLiveObjects: 0.537700 ms CreateObjectMapping: 0.523900 ms MarkObjects: 3.630400 ms  DeleteObjects: 0.130300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 410.265104 seconds.
+  path: Assets/Prefabs/Input Settings.prefab
+  artifactKey: Guid(d137b6c3e6ed5cc41ae78ee0d4b0b39f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Input Settings.prefab using Guid(d137b6c3e6ed5cc41ae78ee0d4b0b39f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95f2505141147f32d1c52481b24edb5f') in 0.145315 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 291
+========================================================================
+Received Import Request.
+  Time since last request: 4.821261 seconds.
+  path: Assets/Prefabs/Basic Elements/Title.prefab
+  artifactKey: Guid(53c75e16451bc634a900448e2626f192) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Basic Elements/Title.prefab using Guid(53c75e16451bc634a900448e2626f192) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b6d2b69b89b9c3d5b0e050aaacc6004') in 0.021902 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 6.513769 seconds.
+  path: Assets/Prefabs/Basic Elements/Menu Title.prefab
+  artifactKey: Guid(53c75e16451bc634a900448e2626f192) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Basic Elements/Menu Title.prefab using Guid(53c75e16451bc634a900448e2626f192) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15855212289c040f6558d31d9de9f39c') in 0.031183 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 48.302872 seconds.
+  path: Assets/Prefabs/UI Templates/Binding.prefab
+  artifactKey: Guid(381f7a4aea347204e9467380f4d9829e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Binding.prefab using Guid(381f7a4aea347204e9467380f4d9829e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68eaed456c69b65b4deed025d5384f3f') in 0.008142 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 46
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Prefabs/UI Templates/Binding Section.prefab
+  artifactKey: Guid(77e476f5e186abe4cb1b438c79342000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Binding Section.prefab using Guid(77e476f5e186abe4cb1b438c79342000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51d0c54317bca7347a3af17e2b8d78d5') in 0.029139 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 97
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Prefabs/UI Templates/Button Prompt.prefab
+  artifactKey: Guid(15c3fd1aa466aeb47bde3dd98bbbbdb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Button Prompt.prefab using Guid(15c3fd1aa466aeb47bde3dd98bbbbdb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7a5a5845fb898b8d96cc946828a8075') in 0.030412 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 43
+========================================================================
+Received Import Request.
+  Time since last request: 99.236873 seconds.
+  path: Assets/Prefabs/UI Templates/Settings Menu.prefab
+  artifactKey: Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Settings Menu.prefab using Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '469ea8e3286d4469e62a5f31311a0f00') in 0.090070 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 741
+========================================================================
+Received Import Request.
+  Time since last request: 4.214556 seconds.
+  path: Assets/Prefabs/UI Templates/Menu.prefab
+  artifactKey: Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Menu.prefab using Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3fcc8e73ae9b6708f02cc2dc71617ef6') in 0.063036 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 741
+========================================================================
+Received Import Request.
+  Time since last request: 1.464517 seconds.
+  path: Assets/Prefabs/UI Templates/Menu.prefab
+  artifactKey: Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Menu.prefab using Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.092451 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/prefabs/ui templates/menu.prefab in SourceAssetDB has modification time of '2023-10-23T21:45:17.3274617Z' while content on disk has modification time of '2023-10-23T21:45:17.6563742Z'
+  ERROR: Build asset version error: assets/prefabs/ui templates/menu.prefab in SourceAssetDB has modification time of '2023-10-23T21:45:17.3274617Z' while content on disk has modification time of '2023-10-23T21:45:17.6563742Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 49
+========================================================================
+Received Import Request.
+  Time since last request: 0.270082 seconds.
+  path: Assets/Prefabs/UI Templates/Menu.prefab
+  artifactKey: Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Menu.prefab using Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6dff68379610a097ccab4a850dc280bd') in 0.109895 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 741
+========================================================================
+Received Import Request.
+  Time since last request: 30.498362 seconds.
+  path: Assets/Prefabs/UI Templates/Settings Menu Variant.prefab
+  artifactKey: Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Settings Menu Variant.prefab using Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b99eef6a83703ec89168860b18813b29') in 0.069378 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 741
+========================================================================
+Received Import Request.
+  Time since last request: 3.396641 seconds.
+  path: Assets/Prefabs/UI Templates/Menu.prefab
+  artifactKey: Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Menu.prefab using Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5765999241c313b98ad61969f1c1cfcb') in 0.050891 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 741
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Prefabs/UI Templates/Settings Menu Variant.prefab
+  artifactKey: Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Settings Menu Variant.prefab using Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40c45ae81a0862ccaef94b6df5462370') in 0.046687 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 741
+========================================================================
+Received Import Request.
+  Time since last request: 2.203769 seconds.
+  path: Assets/Prefabs/UI Templates/Menu.prefab
+  artifactKey: Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Menu.prefab using Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) NullReferenceException: Object reference not set to an instance of an object
+  at Game.UI.SettingsMenu.OnValidate () [0x00021] in C:\Users\lukas\Desktop\Projects\Unity\ui-collections-2\ui-collections\UIManager 2\Assets\_Scripts\SettingsMenu.cs:118 
+
+(Filename: Assets/_Scripts/SettingsMenu.cs Line: 118)
+
+ -> (artifact id: 'c95e2844adbd9a7980e43c73d541710c') in 0.042648 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 33
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Prefabs/UI Templates/Settings Menu Variant.prefab
+  artifactKey: Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Settings Menu Variant.prefab using Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b) NullReferenceException: Object reference not set to an instance of an object
+  at Game.UI.SettingsMenu.OnValidate () [0x00021] in C:\Users\lukas\Desktop\Projects\Unity\ui-collections-2\ui-collections\UIManager 2\Assets\_Scripts\SettingsMenu.cs:118 
+
+(Filename: Assets/_Scripts/SettingsMenu.cs Line: 118)
+
+ -> (artifact id: '5b77f39178f04c8764badd409aa42515') in 0.033407 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 33
+========================================================================
+Received Import Request.
+  Time since last request: 20.105483 seconds.
+  path: Assets/Prefabs/UI Templates/Menu.prefab
+  artifactKey: Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Menu.prefab using Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) NullReferenceException: Object reference not set to an instance of an object
+  at Game.UI.SettingsMenu.OnValidate () [0x00021] in C:\Users\lukas\Desktop\Projects\Unity\ui-collections-2\ui-collections\UIManager 2\Assets\_Scripts\SettingsMenu.cs:118 
+
+(Filename: Assets/_Scripts/SettingsMenu.cs Line: 118)
+
+ -> (artifact id: '3c3703d3db0c0b2abb988403ad3f3c3a') in 0.034671 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 33
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Prefabs/UI Templates/Settings Menu Variant.prefab
+  artifactKey: Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Settings Menu Variant.prefab using Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b) NullReferenceException: Object reference not set to an instance of an object
+  at Game.UI.SettingsMenu.OnValidate () [0x00021] in C:\Users\lukas\Desktop\Projects\Unity\ui-collections-2\ui-collections\UIManager 2\Assets\_Scripts\SettingsMenu.cs:118 
+
+(Filename: Assets/_Scripts/SettingsMenu.cs Line: 118)
+
+ -> (artifact id: 'ff01a340a36475b1b3293ef82a64d26a') in 0.036786 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 33
+========================================================================
+Received Import Request.
+  Time since last request: 2.202618 seconds.
+  path: Assets/Prefabs/UI Templates/Menu.prefab
+  artifactKey: Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Menu.prefab using Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) NullReferenceException: Object reference not set to an instance of an object
+  at Game.UI.SettingsMenu.OnValidate () [0x00021] in C:\Users\lukas\Desktop\Projects\Unity\ui-collections-2\ui-collections\UIManager 2\Assets\_Scripts\SettingsMenu.cs:118 
+
+(Filename: Assets/_Scripts/SettingsMenu.cs Line: 118)
+
+ -> (artifact id: '1fe71451fb5aa0020137e4a4cc1135ee') in 0.033526 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 33
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Prefabs/UI Templates/Settings Menu Variant.prefab
+  artifactKey: Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Settings Menu Variant.prefab using Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b) NullReferenceException: Object reference not set to an instance of an object
+  at Game.UI.SettingsMenu.OnValidate () [0x00021] in C:\Users\lukas\Desktop\Projects\Unity\ui-collections-2\ui-collections\UIManager 2\Assets\_Scripts\SettingsMenu.cs:118 
+
+(Filename: Assets/_Scripts/SettingsMenu.cs Line: 118)
+
+ -> (artifact id: '3f47323626cadb67a5b35c80f75c8e05') in 0.035380 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 33
+========================================================================
+Received Import Request.
+  Time since last request: 4.081543 seconds.
+  path: Assets/Prefabs/UI Templates/Menu.prefab
+  artifactKey: Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Menu.prefab using Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09c7de2e12cdb4aa429687897e4ac35a') in 0.028469 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 31
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Prefabs/UI Templates/Settings Menu Variant.prefab
+  artifactKey: Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Settings Menu Variant.prefab using Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e299efd86802c9028266748b7c4d4fb') in 0.031776 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 31
+========================================================================
+Received Import Request.
+  Time since last request: 28.014204 seconds.
+  path: Assets/Prefabs/UI Templates/Menu.prefab
+  artifactKey: Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Menu.prefab using Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbb071cb072b05c18993f630d430d060') in 0.033891 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 35
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Prefabs/UI Templates/Settings Menu Variant.prefab
+  artifactKey: Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Settings Menu Variant.prefab using Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4a6c45a174c191370f963986dfb0d58') in 0.031228 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 35
+========================================================================
+Received Import Request.
+  Time since last request: 1.694884 seconds.
+  path: Assets/Prefabs/UI Templates/Menu.prefab
+  artifactKey: Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Menu.prefab using Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea7205def7a561f3f429d052fc73aad5') in 0.027394 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 35
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Prefabs/UI Templates/Settings Menu Variant.prefab
+  artifactKey: Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Settings Menu Variant.prefab using Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2707a9f59e3e5d049eba14950f790b74') in 0.037927 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 35
+========================================================================
+Received Import Request.
+  Time since last request: 7.678677 seconds.
+  path: Assets/Prefabs/UI Templates/Menu.prefab
+  artifactKey: Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Menu.prefab using Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49bbf9a32b789bc383c3a0f30e691b8d') in 0.029681 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 35
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Prefabs/UI Templates/Settings Menu Variant.prefab
+  artifactKey: Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Settings Menu Variant.prefab using Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0f70dcfc5100394e93ea8ce03a805a3') in 0.030456 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 35
+========================================================================
+Received Import Request.
+  Time since last request: 12.587181 seconds.
+  path: Assets/Prefabs/UI Templates/Menu.prefab
+  artifactKey: Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Menu.prefab using Guid(8399c7ef8c205b3439117f9cca685e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3664b8ffe28098f78ddb6ba3563265a') in 0.028459 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 35
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Prefabs/UI Templates/Settings Menu Variant.prefab
+  artifactKey: Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Settings Menu Variant.prefab using Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d6a418ecce3a2dd65694248e4cd5cf9') in 0.034286 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 35
+========================================================================
+Received Import Request.
+  Time since last request: 19.885759 seconds.
+  path: Assets/Prefabs/UI Templates/Settings Menu Variant.prefab
+  artifactKey: Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Settings Menu Variant.prefab using Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ad1485e3e72d1a8e8fc2df5a17b8969') in 0.071647 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 741
+========================================================================
+Received Import Request.
+  Time since last request: 0.768032 seconds.
+  path: Assets/Prefabs/UI Templates/Settings Menu Variant.prefab
+  artifactKey: Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Settings Menu Variant.prefab using Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '117e1f75e59a0389e77c04c424438384') in 0.074662 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 741
+========================================================================
+Received Import Request.
+  Time since last request: 83.480600 seconds.
+  path: Assets/Prefabs/UI Templates/Settings Menu Variant.prefab
+  artifactKey: Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Settings Menu Variant.prefab using Guid(bc18ec352c8af17478a093f888e95162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2b146864d446e7f11b5d971c184b5f0') in 0.010714 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 74.312592 seconds.
+  path: Assets/Prefabs/Basic Elements/Subtitle Variant.prefab
+  artifactKey: Guid(9e86fa105952cdc4aafda73a9c9275ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Basic Elements/Subtitle Variant.prefab using Guid(9e86fa105952cdc4aafda73a9c9275ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e973f1238f18742d119acabe92df48d1') in 0.053309 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 11.266571 seconds.
+  path: Assets/Prefabs/Basic Elements/Subtitle.prefab
+  artifactKey: Guid(9e86fa105952cdc4aafda73a9c9275ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Basic Elements/Subtitle.prefab using Guid(9e86fa105952cdc4aafda73a9c9275ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4ad5eac45f56ec54e712e19c7eea2f0') in 0.027942 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 35.017520 seconds.
+  path: Assets/Prefabs/UI Templates/Menu.prefab
+  artifactKey: Guid(2255a432697586a4f92d0a55ad1d72e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Menu.prefab using Guid(2255a432697586a4f92d0a55ad1d72e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '814eacb54d44d654f969396a83b49774') in 0.046550 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 25
+========================================================================
+Received Import Request.
+  Time since last request: 21.773074 seconds.
+  path: Assets/Prefabs/UI Templates/Menu.prefab
+  artifactKey: Guid(2255a432697586a4f92d0a55ad1d72e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Menu.prefab using Guid(2255a432697586a4f92d0a55ad1d72e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61dcfd8e6bf269c659ab671699fd19c8') in 0.035662 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 22
+========================================================================
+Received Import Request.
+  Time since last request: 93.592798 seconds.
+  path: Assets/Prefabs/Input Settings.prefab
+  artifactKey: Guid(d137b6c3e6ed5cc41ae78ee0d4b0b39f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Input Settings.prefab using Guid(d137b6c3e6ed5cc41ae78ee0d4b0b39f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f0ce1e3deeba5bed52d2f0434b96207') in 0.065218 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 291
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\lukas\Desktop\Projects\Unity\ui-collections-2\ui-collections\UIManager 2\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\lukas\Desktop\Projects\Unity\ui-collections-2\ui-collections\UIManager 2\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+- Loaded All Assemblies, in  8.978 seconds
+Refreshing native plugins compatible for Editor in 15.07 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  5.781 seconds
+Domain Reload Profiling: 14742ms
+	BeginReloadAssembly (1325ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (249ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (17ms)
+		CreateAndSetChildDomain (527ms)
+	RebuildCommonClasses (59ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (76ms)
+	LoadAllAssembliesAndSetupDomain (7481ms)
+		LoadAssemblies (6162ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (1487ms)
+			TypeCache.Refresh (1468ms)
+				TypeCache.ScanAssembly (697ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (18ms)
+	FinalizeReload (5781ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1007ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (22ms)
+			SetLoadedEditorAssemblies (10ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (165ms)
+			ProcessInitializeOnLoadAttributes (661ms)
+			ProcessInitializeOnLoadMethodAttributes (127ms)
+			AfterProcessingInitializeOnLoad (21ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (25ms)
+Refreshing native plugins compatible for Editor in 12.45 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5925 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 50 unused Assets / (322.6 KB). Loaded Objects now: 6584.
+Memory consumption went from 198.6 MB to 198.3 MB.
+Total: 6.999100 ms (FindLiveObjects: 0.680100 ms CreateObjectMapping: 0.693700 ms MarkObjects: 5.293900 ms  DeleteObjects: 0.330000 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 145.911642 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/F11_Key_Light.png
+  artifactKey: Guid(810686f8d97fa4943bd1a91be48a27b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/F11_Key_Light.png using Guid(810686f8d97fa4943bd1a91be48a27b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '096d32e2fe0efd0a6533b36050d931df') in 0.014537 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000771 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Double_Tap.png
+  artifactKey: Guid(5585551be7c70e742ad63cf1162feb42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Double_Tap.png using Guid(5585551be7c70e742ad63cf1162feb42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db7d8b8ee23c9b1466e90a5dba21518a') in 0.002459 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000050 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Finger_Front.png
+  artifactKey: Guid(7aa4616da5a3c64429036495ef878a4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Finger_Front.png using Guid(7aa4616da5a3c64429036495ef878a4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f2065e11897696163c3bb39bab30eea9') in 0.002118 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Swipe_Bottom.png
+  artifactKey: Guid(5e3fef20a0d4a3b449c3d99920cecca2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Swipe_Bottom.png using Guid(5e3fef20a0d4a3b449c3d99920cecca2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '396669b10d93bafa2ec4b1e2e749e718') in 0.002511 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000051 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Zoom_Out.png
+  artifactKey: Guid(28fae26275580344da99794585ba2144) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Zoom_Out.png using Guid(28fae26275580344da99794585ba2144) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b62df8d07655e151f5eb41fcd1b59b67') in 0.001865 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000093 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/F_Key_Dark.png
+  artifactKey: Guid(d271c6457fc091e4bb058ad89e278ed5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/F_Key_Dark.png using Guid(d271c6457fc091e4bb058ad89e278ed5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20a73e87c856f3b4171c75327a3adaa5') in 0.003354 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/I_Key_Dark.png
+  artifactKey: Guid(5f786859b39510149960baa356f3cee5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/I_Key_Dark.png using Guid(5f786859b39510149960baa356f3cee5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a141eca5a4708be234132fe1fff8eb0b') in 0.002766 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/H_Key_Light.png
+  artifactKey: Guid(ca6f9ec6eba20564c81b336b7a9307cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/H_Key_Light.png using Guid(ca6f9ec6eba20564c81b336b7a9307cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6f39886237c62123ffbe2906c95bd47') in 0.001790 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000056 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Home_Key_Dark.png
+  artifactKey: Guid(60de1e3a49dfebc4fbdcd98a0f78abb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Home_Key_Dark.png using Guid(60de1e3a49dfebc4fbdcd98a0f78abb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ec46c488eb89b327ae765d15d65ed42') in 0.002926 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Finger_Side.png
+  artifactKey: Guid(9a161402e990e1249b81a94d7189c613) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Finger_Side.png using Guid(9a161402e990e1249b81a94d7189c613) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '760861293ed3deb9f316583d2ad11ba6') in 0.001982 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/H_Key_Dark.png
+  artifactKey: Guid(7cbfb71d93a11964a96a91e9e68aea37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/H_Key_Dark.png using Guid(7cbfb71d93a11964a96a91e9e68aea37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0eef7ff33e72694023eb2f6ba0ee89c9') in 0.003067 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Tap.png
+  artifactKey: Guid(8645d6e30e53a2445b149d89ecb4f99d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Tap.png using Guid(8645d6e30e53a2445b149d89ecb4f99d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11e3108236853fe4a1a154958b5b69c7') in 0.001812 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/G_Key_Light.png
+  artifactKey: Guid(e707f555c11ef2b429faa37e96d5df57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/G_Key_Light.png using Guid(e707f555c11ef2b429faa37e96d5df57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a481cabe55a0f216858640228c9c15e3') in 0.003338 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Swipe_Top_Right.png
+  artifactKey: Guid(4a1af8464e31fe0459e449f16a7c0830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Swipe_Top_Right.png using Guid(4a1af8464e31fe0459e449f16a7c0830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32af7bedf53025191f450f7cb0c0f936') in 0.002842 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Swipe_Bottom_Right.png
+  artifactKey: Guid(9e989e3bb159967448d48888ad454253) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Swipe_Bottom_Right.png using Guid(9e989e3bb159967448d48888ad454253) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ec57b618ca88e0e8c4a6892ea3cd2c6') in 0.001835 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Home_Key_Light.png
+  artifactKey: Guid(12ec55788582b254080d19c7a621fe61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Home_Key_Light.png using Guid(12ec55788582b254080d19c7a621fe61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82f4876871a5f512c597596a735d789e') in 0.005094 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Swipe_Up.png
+  artifactKey: Guid(2225e4ef3a4374f4696a1f4726d10d2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Swipe_Up.png using Guid(2225e4ef3a4374f4696a1f4726d10d2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54b67a28e897068ec2370d0677b2d547') in 0.002837 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Hold.png
+  artifactKey: Guid(73d8c22d2299e394585daa25e8cdcb8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Hold.png using Guid(73d8c22d2299e394585daa25e8cdcb8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd4d0a77e8223ac3bb0013fead286b70') in 0.004706 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Swipe_Right.png
+  artifactKey: Guid(ea7cd844a52d9f743800db58bdcb76e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Swipe_Right.png using Guid(ea7cd844a52d9f743800db58bdcb76e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '536a4a104e51ae4a1bd9c394d875c13f') in 0.002613 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/F12_Key_Dark.png
+  artifactKey: Guid(9262637ec9a51d643be38e024c56b097) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/F12_Key_Dark.png using Guid(9262637ec9a51d643be38e024c56b097) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '031b697217368c4c01e963c80f70ccf0') in 0.003563 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Swipe_Top_Left.png
+  artifactKey: Guid(c015071646be2a14e9465d2a905cc77e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Swipe_Top_Left.png using Guid(c015071646be2a14e9465d2a905cc77e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fed2a1076f9d1fc6c5075caff5b08957') in 0.001946 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/L_Key_Light.png
+  artifactKey: Guid(2b5fb4b920cf73842a6e958182087c27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/L_Key_Light.png using Guid(2b5fb4b920cf73842a6e958182087c27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0aa5322cc3829e7e7f38e5f8b21d3a32') in 0.004246 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Swipe_Left.png
+  artifactKey: Guid(186dac7745c39ac4fade2f3b8b92b23d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Swipe_Left.png using Guid(186dac7745c39ac4fade2f3b8b92b23d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b01331a1a6250edda04f78d1dd92c73') in 0.002834 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000116 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/F_Key_Light.png
+  artifactKey: Guid(8bf48b5470f8505459e39dea1e9c2046) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/F_Key_Light.png using Guid(8bf48b5470f8505459e39dea1e9c2046) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '803d576a4d4a27ded4f63cb33208bf9e') in 0.003405 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000152 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Zoom_In.png
+  artifactKey: Guid(b0abc59f90248c64488266fdfc01530c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Zoom_In.png using Guid(b0abc59f90248c64488266fdfc01530c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d43f6c2a83a9c1daaa2abb0f682f1ce') in 0.002097 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Insert_Key_Light.png
+  artifactKey: Guid(71212b7bf13ee684d9c9757394a90c5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/Insert_Key_Light.png using Guid(71212b7bf13ee684d9c9757394a90c5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5a2e59e974d285cb118bd30a0fd308b') in 0.003283 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/K_Key_Light.png
+  artifactKey: Guid(9bc5a858993cba5438b90ee03cfae4e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/K_Key_Light.png using Guid(9bc5a858993cba5438b90ee03cfae4e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c39b6b0a2087260c617c92a944868ae5') in 0.004216 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/G_Key_Dark.png
+  artifactKey: Guid(f483a865870c9e643bc7758b28135db5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/G_Key_Dark.png using Guid(f483a865870c9e643bc7758b28135db5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4cd38eaf578c45a23980d825bf84b89') in 0.002732 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/J_Key_Dark.png
+  artifactKey: Guid(8b9ea652b73031f48b8f5fb8fa9857ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/J_Key_Dark.png using Guid(8b9ea652b73031f48b8f5fb8fa9857ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1e2024f63e4eba55e1d972c3fa69a0e') in 0.003749 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/I_Key_Light.png
+  artifactKey: Guid(64ef44bde1dfa364286267d409c09412) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/I_Key_Light.png using Guid(64ef44bde1dfa364286267d409c09412) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de438a4cf24b2006b46a15b30599d688') in 0.003163 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/F12_Key_Light.png
+  artifactKey: Guid(69714a84c9bd3aa4e91fb5b89fa61a26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/F12_Key_Light.png using Guid(69714a84c9bd3aa4e91fb5b89fa61a26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04f89d901fdd1010f6f4f0b9b8a122f7') in 0.003211 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/J_Key_Light.png
+  artifactKey: Guid(736c8ebe731535549b95078dbad86653) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Light/J_Key_Light.png using Guid(736c8ebe731535549b95078dbad86653) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '251d73e8268cf945056b0ca8e74993ef') in 0.006974 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000055 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Insert_Key_Dark.png
+  artifactKey: Guid(d3e33b860789b1746aaea3db92a129f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/Insert_Key_Dark.png using Guid(d3e33b860789b1746aaea3db92a129f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b80bde674b61baf9c1b0da5fb6d8268') in 0.003054 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Swipe_Bottom_Left.png
+  artifactKey: Guid(60260ed9a9bdbd44899601e0fe8d30e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Swipe_Bottom_Left.png using Guid(60260ed9a9bdbd44899601e0fe8d30e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6759f80b5ebb53c9fd866fde9db6de2c') in 0.002075 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/K_Key_Dark.png
+  artifactKey: Guid(b63e704cae424ec428760858bef387fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/K_Key_Dark.png using Guid(b63e704cae424ec428760858bef387fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd17bbd00249613a06ef8cfc50b2b311') in 0.002776 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000050 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/L_Key_Dark.png
+  artifactKey: Guid(c4f55331198d3e6448e510521d93a520) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Keyboard & Mouse/Dark/L_Key_Dark.png using Guid(c4f55331198d3e6448e510521d93a520) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9278058f9e9d1181765a8f16220a00e9') in 0.004889 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Double_Rotate.png
+  artifactKey: Guid(f51eb7323d4d35840be4f7ccfa477dcd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Addons (all Free)/Xelu's Free Controler&Keyboard Prompts by Nicolae (XELU) Barebece/Others/Gestures/Gesture_Double_Rotate.png using Guid(f51eb7323d4d35840be4f7ccfa477dcd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a50a7b0dc39a626fe1d3788e6d6f0c0') in 0.003766 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 211.190278 seconds.
+  path: Assets/Art/Sprites/UIMaster.psb
+  artifactKey: Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Sprites/UIMaster.psb using Guid(d800a61b58c8fed47a859c37d3837ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a03651824a3476e448b4560d775396d') in 0.148662 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 65
+========================================================================
+Received Import Request.
+  Time since last request: 39.534714 seconds.
+  path: Assets/Prefabs/UI Templates/Menu.prefab
+  artifactKey: Guid(2255a432697586a4f92d0a55ad1d72e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Menu.prefab using Guid(2255a432697586a4f92d0a55ad1d72e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eeb0c1b406953cdb25566e01ad633e6a') in 0.201127 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 33
+========================================================================
+Received Import Request.
+  Time since last request: 170.913693 seconds.
+  path: Assets/Prefabs/UI Templates/Separator.prefab
+  artifactKey: Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Separator.prefab using Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '050968ace40cf75fb6a666753c77f0fd') in 0.014754 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 181.051816 seconds.
+  path: Assets/Prefabs/UI Templates/Binding Section.prefab
+  artifactKey: Guid(77e476f5e186abe4cb1b438c79342000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Binding Section.prefab using Guid(77e476f5e186abe4cb1b438c79342000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50c869478dfd5c048a9e102bac8c049b') in 0.405469 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 102
+========================================================================
+Received Import Request.
+  Time since last request: 2.766280 seconds.
+  path: Assets/Prefabs/UI Templates/Binding Section.prefab
+  artifactKey: Guid(77e476f5e186abe4cb1b438c79342000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Binding Section.prefab using Guid(77e476f5e186abe4cb1b438c79342000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1709f8905aa7a422c21d70a26b0e47e') in 0.036039 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 102
+========================================================================
+Received Import Request.
+  Time since last request: 9.755382 seconds.
+  path: Assets/Prefabs/UI Templates/Binding Section.prefab
+  artifactKey: Guid(77e476f5e186abe4cb1b438c79342000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Binding Section.prefab using Guid(77e476f5e186abe4cb1b438c79342000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a46778be1bb66d2cc0aec70bedda950') in 0.044075 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 97
+========================================================================
+Received Import Request.
+  Time since last request: 402.220184 seconds.
+  path: Assets/Prefabs/UI Templates/Separator.prefab
+  artifactKey: Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Separator.prefab using Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5db985bd7c53e349899a911e21732097') in 0.012742 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 0.562509 seconds.
+  path: Assets/Prefabs/UI Templates/Separator.prefab
+  artifactKey: Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Separator.prefab using Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a339c316040aa6700ad3c3859db6df6') in 0.008416 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 0.488102 seconds.
+  path: Assets/Prefabs/UI Templates/Separator.prefab
+  artifactKey: Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Separator.prefab using Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1fb2bd5f477fcc126569428608e474b') in 0.022357 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 2.138489 seconds.
+  path: Assets/Prefabs/UI Templates/Separator.prefab
+  artifactKey: Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Separator.prefab using Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27d55b24490c593c5f9611242f83f29a') in 0.006837 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 4.794544 seconds.
+  path: Assets/Prefabs/UI Templates/Separator.prefab
+  artifactKey: Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Separator.prefab using Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b65a75e6e55e4c75091752e977abb9d8') in 0.010620 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 2.662507 seconds.
+  path: Assets/Prefabs/UI Templates/Separator.prefab
+  artifactKey: Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Separator.prefab using Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbd742665d8f679a03adb20d0ae26a2e') in 0.009468 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 0.843111 seconds.
+  path: Assets/Prefabs/UI Templates/Separator.prefab
+  artifactKey: Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Separator.prefab using Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bffeb98ff9a562367c91eae53c7c653') in 0.009317 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 0.414700 seconds.
+  path: Assets/Prefabs/UI Templates/Separator.prefab
+  artifactKey: Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Separator.prefab using Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32f76e9db549b286df1636577987e4b8') in 0.010223 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 1.966207 seconds.
+  path: Assets/Prefabs/UI Templates/Separator.prefab
+  artifactKey: Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Separator.prefab using Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f702b2643d73ff50ae63a15edcc386f') in 0.010142 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 1.639837 seconds.
+  path: Assets/Prefabs/UI Templates/Separator.prefab
+  artifactKey: Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Separator.prefab using Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f1f8a444fbb4f5171300fb7eef151b1') in 0.013645 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 9.640268 seconds.
+  path: Assets/Prefabs/UI Templates/Separator.prefab
+  artifactKey: Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Separator.prefab using Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd55dd31c746d593befb5c8ae17aee4d6') in 0.010817 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 2.080431 seconds.
+  path: Assets/Prefabs/UI Templates/Separator.prefab
+  artifactKey: Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Separator.prefab using Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c3fd29a7a853593f302cf8a1473eb58') in 0.007554 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 7.104462 seconds.
+  path: Assets/Prefabs/UI Templates/Separator.prefab
+  artifactKey: Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Separator.prefab using Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94763b15d2338c9c8a3837bb5a3ca79e') in 0.008008 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 1.023616 seconds.
+  path: Assets/Prefabs/UI Templates/Separator.prefab
+  artifactKey: Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Separator.prefab using Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '042c0bfc4ef05a1e12d2e177301f2128') in 0.013312 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 1.209917 seconds.
+  path: Assets/Prefabs/UI Templates/Separator.prefab
+  artifactKey: Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Separator.prefab using Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ae650149c1cb4a2c6cb5b3139bb170f') in 0.008240 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 2.717175 seconds.
+  path: Assets/Prefabs/UI Templates/Separator.prefab
+  artifactKey: Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Separator.prefab using Guid(103c030e5e039b44f9ee9b1f1cca440b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c97f994a878fa9fc57059893cbbba01a') in 0.007089 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 51.804827 seconds.
+  path: Assets/Prefabs/UI Templates/Binding.prefab
+  artifactKey: Guid(381f7a4aea347204e9467380f4d9829e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Binding.prefab using Guid(381f7a4aea347204e9467380f4d9829e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f064c20fbb66aaf024c6361fd221046f') in 0.045962 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 46
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Prefabs/UI Templates/Binding Section.prefab
+  artifactKey: Guid(77e476f5e186abe4cb1b438c79342000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Binding Section.prefab using Guid(77e476f5e186abe4cb1b438c79342000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd68e6ef1a9040827daa5ea32140f90ed') in 0.062943 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 97
+========================================================================
+Received Import Request.
+  Time since last request: 1.151007 seconds.
+  path: Assets/Prefabs/UI Templates/Binding.prefab
+  artifactKey: Guid(381f7a4aea347204e9467380f4d9829e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Binding.prefab using Guid(381f7a4aea347204e9467380f4d9829e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd16353e3c6607061f8dc0420e054121e') in 0.016037 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 46
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Prefabs/UI Templates/Binding Section.prefab
+  artifactKey: Guid(77e476f5e186abe4cb1b438c79342000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Binding Section.prefab using Guid(77e476f5e186abe4cb1b438c79342000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '069dba3c16b4895d6856bcfe088071c3') in 0.038109 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 97
+========================================================================
+Received Import Request.
+  Time since last request: 0.972450 seconds.
+  path: Assets/Prefabs/UI Templates/Binding.prefab
+  artifactKey: Guid(381f7a4aea347204e9467380f4d9829e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Binding.prefab using Guid(381f7a4aea347204e9467380f4d9829e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4d2500213957c263ae821bd199c24fc') in 0.014611 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 46
+========================================================================
+Received Import Request.
+  Time since last request: 0.000077 seconds.
+  path: Assets/Prefabs/UI Templates/Binding Section.prefab
+  artifactKey: Guid(77e476f5e186abe4cb1b438c79342000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Binding Section.prefab using Guid(77e476f5e186abe4cb1b438c79342000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cbaa61e0301368fed415d938a4609c3') in 0.033702 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 97
+========================================================================
+Received Import Request.
+  Time since last request: 1.220097 seconds.
+  path: Assets/Prefabs/UI Templates/Binding.prefab
+  artifactKey: Guid(381f7a4aea347204e9467380f4d9829e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Binding.prefab using Guid(381f7a4aea347204e9467380f4d9829e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5c7149cc346906fa3f3eac02449da1e') in 0.012809 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 46
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Prefabs/UI Templates/Binding Section.prefab
+  artifactKey: Guid(77e476f5e186abe4cb1b438c79342000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Binding Section.prefab using Guid(77e476f5e186abe4cb1b438c79342000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e5a49ef6491d8405cf7126f94cf1284') in 0.045684 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 97
+========================================================================
+Received Import Request.
+  Time since last request: 4.940443 seconds.
+  path: Assets/Prefabs/UI Templates/Binding.prefab
+  artifactKey: Guid(381f7a4aea347204e9467380f4d9829e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Binding.prefab using Guid(381f7a4aea347204e9467380f4d9829e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b7395f42006fc42bca0c8aaf61ad5e4') in 0.026406 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 46
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Prefabs/UI Templates/Binding Section.prefab
+  artifactKey: Guid(77e476f5e186abe4cb1b438c79342000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UI Templates/Binding Section.prefab using Guid(77e476f5e186abe4cb1b438c79342000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd7a7b0dfcdae727b2fc6ca52ae7273a') in 0.049489 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 97

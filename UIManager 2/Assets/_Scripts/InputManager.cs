@@ -37,9 +37,6 @@ namespace Game.Input
         private Dictionary<InputDeviceType, string> deviceBindingPaths = new Dictionary<InputDeviceType, string>();
         [SerializeField] private DeviceInputIconsSO[] deviceButtonSprites;
 
-        [Header("Customization")]
-        [SerializeField] private BindingIconColor bindingIconColor;
-
         //the event and its corresponding action name
         private Dictionary<Action, string> inputEvents = new Dictionary<Action, string>();
 
@@ -98,10 +95,14 @@ namespace Game.Input
         }
 
 
-
-
-
         #region Binding Methods
+        /// <summary>
+        /// Will get a List of <see cref="InputBinding"/> from the <see cref="InputAction"/> <paramref name="name"/> from map <paramref name="mapName"/>
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="allCaps"></param>
+        /// <param name="mapName"></param>
+        /// <returns></returns>
         public List<string> GetBindingsFromPlayerActionName(string name, bool allCaps, string mapName= PLAYER_MAP_NAME)
         {
             List<string> bindings = new List<string>();
@@ -120,6 +121,13 @@ namespace Game.Input
             return bindings;
         }
 
+        /// <summary>
+        /// Will get a List of <see cref="InputBinding"/> from the <see cref="InputAction"/> <paramref name="name"/>
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="allCaps"></param>
+        /// <param name="getAllComposites"></param>
+        /// <returns></returns>
         public List<string> GetBindingsFromFullActionName(string name, bool allCaps, bool getAllComposites = true)
         {
             List<string> bindings = new List<string>();
@@ -138,6 +146,13 @@ namespace Game.Input
             return bindings;
         }
 
+        /// <summary>
+        /// Will get the first composite or <see cref="InputBinding"/>, no matter what control scheme it corresponds to, as a single string
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="allCaps"></param>
+        /// <param name="separateCompositesWithSpace"></param>
+        /// <returns></returns>
         public string GetFirstCompositeOrBindingFromFullActionName(string name, bool allCaps, bool separateCompositesWithSpace = true)
         {
             string bindings = "";
@@ -176,6 +191,11 @@ namespace Game.Input
             return bindings;
         }
 
+        /// <summary>
+        ///  Will get the first composite or <see cref="InputBinding"/>, no matter what control scheme it corresponds to, as an <see cref="InputBinding"/>[]
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public InputBinding[] GetFirstFullPathCompositeOrBindingFromActionName(string name)
         {
             List<InputBinding> bindings = new List<InputBinding>();
@@ -198,6 +218,11 @@ namespace Game.Input
             return bindings.ToArray();
         }
 
+        /// <summary>
+        /// Will get the <see cref="InputDeviceType"/> that corresponds to the <see cref="InputBinding"/>
+        /// </summary>
+        /// <param name="binding"></param>
+        /// <returns></returns>
         public InputDeviceType GetInputDeviceFromBinding(InputBinding binding)
         {
             foreach (var device in Enum.GetValues(typeof(InputDeviceType)))
@@ -206,6 +231,57 @@ namespace Game.Input
             }
             UnityEngine.Debug.LogError($"Could not find an input device from the binding: {binding.name}");
             return default;
+        }
+
+        /// <summary>
+        /// Will get a List of <see cref="InputBinding"/> of the current connected device from <see cref="InputAction"/> <paramref name="action"/>. 
+        /// It will checkall the types of devices and if it has a current device. For example, if a keyboard is connected it checks if <see cref="Keyboard.current"/> != null.
+        /// If there is a composite, it will return all the <see cref="InputBinding"/>, otherwise it just returns the one found. 
+        /// </summary>
+        /// <remarks>If 0 <see cref="InputBinding"/> are found or an error occurs, null is returned.</remarks>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public List<InputBinding> GetBindingsForConnectedDeviceFromAction(InputAction action)
+        {
+            int index = 0;
+            InputDeviceType? targetDevice = GetConnectedDeviceType();
+            if (targetDevice == null)
+            {
+                UnityEngine.Debug.LogError($"Tried to call {typeof(InputManager)}.GetBindingsForConnectedDeviceFromAction(), but there are no currently connected devices that are accepted!");
+                return null;
+            }
+
+            List<InputBinding> inputBindings = new List<InputBinding>();
+            foreach (var binding in action.bindings)
+            {
+                //If it is not a compsite and it matches the correct connected device, we check further. 
+                //Note: Since we can get either keyboard or mouse, either is accepted. This may not work for all games
+                if (!binding.isComposite && (GetInputDeviceFromBinding(binding) == targetDevice ||
+                    targetDevice == InputDeviceType.Keyboard && GetInputDeviceFromBinding(binding) == InputDeviceType.Mouse))
+                {
+                    //If the binding is by itself, we just return it
+                    if (!binding.isPartOfComposite)
+                    {
+                        inputBindings.Add(binding);
+                        return inputBindings;
+                    }
+                    else
+                    {
+                        //Otherwise, we continue from this binding and look until we either find another composite or finish with all bindings.
+                        //By then, we should have gathered all the bindings in the composite and then get the icons for each binding  
+                        for (int i = index; i < action.bindings.Count; i++)
+                        {
+                            if (action.bindings[i].isComposite) break;
+                            else if (action.bindings[i].isPartOfComposite) inputBindings.Add(action.bindings[i]);
+                        }
+                        return inputBindings;
+                    }
+                }
+                index++;
+            }
+            UnityEngine.Debug.LogError($"Tried to find the {typeof(InputBinding)}s from {typeof(InputAction)} {action.name} for the current connected device type: {GetConnectedDeviceType()} but there aren't any! " +
+                $"Make sure that the connected device is correct and that there are {typeof(InputBinding)}s for it! ");
+            return null;
         }
         #endregion
 
@@ -412,48 +488,7 @@ namespace Game.Input
             else return null;
         }
 
-        public List<InputBinding> GetBindingsForConnectedDeviceFromAction(InputAction action)
-        {
-            int index = 0;
-            InputDeviceType? targetDevice = GetConnectedDeviceType();
-            if (targetDevice == null)
-            {
-                UnityEngine.Debug.LogError($"Tried to call {typeof(InputManager)}.GetBindingsForConnectedDeviceFromAction(), but there are no currently connected devices that are accepted!");
-                return null;
-            }
-
-            List<InputBinding> inputBindings = new List<InputBinding>();
-            foreach (var binding in action.bindings)
-            {
-                //If it is not a compsite and it matches the correct connected device, we check further. 
-                //Note: Since we can get either keyboard or mouse, either is accepted. This may not work for all games
-                if (!binding.isComposite && (GetInputDeviceFromBinding(binding) == targetDevice ||
-                    targetDevice == InputDeviceType.Keyboard && GetInputDeviceFromBinding(binding) == InputDeviceType.Mouse))
-                {
-                    //If the binding is by itself, we just return it
-                    if (!binding.isPartOfComposite)
-                    {
-                        inputBindings.Add(binding);
-                        return inputBindings;
-                    }
-                    else
-                    {
-                        //Otherwise, we continue from this binding and look until we either find another composite or finish with all bindings.
-                        //By then, we should have gathered all the bindings in the composite and then get the icons for each binding  
-                        for (int i = index; i < action.bindings.Count; i++)
-                        {
-                            if (action.bindings[i].isComposite) break;
-                            else if (action.bindings[i].isPartOfComposite) inputBindings.Add(action.bindings[i]);
-                        }
-                        return inputBindings;
-                    }
-                }
-                index++;
-            }
-            UnityEngine.Debug.LogError($"Tried to find the {typeof(InputBinding)}s from {typeof(InputAction)} {action.name} for the current connected device type: {GetConnectedDeviceType()} but there aren't any! " +
-                $"Make sure that the connected device is correct and that there are {typeof(InputBinding)}s for it! ");
-            return null;
-        }
+        
         #endregion
     }
 }

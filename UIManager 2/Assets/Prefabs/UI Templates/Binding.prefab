@@ -86,23 +86,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 433167428817055093, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Type
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 433167428817055093, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 1805750571000880773, guid: d800a61b58c8fed47a859c37d3837ccd, type: 3}
+    - target: {fileID: 433167428817055093, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 433167428817055093, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Color.b
-      value: 0.254717
+      value: 0.20754719
       objectReference: {fileID: 0}
     - target: {fileID: 433167428817055093, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Color.g
-      value: 0.21939303
+      value: 0.17872119
       objectReference: {fileID: 0}
     - target: {fileID: 433167428817055093, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Color.r
-      value: 0.19584373
+      value: 0.15566039
       objectReference: {fileID: 0}
     - target: {fileID: 534070641735466426, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -409,6 +413,8 @@ MonoBehaviour:
   <RebindActionUI>k__BackingField: {fileID: 5033724348129299989}
   displayType: 0
   overrideGlobalDisplayType: 0
+  setBindingFromConnectedDevice: 0
+  compositeIndex: 0
   bindingIconImage: {fileID: 3440266547265097385}
   bindingText: {fileID: 1223369053380169281}
 --- !u!224 &8781359011421557704 stripped
